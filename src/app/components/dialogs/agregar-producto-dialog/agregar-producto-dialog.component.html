@@ -1,0 +1,68 @@
+<div class="modal-container">
+  <h2 mat-dialog-title>
+    {{ this.dialogData.descripcion.toUpperCase() }}
+    <br />
+  </h2>
+
+  <mat-divider></mat-divider>
+  <div
+    mat-dialog-content
+    [ngClass]="
+      this.dialogData.stocks && this.dialogData.stocks.length > 0
+        ? 'dialog-content-depositos'
+        : 'dialog-content'
+    "
+  >
+    <div *ngIf="this.dialogData.stockActual != null" class="mt-1 text-left">
+      <div *ngIf="this.dialogData.stocks && this.dialogData.stocks.length > 0">
+        <div *ngFor="let stock of this.dialogData.stocks">
+          <div>
+            Deposito {{ stock.DetalleDeposito.Numero }}: {{ stock.StkActual | currency:'es-AR':'$' }}
+          </div>
+        </div>
+      </div>
+      <div>Stock Actual: {{ this.dialogData.stockActual | currency:'es-AR':'$' }}</div>
+    </div>
+    <div class="data-wrap mt-1">
+      <div class="text-right">$ {{ this.dialogData.precio |  currency:'es-AR':'' }}</div>
+      <div *ngIf="this.dialogData.litros" class="mt-1 text-right">
+        Litros: {{ this.dialogData.litros |  currency:'es-AR':'' }}
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="footer-wrap mt-3">
+      <div class="cantidad-wrap">
+        <mat-form-field appearance="outline">
+          <mat-label>Cantidad</mat-label>
+          <input matInput type="text" [formControl]="cantidadFormControl" type="number" />
+          <div
+            class="clear-option"
+            clear-option
+            mat-button
+            *ngIf="cantidadFormControl.value"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="cantidadFormControl.setValue('')"
+            ty
+          >
+            <mat-icon>close</mat-icon>
+          </div>
+        </mat-form-field>
+      </div>
+
+      <button
+        (click)="agregarProducto()"
+        mat-raised-button
+        color="primary"
+        mat-dialog-close
+        class="ml-1"
+      >
+        <span>Aceptar </span>
+      </button>
+      <button mat-raised-button color="primary" mat-dialog-close class="ml-1">
+        <span>Cancelar </span>
+      </button>
+    </div>
+  </div>
+</div>

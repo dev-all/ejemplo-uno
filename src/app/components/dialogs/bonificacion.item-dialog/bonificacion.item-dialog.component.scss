@@ -1,0 +1,31 @@
+.form-wrap {
+  display: grid;
+
+  grid-gap: 10px;
+
+  app-magnum-input {
+    height: 10px;
+  }
+
+  span {
+    font-size: 25px;
+    align-self: center;
+  }
+
+  .decuento-max-wrap {
+    grid-column: 2 span;
+  }
+}
+
+.footer {
+  margin-top: 10px;
+}
+
+.dialog-actions {
+  justify-content: end;
+}
+
+.bonificacion-wrap {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}

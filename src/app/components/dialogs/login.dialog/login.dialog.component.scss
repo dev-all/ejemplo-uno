@@ -1,0 +1,49 @@
+.login-wrap {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+
+  .form-wrap {
+    background-color: white;
+    margin: auto;
+    border-radius: 10px;
+
+    @media only screen and (max-width:700px) {
+      width: 70%;
+    }
+
+    @media only screen and (max-width:375px) {
+      width: 90%;
+    }
+
+    .logo-wrap {
+      width: 50%;
+      margin: auto;
+
+      img {
+        width: 280px;
+      }
+    }
+  }
+
+  form {
+    width: 50%;
+    margin: auto;
+    padding: 46px;
+    text-align: center;
+
+    mat-form-field,
+    button {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    mat-spinner {
+      margin: auto;
+    }
+
+    .invalid-message {
+      margin-top: 10px;
+    }
+  }
+}

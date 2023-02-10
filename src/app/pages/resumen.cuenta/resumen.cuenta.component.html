@@ -1,0 +1,115 @@
+<div>
+  <div class="buttons-wrap">
+    <button (click)="this.atras_click()" mat-raised-button color="secondary">
+      <mat-icon>keyboard_backspace</mat-icon> Atras
+    </button>
+  </div>
+  
+  <mat-divider></mat-divider>
+  <h2 mat-dialog-title>
+    Resumen de cuenta corriente
+    <br />
+  </h2>
+
+  <div class="description">
+    <h2>{{ this.nombreCliente }} ({{ this.numeroCuenta }})</h2>
+  </div>
+
+  <div class="dialog-content">
+    <form class="form-wrap" (ngSubmit)="buscarResumen()">
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha desde</mat-label>
+        <input matInput [matDatepicker]="desde" [formControl]="fechaDesde" />
+        <mat-datepicker-toggle matSuffix [for]="desde"></mat-datepicker-toggle>
+        <mat-datepicker #desde></mat-datepicker>
+        <div
+          class="clear-option"
+          clear-option
+          mat-button
+          *ngIf="fechaDesde.value"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="fechaDesde.setValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha hasta</mat-label>
+        <input matInput [matDatepicker]="hasta" [formControl]="fechaHasta" />
+        <mat-datepicker-toggle matSuffix [for]="hasta"></mat-datepicker-toggle>
+        <mat-datepicker #hasta></mat-datepicker>
+        <div
+          class="clear-option"
+          clear-option
+          mat-button
+          *ngIf="fechaHasta.value"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="fechaHasta.setValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </div>
+      </mat-form-field>
+
+      <app-magnum-button text="Buscar" class="cf-wrap"></app-magnum-button>
+    </form>
+
+    <div class="description">
+      <h4>Remitos Pendientes: {{ this.pendiente | currency: "es-AR":"$" }}</h4>
+    </div>
+
+    <div class="mt-2 table-wrap">
+      <table mat-table [dataSource]="resumenCuenta" class="mat-elevation-z8">
+        <ng-container matColumnDef="fecha">
+          <th class="text-center" mat-header-cell *matHeaderCellDef>Fecha</th>
+          <td class="text-center" mat-cell *matCellDef="let element">
+            {{ element.Fecha | date: "dd/MM/yyyy" }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nroComprobante">
+          <th class="text-center" mat-header-cell *matHeaderCellDef>
+            Comp Nro
+          </th>
+          <td class="text-center" mat-cell *matCellDef="let element">
+            {{ element.NumeroComprobante }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="debe">
+          <th class="text-right" mat-header-cell *matHeaderCellDef>Debo</th>
+          <td class="text-right" mat-cell *matCellDef="let element">
+            {{ element.Debe | currency: "es-AR":"" }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="haber">
+          <th class="text-right" mat-header-cell *matHeaderCellDef>Haber</th>
+          <td class="text-right" mat-cell *matCellDef="let element">
+            {{ element.Haber | currency: "es-AR":"" }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="saldo">
+          <th class="text-center" mat-header-cell *matHeaderCellDef>Saldo</th>
+          <td class="text-center" mat-cell *matCellDef="let element">
+            {{ element.Saldo | currency: "es-AR":"" }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+
+    <div class="saldo">
+      <h4>Saldo: {{ this.saldo | currency: "es-AR":"" }}</h4>
+    </div>
+  </div>
+</div>
+
+<app-global-spinner></app-global-spinner>

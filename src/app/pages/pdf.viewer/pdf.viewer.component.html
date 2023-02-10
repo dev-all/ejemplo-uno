@@ -1,0 +1,60 @@
+<div class="pdf-container">
+  <div class="pdf-header">
+    <div class="title-wrap">
+      <h1>Magnum Pdf Viewer</h1>
+    </div>
+    <div class="d-flex page-wrap">
+      
+    </div>
+    <div class="d-flex zoom-wrap">
+      <img
+        class="mr-1 icon"
+        src="assets/icons/zoom-out.svg"
+        alt="Zoom out"
+        (click)="handleZoom(-0.1)"
+      />
+      <input type="text" [value]="zoomNumber" />
+      <img
+        class="ml-1 icon"
+        src="assets/icons/zoom-in.svg"
+        alt="Zoom in"
+        (click)="handleZoom(0.1)"
+      />
+    </div>
+    <div class="d-flex pdf-options">
+      <img
+      (click)="sendMail()"
+        class="mr-3 icon"
+        src="assets/icons/email.svg"
+        alt="Email"
+      />
+
+      <img
+        (click)="sendWhatsApp()"
+        class="mr-3 icon"
+        src="assets/icons/whatsapp.svg"
+        alt="WhatApp"
+      />
+      <img
+        (click)="download()"
+        class="mr-3 icon"
+        src="assets/icons/save.svg"
+        alt="Guardar"
+      />
+      <img
+        (click)="print()"
+        class="icon"
+        src="assets/icons/printer.svg"
+        alt="Imprimir"
+      />
+    </div>
+  </div>
+
+  <pdf-viewer
+    [src]="pdfSrc"
+    [render-text]="true"
+    [fit-to-page]="true"
+    [zoom]="zoomNumber"
+  >
+  </pdf-viewer>
+</div>

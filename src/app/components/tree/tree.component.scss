@@ -1,0 +1,127 @@
+.tree-container {
+  position: relative;
+  font-size: 15px;
+  width: 40%;
+
+  .button-tree {
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    cursor: pointer;
+
+    h3 {
+      margin: 0px;
+      color: rgba(0, 0, 0, 0.87);
+      font-weight: lighter;
+    }
+
+    mat-icon {
+      position: absolute;
+      right: 0;
+      color: rgba(0, 0, 0, 0.54);
+    }
+  }
+}
+
+
+.tree-border {
+  position: absolute;
+  top: 18px;
+  background-color: white;
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  padding: 24px;
+  opacity: 90%;
+  border-radius: 5px;
+  width: 96%;
+  z-index: 10;
+  max-height: 359px;
+  overflow-y: scroll;
+
+}
+
+ul,
+.tree-wrap {
+  list-style-type: none;
+}
+
+.tree-wrap {
+  margin: 0;
+  padding: 0;
+}
+
+.caret {
+  cursor: pointer;
+  -webkit-user-select: none;
+  /* Safari 3.1+ */
+  -moz-user-select: none;
+  /* Firefox 2+ */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+}
+
+.caret::before {
+  content: "\25B6";
+  color: rgba(0, 0, 0, 0.87);
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.caret-down::before {
+  -ms-transform: rotate(90deg);
+  /* IE 9 */
+  -webkit-transform: rotate(90deg);
+  /* Safari */
+
+  transform: rotate(90deg);
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.marcar {
+  text-decoration: underline;
+}
+
+.subRubro {
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+.subRubroList {
+  margin-left: 38px;
+}
+
+.hidden-tree {
+  visibility: hidden;
+}
+
+.seleccionTree {
+
+  color: black !important;
+  font-weight: normal !important;
+
+}
+
+
+
+@media only screen and (max-width:963px) {
+  .tree-container {
+    width: 44%;
+  }
+}
+
+@media only screen and (max-width:680px) {
+  .tree-container {
+    width: 88%;
+  }
+}

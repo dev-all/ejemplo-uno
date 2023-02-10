@@ -1,0 +1,50 @@
+.dialog-content-depositos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.dialog-content {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.data-wrap {
+  font-size: 20px;
+  align-self: self-end;
+
+  .litros-wrap {
+    display: flex;
+  }
+}
+
+mat-divider {
+  margin-top: 1em;
+  grid-column: 1 / span 2;
+}
+
+.footer-wrap {
+  grid-column-start: span 2;
+  display: flex;
+
+  button {
+    height: 50px;
+  }
+}
+
+
+@media only screen and (max-width:500px) {
+  .footer-wrap {
+    display: grid;
+    grid-gap: 12px;
+
+    button {
+      height: initial;
+    }
+
+    mat-form-field {
+      width: 100%;
+    }
+
+  }
+
+}

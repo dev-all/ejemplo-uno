@@ -1,0 +1,78 @@
+<h1 mat-dialog-title>ENVIO CORREO ELECTRÓNICO</h1>
+<form class="form-wrap" (ngSubmit)="enviarCorreo()">
+  <div mat-dialog-content>
+    <mat-form-field class="width-100" appearance="outline">
+      <mat-label>Para</mat-label>
+      <input matInput type="text" [formControl]="paraFormControl" />
+      <div
+        class="clear-option"
+        clear-option
+        mat-button
+        *ngIf="paraFormControl.value"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="paraFormControl.setValue('')"
+      >
+        <mat-icon>close</mat-icon>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field class="width-100" appearance="outline">
+      <mat-label>Cco</mat-label>
+      <input matInput type="text" [formControl]="ccoFormControl" />
+      <div
+        class="clear-option"
+        clear-option
+        mat-button
+        *ngIf="ccoFormControl.value"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="ccoFormControl.setValue('')"
+      >
+        <mat-icon>close</mat-icon>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field class="width-100" appearance="outline">
+      <mat-label>Asunto</mat-label>
+      <input matInput type="text" [formControl]="asuntoFormControl" />
+      <div
+        class="clear-option"
+        clear-option
+        mat-button
+        *ngIf="asuntoFormControl.value"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="asuntoFormControl.setValue('')"
+      >
+        <mat-icon>close</mat-icon>
+      </div>
+    </mat-form-field>
+
+    <div class="adjunto-container">
+      Archivo adjunto:
+
+      <div class="adjunto-wrap d-flex mt-1">
+        <img src="assets/icons//pdf.svg" alt="archivo adjunto" />
+        <div class="adjunto-info d-flex flex-column">
+          <span>{{ nombreArchivo.slice(0, 28) }}... .pdf</span>
+        </div>
+      </div>
+    </div>
+
+    <mat-form-field class="width-100 mt-2" appearance="fill">
+      <mat-label>Mensaje</mat-label>
+      <textarea [formControl]="mensajeFormControl" matInput></textarea>
+    </mat-form-field>
+
+  </div>
+  <div mat-dialog-actions style="justify-content: flex-end">
+    <button class="ml-1" mat-raised-button color="primary">
+      <span>Enviar</span>
+    </button>
+    <button mat-button mat-dialog-close>Salir</button>
+  </div>
+</form>

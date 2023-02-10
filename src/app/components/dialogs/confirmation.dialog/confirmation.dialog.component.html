@@ -1,0 +1,20 @@
+<div class="confirmation-dialog">
+  <h2 mat-dialog-title>{{ title.toUpperCase() }}</h2>
+  <mat-dialog-content>
+    {{ text }}
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-button class="btn btn__primary" (click)="onCloseConfirm()">
+      {{ btnPrimaryText }}
+    </button>
+    <button
+      mat-button
+      class="btn btn__secondary btn-cancel"
+      (click)="onCloseCancel()"
+      *ngIf="!hideCancelButton"
+    >
+      {{ btnSecondaryText }}
+    </button>
+  </mat-dialog-actions>
+</div>

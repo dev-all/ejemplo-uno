@@ -1,0 +1,202 @@
+.container h2 {
+  font-size: 2.2em;
+}
+.container .form-wrap {
+  display: grid;
+  grid-template-columns: 72% 1% 10%;
+  justify-content: space-between;
+}
+.container .form-wrap .filtros-wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 27%);
+  grid-gap: 10px;
+}
+.container .form-wrap .filtros-wrap .filtros {
+  width: 100%;
+}
+.container .form-wrap .filtros-wrap .filtros mat-form-field {
+  width: 100%;
+}
+.container .form-wrap .filtros-wrap .filtros .codigo-select {
+  width: 50%;
+}
+.container .form-wrap .filtros-wrap .filtros .codigo-input {
+  width: 50%;
+}
+.container app-lista-inputs {
+  margin-left: 10px;
+}
+.container .button-wrap {
+  display: flex;
+}
+.container .button-wrap button {
+  height: 51px;
+  width: 100%;
+}
+.container .codigo-input-wrap {
+  display: flex;
+}
+
+.table-wrap {
+  position: relative;
+  overflow-x: auto;
+}
+.table-wrap .spinner-wrap {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  width: 100%;
+}
+.table-wrap .spinner-wrap ::ng-deep .mat-progress-spinner circle,
+.table-wrap .spinner-wrap .mat-spinner circle {
+  stroke: #000000;
+}
+.table-wrap mat-spinner {
+  margin: auto;
+}
+.table-wrap table {
+  margin: 20px auto;
+}
+.table-wrap table .producto-column {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+.table-wrap table .small-colunm {
+  flex: 0 0 6% !important;
+  width: 6% !important;
+}
+.table-wrap table .large-colunm {
+  flex: 0 0 12% !important;
+  width: 12% !important;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+.example-element-detail .options-wrap {
+  padding: 10px;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+
+.noAutorizado-wrap {
+  height: 308px;
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  position: fixed;
+  background: white;
+  top: 23%;
+  left: 14%;
+}
+.noAutorizado-wrap h1 {
+  text-align: center;
+}
+.noAutorizado-wrap i {
+  text-align: center;
+  font-size: 10.2em;
+}
+
+.min-height {
+  min-height: 450px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+.footer h3 {
+  margin: revert;
+}
+
+@media only screen and (max-width: 1000px) {
+  table {
+    width: 1200px;
+  }
+
+  .container .form-wrap {
+    grid-template-columns: 70% 1% 10%;
+  }
+  .container .form-wrap .filtros-wrap {
+    grid-template-columns: repeat(2, 56%);
+  }
+  .container .form-wrap .filtros-wrap .filtros .codigos-wrap {
+    width: 100%;
+  }
+  .container .form-wrap .filtros-wrap .filtros .codigo-input {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 980px) {
+  .container .form-wrap {
+    grid-template-columns: 78% 10%;
+  }
+  .container .form-wrap .button-wrap {
+    grid-column-start: span 2;
+  }
+}
+@media only screen and (max-width: 980px) and (max-width: 680px) {
+  .container .form-wrap {
+    grid-template-columns: 88% 10%;
+  }
+  .container .form-wrap .filtros-wrap {
+    grid-template-columns: repeat(1, 100%);
+  }
+  .container .form-wrap .button-wrap {
+    grid-column-start: span 1;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .container .form-wrap {
+    grid-template-columns: 95% 5%;
+  }
+}

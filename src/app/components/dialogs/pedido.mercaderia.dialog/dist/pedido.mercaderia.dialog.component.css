@@ -1,0 +1,15 @@
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.buttons-wrap {
+  justify-content: flex-end;
+}
+
+@media only screen and (max-width: 740px) {
+  .form-container {
+    grid-template-columns: 1fr;
+  }
+}

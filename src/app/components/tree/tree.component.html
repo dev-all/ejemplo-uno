@@ -1,0 +1,74 @@
+<div class="tree-container" tree="true">
+  <div tree="true" (click)="showTree = !showTree" class="button-tree">
+    <h3 tree="true" [ngClass]="seleccionTree ? 'seleccionTree' : ''">
+      {{ seleccionTree ? seleccionTree : "Grupos" }}
+    </h3>
+    <mat-icon tree="true">keyboard_arrow_down</mat-icon>
+  </div>
+  <div
+    tree="true"
+    [ngClass]="showTree ? '' : 'hidden-tree'"
+    class="tree-border"
+  >
+    <ul tree="true" class="tree-wrap" #lista>
+      <li tree="true" *ngFor="let grupo of grupos; index as iGrupo">
+        <span
+          tree="true"
+          (click)="expanderLista(iGrupo, 'GRUPO', grupo.Nombre, grupo.Id)"
+          #grupo
+          class="caret"
+          [attr.index]="iGrupo"
+          >{{ grupo.Nombre }}</span
+        >
+
+        <div tree="true" class="nested rubros">
+          <ul
+            tree="true"
+            *ngFor="let rubro of grupo.Rubros; index as iSubGrupo"
+            [attr.index]="iSubGrupo"
+          >
+            <span
+              tree="true"
+              #subRubro
+              (click)="
+                this.expanderLista(
+                  iGrupo,
+                  'RUBRO',
+                  rubro.Nombre,
+                  grupo.Id,
+                  rubro.Id,
+                  null,
+                  iSubGrupo
+                )
+              "
+              class="caret"
+              >{{ rubro.Nombre }}</span
+            >
+            <div tree="true" class="nested subRubroList">
+              <span
+                tree="true"
+                class="subRubro"
+                #selecionSubRubro
+                [ngClass]="marcarSubRubro ? 'marcar' : ''"
+                *ngFor="let subRubro of rubro.SubRubros"
+                (click)="
+                  this.expanderLista(
+                    iGrupo,
+                    'SUBRUBRO',
+                    subRubro.Nombre,
+                    grupo.Id,
+                    rubro.Id,
+                    subRubro.Id,
+                    iSubGrupo,
+                    selecionSubRubro
+                  )
+                "
+                >{{ subRubro.Nombre }}</span
+              >
+            </div>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

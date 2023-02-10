@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>ENVIO REPORTE VIA WHATSAPP</h1>
+
+<div mat-dialog-content>
+  <h3>Seleccione un destinatario</h3>
+  <form class="form-wrap" (ngSubmit)="buscarDestinatario()">
+    <mat-form-field class="width-100" appearance="outline">
+      <mat-label>Buscar contacto</mat-label>
+      <input matInput type="text" [formControl]="contactoFormControl" />
+      <div
+        class="clear-option"
+        clear-option
+        mat-button
+        *ngIf="contactoFormControl.value"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="contactoFormControl.setValue('')"
+      >
+        <mat-icon>close</mat-icon>
+      </div>
+    </mat-form-field>
+  </form>
+
+  <table mat-table [dataSource]="contactos" class="mat-elevation-z8">
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.Nombre }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="numero">
+      <th mat-header-cell *matHeaderCellDef>Numero</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.Numero }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="enviar">
+      <th class="text-center" mat-header-cell *matHeaderCellDef>Enviar</th>
+      <td class="text-center" mat-cell *matCellDef="let element">
+        <button (click)="enviar(element.Numero)">Enviar</button>
+      </td></ng-container
+    >
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+<div mat-dialog-actions class="mt-2" style="justify-content: flex-end">
+  <button mat-button mat-dialog-close>Seleccionar desde WhatsApp</button>
+  <button mat-button mat-dialog-close>Salir</button>
+</div>

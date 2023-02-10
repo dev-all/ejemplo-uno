@@ -1,0 +1,59 @@
+<div class="modal-container">
+  <h2 mat-dialog-title>
+    No se encontro el CODIGO ingresado
+    <br />
+  </h2>
+  <div class="wrap-table">
+    <table
+      mat-table
+      [dataSource]="productos"
+      class="mat-elevation-z8"
+      multiTemplateDataRows
+    >
+      <ng-container matColumnDef="codigo">
+        <th class="table-padding-left" mat-header-cell *matHeaderCellDef>
+          Codigo
+        </th>
+        <td class="table-padding-left" mat-cell *matCellDef="let element">
+          {{ element.Codigo }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="descripcion">
+        <th class="table-padding-left" mat-header-cell *matHeaderCellDef>
+          Descripcion
+        </th>
+        <td class="table-padding-left" mat-cell *matCellDef="let element">
+          {{ element.Detalle }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lista1">
+        <th class="table-padding-left" mat-header-cell *matHeaderCellDef>
+          Lista 1
+        </th>
+        <td class="table-padding-left" mat-cell *matCellDef="let element">
+          {{ element.Lista1 }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnasTabla; sticky: true"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: columnasTabla"
+        class="options-detail-row"
+        (click)="row_Cick(row)"
+        [class.demo-row-is-clicked]="clickedRows.has(row)"
+      ></tr>
+    </table>
+  </div>
+
+  <div class="message-wrap">Seleccione un producto y presione Aceptar</div>
+  <mat-dialog-actions>
+    <app-magnum-button
+      text="Aceptar"
+      (btnClickEmt)="aceptar_Click()"
+    ></app-magnum-button>
+    <button mat-button mat-dialog-close>Salir</button>
+  </mat-dialog-actions>
+</div>

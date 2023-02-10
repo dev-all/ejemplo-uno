@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>GUARDAR REPORTE</h1>
+<div mat-dialog-content>
+  <h3>Seleccione un tipo de archivo</h3>
+  <div class="d-flex format-types-wrap ml-2">
+    <div (click)="save('pdf')" class="format-type">
+      <img class="icon" src="assets/icons/pdf.svg" alt="Pdf" />
+      <span>PDF</span>
+    </div>
+
+    <div (click)="save('word')" class="format-type mt-2">
+      <img class="icon" src="assets/icons/word.svg" alt="Word" />
+      <span>Word</span>
+    </div>
+
+    <div (click)="save('excel')" class="format-type mt-2">
+      <img class="icon" src="assets/icons/excel.svg" alt="Excel" />
+      <span>Excel</span>
+    </div>
+
+    <div  (click)="save('image')" class="format-type mt-2">
+      <img class="icon" src="assets/icons/png.svg" alt="Imagen" />
+      <span>Imagen</span>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions style="justify-content: flex-end">
+  <button mat-button mat-dialog-close>Salir</button>
+</div>

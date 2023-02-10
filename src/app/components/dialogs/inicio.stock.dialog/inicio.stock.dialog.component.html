@@ -1,0 +1,144 @@
+<div class="modal-container">
+  <h2 mat-dialog-title>
+    INICIO DE STOCK
+    <br />
+  </h2>
+  <h2>{{ this.descripcionProducto }}</h2>
+  <div mat-dialog-content class="dialog-content">
+    <form class="form-wrap" (ngSubmit)="addStock()">
+      <mat-form-field class="ml-1" appearance="fill">
+        <mat-label>Deposito</mat-label>
+        <mat-select [(ngModel)]="depositoSelected" name="deposito">
+          <mat-option
+            *ngFor="let deposito of depositos"
+            [value]="deposito.Numero"
+          >
+            {{ deposito.Detalle }}
+          </mat-option>
+        </mat-select>
+        <div
+          clear-option
+          mat-button
+          *ngIf="depositoSelected"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="depositoSelected = undefined; $event.stopPropagation()"
+        >
+          <mat-icon>close</mat-icon>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field class="ml-1" appearance="outline">
+        <mat-label>Cantidad</mat-label>
+        <input matInput type="number" [formControl]="cantidadFormControl" />
+        <div
+          class="clear-option"
+          mat-button
+          *ngIf="cantidadFormControl.value"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="cantidadFormControl.setValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field class="ml-1" appearance="outline">
+        <mat-label>Stock Mínimo</mat-label>
+        <input matInput type="number" [formControl]="stockMinimoFormControl" />
+        <div
+          class="clear-option"
+          mat-button
+          *ngIf="stockMinimoFormControl.value"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="stockMinimoFormControl.setValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field class="ml-1" appearance="outline">
+        <mat-label>Stock Máximo</mat-label>
+        <input matInput type="number" [formControl]="stockMaximoFormControl" />
+        <div
+          class="clear-option"
+          mat-button
+          *ngIf="stockMaximoFormControl.value"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="stockMaximoFormControl.setValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field
+        [className]="
+          spanUbicacion && variantes
+            ? 'ml-1 span-ubicacion mat-form-field-type-mat-input mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-valid'
+            : ' ml-1 not-span-ubicacion'
+        "
+        appearance="outline"
+      >
+        <mat-label>Ubicación</mat-label>
+        <input matInput type="text" [formControl]="ubicacionFormControl" />
+        <div
+          class="clear-option"
+          clear-option
+          mat-button
+          *ngIf="ubicacionFormControl.value"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="ubicacionFormControl.setValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field
+        *ngIf="variantes && variantes.length > 0"
+        class="ml-1"
+        appearance="fill"
+      >
+        <mat-label>Variante</mat-label>
+        <mat-select [(ngModel)]="varianteSelected" name="variante">
+          <mat-option
+            *ngFor="let variante of variantes"
+            [value]="variante.IdVariante"
+          >
+            {{ variante.DetalleVariante }} {{ variante.CodigoVariante }}
+            {{ variante.DescripcionColor }}
+          </mat-option>
+        </mat-select>
+        <div
+          clear-option
+          mat-button
+          *ngIf="varianteSelected"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="varianteSelected = undefined; $event.stopPropagation()"
+        >
+          <mat-icon>close</mat-icon>
+        </div>
+      </mat-form-field>
+
+      <div class="buton-wrap">
+        <button class="ml-1" mat-raised-button color="primary">
+          <span>Agregar</span>
+        </button>
+      </div>
+    </form>
+    <app-stock-grid *ngIf="this.stocks" [stocks]="this.stocks"></app-stock-grid>
+  </div>
+  <div mat-dialog-actions class="mt-2 dialog-actions">
+    <button mat-button mat-dialog-close>Salir</button>
+  </div>
+</div>
+<app-global-spinner></app-global-spinner>

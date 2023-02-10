@@ -1,0 +1,63 @@
+<div class="modal-container">
+  <h2 mat-dialog-title>
+    CALCULAR MOVIMIENTO DE MERCADERIA
+    <br />
+  </h2>
+  <div mat-dialog-content class="dialog-content">
+    <div class="form-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha desde</mat-label>
+        <input matInput [matDatepicker]="desde" [formControl]="fechaDesde" />
+        <mat-datepicker-toggle matSuffix [for]="desde"></mat-datepicker-toggle>
+        <mat-datepicker #desde></mat-datepicker>
+        <div
+          class="clear-option"
+          clear-option
+          mat-button
+          *ngIf="fechaDesde.value"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="fechaDesde.setValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha hasta</mat-label>
+        <input matInput [matDatepicker]="hasta" [formControl]="fechaHasta" />
+        <mat-datepicker-toggle matSuffix [for]="hasta"></mat-datepicker-toggle>
+        <mat-datepicker #hasta></mat-datepicker>
+        <div
+          class="clear-option"
+          clear-option
+          mat-button
+          *ngIf="fechaHasta.value"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="fechaHasta.setValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </div>
+      </mat-form-field>
+    </div>
+    <div class="message-container">
+      <h4>
+        El siguiente proceso esta pensando para una reposición completa de stock
+        calculando la mercaderia vendida en el deposito destino incluyendo
+        remitos entregados
+      </h4>
+    </div>
+
+    <div class="footer-wrap mt-3">
+      <button (click)="this.aceptar_Click()" mat-raised-button color="primary">
+        <span>Aceptar</span>
+      </button>
+      <button mat-raised-button color="primary" mat-dialog-close class="ml-1">
+        <span>Cancelar </span>
+      </button>
+    </div>
+  </div>
+</div>

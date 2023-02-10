@@ -1,0 +1,195 @@
+<div class="modal-container">
+  <h2 mat-dialog-title>
+    MOVIMIENTOS ENTRE DEPOSITOS
+    <br />
+  </h2>
+
+  <div mat-dialog-content class="dialog-content">
+    <form class="form-wrap">
+      <mat-form-field appearance="outline">
+        <mat-label>Detalle</mat-label>
+        <input matInput type="text" [formControl]="detalleFormControl" />
+        <div
+          class="clear-option"
+          clear-option
+          mat-button
+          *ngIf="detalleFormControl.value"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="detalleFormControl.setValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Deposito desde</mat-label>
+        <mat-select
+          (selectionChange)="deposito_Change()"
+          [(ngModel)]="depositoDesdeSelected"
+          name="depositoDesde"
+        >
+          <mat-option
+            *ngFor="let deposito of this.depositos"
+            [value]="deposito.Numero"
+          >
+            {{ deposito.Detalle }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Deposito hasta</mat-label>
+        <mat-select
+          (selectionChange)="deposito_Change()"
+          [(ngModel)]="depositoHastaSelected"
+          name="depositoHasta"
+        >
+          <mat-option
+            *ngFor="let deposito of this.depositos"
+            [value]="deposito.Numero"
+          >
+            {{ deposito.Detalle }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Estado</mat-label>
+        <mat-select [(ngModel)]="estadoSelected" name="variante">
+          <mat-option *ngFor="let estado of this.estados" [value]="estado.id">
+            {{ estado.descripcion }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+
+    <div class="mt-2 table-wrap">
+      <table
+        mat-table
+        [dataSource]="movimientoDepositoGrid"
+        multiTemplateDataRows
+        class="mat-elevation-z8"
+      >
+        <ng-container matColumnDef="cantidad">
+          <th class="text-left" mat-header-cell *matHeaderCellDef>Cantidad</th>
+          <td class="text-left" mat-cell *matCellDef="let element">
+            {{ element.Cantidad | currency:'es-AR':'' }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="codigo">
+          <th class="text-left" mat-header-cell *matHeaderCellDef>Código</th>
+          <td class="text-left" mat-cell *matCellDef="let element">
+            {{ element.Codigo }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="descripcion">
+          <th class="text-left" mat-header-cell *matHeaderCellDef>
+            Descripcion
+          </th>
+          <td class="text-left" mat-cell *matCellDef="let element">
+            {{ element.Descripcion }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="stockOrigen">
+          <th class="text-right" mat-header-cell *matHeaderCellDef>
+            Stk Origen
+          </th>
+          <td class="text-right" mat-cell *matCellDef="let element">
+            {{ element.StockOrigen | currency:'es-AR':'' }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="stockDestino">
+          <th class="text-right" mat-header-cell *matHeaderCellDef>
+            Stk Destino
+          </th>
+          <td class="text-right" mat-cell *matCellDef="let element">
+            {{ element.StockDestino | currency:'es-AR':'' }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          [class.options-expanded-row]="expandedElement === row"
+          (click)="expandedElement = expandedElement === row ? null : row"
+        ></tr>
+
+        <ng-container matColumnDef="expandedDetail">
+          <td
+            mat-cell
+            *matCellDef="let element"
+            [attr.colspan]="displayedColumns.length"
+          >
+            <div
+              class="options-detail"
+              [@detailExpand]="
+                element == expandedElement ? 'expanded' : 'collapsed'
+              "
+            >
+              <div class="options-wrap">
+                <button
+                  (click)="this.quitar_Click(element.CpInterno)"
+                  class="ml-1"
+                  mat-raised-button
+                  color="primary"
+                >
+                  <span>Quitar</span>
+                </button>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: ['expandedDetail']"
+          class="options-detail-row"
+        ></tr>
+      </table>
+    </div>
+
+    <div class="button-wrap mt-3">
+      <button (click)="this.agregar_Click()" mat-raised-button color="primary">
+        <span>Agregar</span>
+      </button>
+
+      <button
+        (click)="this.verificarStock_Click()"
+        mat-raised-button
+        color="primary"
+        class="ml-1"
+      >
+        <span>Verif. Stock </span>
+      </button>
+
+      <button
+        (click)="this.calcularMercaderia_Click()"
+        mat-raised-button
+        color="primary"
+        class="ml-1"
+      >
+        <span>Calcular mercaderia </span>
+      </button>
+    </div>
+
+    <div class="footer-wrap mt-3">
+      <button
+        [disabled]="this.movimientoDepositoGrid.length == 0"
+        (click)="this.aceptar_Click()"
+        mat-raised-button
+        color="primary"
+      >
+        <span>Aceptar</span>
+      </button>
+      <button mat-raised-button color="primary" mat-dialog-close class="ml-1">
+        <span>Cancelar </span>
+      </button>
+    </div>
+  </div>
+</div>

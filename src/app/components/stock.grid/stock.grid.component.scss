@@ -1,0 +1,35 @@
+table {
+  width: 710px;
+  margin: auto;
+  box-shadow: none;
+
+}
+
+.dialog-actions {
+  justify-content: flex-end;
+}
+
+.dialog-content {
+  padding: 0px;
+}
+
+.datos-wrap {
+  overflow-y: auto;
+  background-color: #f4f3f3;
+
+  max-height: 249px;
+
+
+  h2 {
+
+    margin-left: 26px;
+  }
+
+  .mat-table {
+    background-color: #f4f3f3;
+  }
+}
+
+.highlightTableColor td {
+  background-color: silver;
+}

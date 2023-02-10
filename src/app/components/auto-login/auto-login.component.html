@@ -1,0 +1,29 @@
+<div *ngIf="loginError" class="modal-dialog modal-confirm">
+  <div class="modal-content">
+    <div class="modal-header flex-column">
+      <mat-icon>error</mat-icon>
+    </div>
+    <div class="modal-body">
+      <p>Hubo un error en realizar login</p>
+    </div>
+    <div class="modal-footer justify-content-center">
+      <button
+        (click)="reintentar()"
+        class="ml-1"
+        mat-raised-button
+        color="primary"
+      >
+        <span>Reintentar</span>
+      </button>
+      <button
+        (click)="ingresoManual()"
+        class="ml-1"
+        mat-raised-button
+        color="primary"
+      >
+        <span>Ingreso manual</span>
+      </button>
+    </div>
+  </div>
+</div>
+<app-global-spinner></app-global-spinner>

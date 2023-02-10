@@ -1,0 +1,22 @@
+.format-types-wrap {
+  flex-direction: column;
+
+  .format-type {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 116px;
+  }
+
+  img {
+    width: 40px;
+  }
+
+  .format-type:hover {
+    cursor: pointer;
+  }
+
+  span {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+}

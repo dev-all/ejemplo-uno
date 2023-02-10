@@ -1,0 +1,31 @@
+.form-wrap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+  }
+  
+  .footer-wrap {
+    float: right;
+  }
+  
+  .options-detail {
+    overflow: hidden;
+    display: flex;
+  
+    .options-wrap {
+      padding: 10px;
+    }
+  }
+  
+  tr.options-detail-row {
+    height: 0;
+  }
+  
+  tr.options-element-row:not(.options-expanded-row):hover {
+    background: whitesmoke;
+  }
+  
+  tr.options-element-row:not(.options-expanded-row):active {
+    background: #efefef;
+  }
+  

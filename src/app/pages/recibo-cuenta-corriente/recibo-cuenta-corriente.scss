@@ -1,0 +1,217 @@
+.toggle-wrap {
+  margin-bottom: 40px;
+}
+
+
+mat-divider {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.general-wrap {
+
+  .fecha,
+  .cantidad {
+    font-size: 16px;
+  }
+
+  .header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+
+  }
+
+  .tipo-recibo-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+    padding: 22px;
+
+    .tipos {
+      display: grid;
+    }
+  }
+
+  .form-wrap {
+    form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 10px;
+      padding: 22px;
+      grid-gap: 20px;
+
+    }
+  }
+
+  table {
+    margin-top: 50px;
+  }
+
+  .options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 35px;
+    margin-left: auto;
+    width: 853px;
+    margin-top: 20px;
+  }
+}
+
+.fondos-wrap {
+  .form-wrap {
+    display: flex;
+
+    justify-content: flex-end;
+  }
+
+  table {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .fondo-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 230px;
+    grid-gap: 14px;
+  }
+
+  .options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 35px;
+    margin-left: auto;
+    width: 500px;
+    margin-top: 20px;
+  }
+}
+
+.agenda-wrap {
+  .form-wrap {
+    .observaciones {
+      width: 100%;
+    }
+  }
+
+  .options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 35px;
+    margin-left: auto;
+    width: 500px;
+    margin-top: 20px;
+  }
+}
+
+.imputacion-wrap {
+  .form-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    width: 500px;
+  }
+
+  .options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 35px;
+    margin-left: auto;
+    width: 500px;
+    margin-top: 20px;
+  }
+}
+
+.footer {
+  margin-top: 50px;
+  height: 313px;
+
+  h4 {
+    font-size: 20px;
+  }
+
+
+  .montos {
+
+
+    width: 500px;
+    margin-left: auto;
+
+
+    table {
+
+      border-collapse: collapse;
+      width: 100%;
+
+      .bold {
+        font-weight: bold;
+      }
+
+      td,
+      th {
+        font-size: 18px;
+        font-weight: lighter;
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+    }
+
+    .total {
+      margin-top: 8px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+
+
+
+}
+
+@media only screen and (max-width:768px) {
+  .general-wrap .options {
+    width: 700px;
+
+
+
+  }
+
+  .general-wrap .tipo-recibo-wrap {
+
+    grid-template-columns: 1fr;
+
+
+  }
+
+  .general-wrap table {
+    width: 720px;
+  }
+}
+
+@media only screen and (max-width:425px) {
+
+  .general-wrap .form-wrap form,
+  .general-wrap .header,
+  .general-wrap .options,
+  .general-wrap .tipo-recibo-wrap {
+    width: 400px;
+
+  }
+
+  .general-wrap .form-wrap form {
+    display: grid;
+    grid-template-columns: 1fr;
+
+  }
+
+  .general-wrap .header {
+    grid-template-columns: 1fr;
+  }
+
+
+
+}

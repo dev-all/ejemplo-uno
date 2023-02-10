@@ -1,0 +1,418 @@
+<div class="recibo-container">
+  <div class="buttons-wrap">
+    <button (click)="this.atras_click()" mat-raised-button color="secondary">
+      <mat-icon>keyboard_backspace</mat-icon> Atras
+    </button>
+  </div>
+
+  <mat-divider></mat-divider>
+  <h2 mat-dialog-title>
+    Recibo cuenta corriente
+    <br />
+  </h2>
+
+  <div class="description">
+    <h2>{{ this.nombreCliente }} ({{ this.numeroCuenta }})</h2>
+  </div>
+
+  <mat-button-toggle-group
+    class="toggle-wrap"
+    name="fontStyle"
+    aria-label="Font Style"
+    [formControl]="optionFormControl"
+    (change)="option_Change()"
+  >
+    <mat-button-toggle value="general">General</mat-button-toggle>
+    <mat-button-toggle value="fondos">Fondos</mat-button-toggle>
+    <mat-button-toggle value="agenda">Agenda</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <div class="options-wrap">
+    <div *ngIf="this.optionFormControl.value ==='general'" class="general-wrap">
+      <div class="header">
+        <div class="tipo-recibo-wrap">
+          <h4>Tipo de recibo</h4>
+          <div class="tipos">
+            <div class="radio-button-appearance">
+              <mat-radio-button class="example-margin" value="1"
+                >Pago selectivo</mat-radio-button
+              >
+            </div>
+            <div class="radio-button-appearance">
+              <mat-radio-button class="example-margin" value="2"
+                >Pago a cuenta</mat-radio-button
+              >
+            </div>
+          </div>
+        </div>
+        <div class="form-wrap">
+          <form action="">
+            <div class="fecha">
+              <mat-label>Fecha: </mat-label>
+              <mat-label>{{fechaActual | date:'dd/MM/yyyy'}}</mat-label>
+            </div>
+            <mat-form-field appearance="fill">
+              <mat-label>Cobrador</mat-label>
+              <mat-select [(ngModel)]="cobradorSelected" name="deposito">
+                <mat-option
+                  *ngFor="let vendedor of vendedores"
+                  [value]="vendedor.Id"
+                >
+                  {{ vendedor.Nombre }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Talonario</mat-label>
+              <mat-select [(ngModel)]="talonarioSelected" name="deposito">
+                <mat-option
+                  *ngFor="let formulario of numerosFormularios"
+                  [value]="formulario.Numero"
+                >
+                  {{ formulario.CodigoPapel }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <div class="cantidad">
+              <mat-label>000000000001 </mat-label>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <table
+        mat-table
+        [dataSource]="reciboDataSource"
+        class="mat-elevation-z8"
+        multiTemplateDataRows
+      >
+        <ng-container matColumnDef="fecha">
+          <th mat-header-cell *matHeaderCellDef>Fecha</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.Fecha | date: "dd/MM/yyyy" }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tipoFact">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element" class="text-left">
+            {{ element.Boleta }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tipoComprobante">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.DescripcionBoleta }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="puntoVenta">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">{{ element.Seccion }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="numero">
+          <th mat-header-cell *matHeaderCellDef>Número</th>
+          <td mat-cell *matCellDef="let element">{{ element.Numero }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="importe">
+          <th mat-header-cell *matHeaderCellDef>Importe</th>
+          <td mat-cell *matCellDef="let element">{{ element.Importe }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="imputado">
+          <th mat-header-cell *matHeaderCellDef>Imputado</th>
+          <td mat-cell *matCellDef="let element">{{ element.Imputado }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="descuentoPorcentaje">
+          <th mat-header-cell *matHeaderCellDef>Dto. (%)</th>
+          <td mat-cell *matCellDef="let element">0</td>
+        </ng-container>
+
+        <ng-container matColumnDef="descuentoMoneda">
+          <th mat-header-cell *matHeaderCellDef>Dto. ($)</th>
+          <td mat-cell *matCellDef="let element">0</td>
+        </ng-container>
+
+        <ng-container matColumnDef="entrega">
+          <th mat-header-cell *matHeaderCellDef>Entrega</th>
+          <td mat-cell *matCellDef="let element">{{ element.Entrega }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="marcar">
+          <th mat-header-cell *matHeaderCellDef>Marcar</th>
+          <td mat-cell *matCellDef="let element">
+            <mat-checkbox
+              class="example-margin"
+              #marcaCheckBox
+              (click)="this.marcar_click(element,marcaCheckBox)"
+            ></mat-checkbox>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnasTablaGeneral"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnasTablaGeneral"></tr>
+      </table>
+
+      <div class="footer">
+        <div class="montos">
+          <table>
+            <tr>
+              <th class="bold">Descripción</th>
+              <th class="text-center"></th>
+              <th class="bold text-right">Monto</th>
+            </tr>
+            <tr>
+              <th>Monto Comp. Incluidos</th>
+              <td></td>
+              <td class="text-right">
+                {{totalMontoIncluido | currency:'es-Ar':'$'}}
+              </td>
+            </tr>
+            <tr>
+              <th>Saldo</th>
+              <td></td>
+              <td class="text-right">{{totalSaldo | currency:'es-Ar':'$'}}</td>
+            </tr>
+            <tr>
+              <th>Descuento</th>
+              <td></td>
+              <td class="total text-right">
+                {{totalDescuento | currency:'es-Ar':'$'}}
+              </td>
+            </tr>
+            <tr>
+              <th>Recargo.</th>
+              <td></td>
+              <td class="total text-right">
+                {{totalRegarco | currency:'es-Ar':'$'}}
+              </td>
+            </tr>
+          </table>
+          <div class="total text-right">
+            Total {{totalResumen | currency:'es-AR':'$' }}
+          </div>
+        </div>
+
+        <div class="options">
+          <div class="radio-button-appearance">
+            <mat-radio-button class="example-margin" value="1"
+              >Imprimir Recibo</mat-radio-button
+            >
+          </div>
+          <app-magnum-button text="Aceptar" class="cf-wrap"></app-magnum-button>
+          <app-magnum-button
+            text="Cancelar"
+            class="cf-wrap"
+          ></app-magnum-button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="this.optionFormControl.value ==='fondos'" class="fondos-wrap">
+      <div class="form-wrap">
+        <mat-form-field appearance="fill">
+          <mat-label>Caja</mat-label>
+          <mat-select [(ngModel)]="cobradorSelected" name="deposito">
+            <mat-option
+              *ngFor="let vendedor of vendedores"
+              [value]="vendedor.Id"
+            >
+              {{ vendedor.Nombre }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <table
+        mat-table
+        [dataSource]="fondoDataSource"
+        class="mat-elevation-z8"
+        multiTemplateDataRows
+      >
+        <ng-container matColumnDef="tipo">
+          <th mat-header-cell *matHeaderCellDef>Tipo</th>
+          <td mat-cell *matCellDef="let element">{{ element.Tipo }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="banco">
+          <th mat-header-cell *matHeaderCellDef>Banco</th>
+          <td mat-cell *matCellDef="let element">{{ element.Banco }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="numero">
+          <th mat-header-cell *matHeaderCellDef>Número</th>
+          <td mat-cell *matCellDef="let element">{{ element.Numero }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="vence">
+          <th mat-header-cell *matHeaderCellDef>Vence</th>
+          <td mat-cell *matCellDef="let element">{{ element.Vence }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="cuotas">
+          <th mat-header-cell *matHeaderCellDef>Cuotas</th>
+          <td mat-cell *matCellDef="let element">{{ element.Cuotas }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="importe">
+          <th mat-header-cell *matHeaderCellDef>Importe</th>
+          <td mat-cell *matCellDef="let element">{{ element.importe }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnasTablaFondos"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnasTablaFondos"></tr>
+      </table>
+
+      <div class="fondo-options">
+        <app-magnum-button text="Agregar" class="cf-wrap"></app-magnum-button>
+        <app-magnum-button text="Quitar" class="cf-wrap"></app-magnum-button>
+      </div>
+      <div class="footer">
+        <div class="montos">
+          <table>
+            <tr>
+              <th class="bold">Monto a cubrir</th>
+              <th class="text-center"></th>
+              <th class="bold text-right">$ 0,00</th>
+            </tr>
+          </table>
+        </div>
+        <div class="options">
+          <app-magnum-button text="Aceptar" class="cf-wrap"></app-magnum-button>
+          <app-magnum-button
+            text="Cancelar"
+            class="cf-wrap"
+          ></app-magnum-button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="this.optionFormControl.value ==='agenda'" class="agenda-wrap">
+      <div class="form-wrap">
+        <mat-form-field class="observaciones" appearance="fill">
+          <mat-label>Observaciones</mat-label>
+          <textarea
+            matInput
+            placeholder="Factura para  cliente Magnum"
+            rows="10"
+            [formControl]="agendaObservacionFormControl"
+          ></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="footer">
+        <div class="options">
+          <app-magnum-button text="Aceptar" class="cf-wrap"></app-magnum-button>
+          <app-magnum-button
+            text="Cancelar"
+            class="cf-wrap"
+          ></app-magnum-button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      *ngIf="this.optionFormControl.value ==='imputacion'"
+      class="imputacion-wrap"
+    >
+      <div class="form-wrap">
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha Desde</mat-label>
+          <input
+            matInput
+            [matDatepicker]="imputacionDesde"
+            [formControl]="imputacionFechaDesdeFormControl"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="imputacionDesde"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #imputacionDesde></mat-datepicker>
+          <div
+            class="clear-option"
+            clear-option
+            mat-button
+            *ngIf="imputacionFechaDesdeFormControl.value"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="imputacionFechaDesdeFormControl.setValue('')"
+          >
+            <mat-icon>close</mat-icon>
+          </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha Hasta</mat-label>
+          <input
+            matInput
+            [matDatepicker]="imputacionHasta"
+            [formControl]="imputacionFechaHastaFormControl"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="imputacionHasta"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #imputacionHasta></mat-datepicker>
+          <div
+            class="clear-option"
+            clear-option
+            mat-button
+            *ngIf="imputacionFechaHastaFormControl.value"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="imputacionFechaHastaFormControl.setValue('')"
+          >
+            <mat-icon>close</mat-icon>
+          </div>
+        </mat-form-field>
+      </div>
+
+      <table
+        mat-table
+        [dataSource]="imputacionDataSource"
+        class="mat-elevation-z8"
+        multiTemplateDataRows
+      >
+        <ng-container matColumnDef="fecha">
+          <th mat-header-cell *matHeaderCellDef>Fecha</th>
+          <td mat-cell *matCellDef="let element">{{ element.Fecha }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="comprobante">
+          <th mat-header-cell *matHeaderCellDef>Comprobante</th>
+          <td mat-cell *matCellDef="let element">{{ element.Comprobante }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="importe">
+          <th mat-header-cell *matHeaderCellDef>Importe</th>
+          <td mat-cell *matCellDef="let element">{{ element.Importe }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="imputado">
+          <th mat-header-cell *matHeaderCellDef>Imputado</th>
+          <td mat-cell *matCellDef="let element">{{ element.Imputado }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnasTablaImputacion"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnasTablaImputacion"></tr>
+      </table>
+
+      <div class="footer">
+        <div class="options">
+          <app-magnum-button text="Aceptar" class="cf-wrap"></app-magnum-button>
+          <app-magnum-button
+            text="Cancelar"
+            class="cf-wrap"
+          ></app-magnum-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

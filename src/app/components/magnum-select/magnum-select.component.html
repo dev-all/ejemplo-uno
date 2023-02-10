@@ -1,0 +1,48 @@
+<mat-form-field *ngIf="!showSearchBar" style="width: 100%" appearance="fill">
+  <mat-label>{{ text }}</mat-label>
+  <mat-select
+    panelClass="example-long-panel"
+    [(ngModel)]="itemSelected"
+    name="deposito"
+    (selectionChange)="onChange()"
+    (opened)="onOpen()"
+  >
+    <mat-option *ngFor="let option of options" [value]="option.value">
+      {{ option.descriptions }}
+      {{ option.alternativeDesc ? option.alternativeDesc : null }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field *ngIf="showSearchBar" style="width: 100%" appearance="fill">
+  <mat-label>{{ text }}</mat-label>
+  <mat-select
+    [panelClass]="showSearchBar ? 'custom-search-select':''"
+    [(ngModel)]="itemSelected"
+    name="deposito"
+    (selectionChange)="onChange()"
+    (opened)="onOpen()"
+  >
+    <mat-option>
+      <ngx-mat-select-search
+        placeholderLabel="Buscar"
+        noEntriesFoundLabel="No encontrado"
+        [formControl]="filterCtrl"
+      ></ngx-mat-select-search>
+    </mat-option>
+    <mat-option *ngFor="let option of options" [value]="option.value">
+      {{ option.descriptions }}
+    </mat-option>
+  </mat-select>
+  <div
+    clear-option
+    mat-button
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    (click)="$event.stopPropagation()"
+    
+  >
+    <mat-icon>close</mat-icon>
+  </div>
+</mat-form-field>

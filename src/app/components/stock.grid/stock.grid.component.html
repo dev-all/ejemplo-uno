@@ -1,0 +1,65 @@
+<div class="mt-1 datos-wrap">
+  <h2>Datos en Stock</h2>
+
+  <table mat-table [dataSource]="stocks" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="deposito">
+      <th class="text-center" mat-header-cell *matHeaderCellDef>Depósito</th>
+      <td class="text-center" mat-cell *matCellDef="let element">
+        {{ element.DetalleDeposito.Numero }}
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="stockActual">
+      <th class="text-center" mat-header-cell *matHeaderCellDef>
+        Stock Actual
+      </th>
+      <td class="text-center" mat-cell *matCellDef="let element">
+        {{ element.StkActual |  currency:'es-AR':'' }}
+      </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="minimo">
+      <th class="text-center" mat-header-cell *matHeaderCellDef>Mínimo</th>
+      <td class="text-center" mat-cell *matCellDef="let element">
+        {{ element.Minimo |  currency:'es-AR':'' }}
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="maximo">
+      <th class="text-center" mat-header-cell *matHeaderCellDef>Máximo</th>
+      <td class="text-center" mat-cell *matCellDef="let element">
+        {{ element.Maximo |  currency:'es-AR':'' }}
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="ubicación">
+      <th class="text-center" mat-header-cell *matHeaderCellDef>Ubicación</th>
+      <td class="text-center" mat-cell *matCellDef="let element">
+        {{ element.Ubicacion }}
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="variante">
+      <th class="text-center" mat-header-cell *matHeaderCellDef>Variante</th>
+      <td class="text-center" mat-cell *matCellDef="let element">
+        {{ element.DescripcionVariante }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      [ngClass]="{ 'highlightTableColor': selectIdStock == row.IdStock }"
+    ></tr>
+  </table>
+</div>

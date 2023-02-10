@@ -1,0 +1,44 @@
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+
+
+  app-magnum-button {
+    height: 52px;
+  }
+}
+
+.saldo h4 {
+
+  text-align: end;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.table-wrap {
+  height: 400px;
+}
+
+.buttons-wrap {
+  display: flex;
+}
+
+mat-divider {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width:540px) {
+  form {
+    grid-template-columns: 1fr;
+
+    app-magnum-button {
+      height: initial
+    }
+  }
+
+  table {
+    width: 520px;
+  }
+}

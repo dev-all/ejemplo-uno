@@ -1,0 +1,46 @@
+.form-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  .span-ubicacion {
+    grid-column: 2 / span 2;
+  }
+
+  .not-span-ubicacion{
+    grid-column: initial;
+  }
+
+  .buton-wrap {
+    grid-column: 1 / span 3;
+    justify-self: end;
+  }
+}
+
+table {
+  width: 90%;
+  margin: auto;
+  box-shadow: none;
+}
+
+
+.dialog-actions {
+  justify-content: flex-end;
+}
+
+.dialog-content {
+  padding: 0px;
+}
+
+.datos-wrap {
+
+  background-color: #f4f3f3;
+
+  h2 {
+
+    margin-left: 26px;
+  }
+
+  .mat-table {
+    background-color: #f4f3f3;
+  }
+}

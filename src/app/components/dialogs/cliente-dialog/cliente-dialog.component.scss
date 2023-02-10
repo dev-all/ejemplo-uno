@@ -1,0 +1,28 @@
+.form-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.table-wrap {
+  max-height: 66vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  table {
+    background-color: #f4f3f3;
+  }
+
+
+}
+
+.mat-row:hover {
+  background-color: #E1E0E0;
+  cursor: pointer;
+}
+
+
+
+/*hover table and select*/
+.min-width-column {
+  min-width: 56px
+}

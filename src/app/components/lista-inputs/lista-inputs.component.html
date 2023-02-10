@@ -1,0 +1,32 @@
+<div class="lista-wraps" listaInput="true">
+  <button
+    listaInput="true"
+    mat-mini-fab
+    color="primary"
+    aria-label="Example icon button with a home icon"
+    type="button"
+    (click)="this.mostrarLista = !this.mostrarLista"
+  >
+    <mat-icon listaInput="true">add</mat-icon>
+  </button>
+
+  <mat-selection-list
+    listaInput="true"
+    *ngIf="this.mostrarLista"
+    #inputs
+    (selectionChange)="listChange($event)"
+  >
+    <mat-list-option
+      listaInput="true"
+      *ngFor="let input of listaInputs"
+      [value]="input"
+      [selected]="input.checked"      
+    >
+      <!-- ver tema de selected. No se estan marcando los checks -->
+    <span listaInput="true">{{ input.descripcion }}</span>  
+    </mat-list-option>
+  </mat-selection-list>
+</div>
+<!-- <p>
+    Options selected: {{inputs.selectedOptions.selected[].value}}
+  </p> -->
