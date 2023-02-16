@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { MovimientoDepositoAgregar } from 'src/app/models/MovimientoDepositos/MovimientoDepositoAgregar';
+import { MovimientoDepositoAgregar } from '@models/MovimientoDepositos/MovimientoDepositoAgregar';
 
 @Injectable({
   providedIn: 'root',

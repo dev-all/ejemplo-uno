@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { ClienteVentaRequest } from 'src/app/models/Cliente/ClienteVentaRequest';
-import { ClienteVentaResponse } from 'src/app/models/Cliente/ClienteVentaResponse';
-import { TipoBusquedadCliente } from 'src/app/models/Cliente/TipoBusquedadCliente.enum';
-import { ClienteService } from 'src/app/services/cliente/cliente.service';
+import { ClienteVentaRequest } from '@models/Cliente/ClienteVentaRequest';
+import { ClienteVentaResponse } from '@models/Cliente/ClienteVentaResponse';
+import { TipoBusquedadCliente } from '@models/Cliente/TipoBusquedadCliente.enum';
+import { ClienteService } from '@services/cliente/cliente.service';
 import { SelectOption } from '../../magnum-select/magnum-select.component';
 
 @Component({

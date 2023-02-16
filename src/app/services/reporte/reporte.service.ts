@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ReporteBase } from 'src/app/models/Reporte/ReporteBase';
-import { ReporteMovimientoDepositoRequest } from 'src/app/models/Reporte/ReporteMovimientoDepositoRequest';
-import { ReporteRequestMovimiento } from 'src/app/models/Reporte/ReporteRequestMovimiento';
-import { ResponseBase } from 'src/app/models/ResponseBase';
-import { environment } from 'src/environments/environment';
+import { ReporteBase } from '@models/Reporte/ReporteBase';
+import { ReporteMovimientoDepositoRequest } from '@models/Reporte/ReporteMovimientoDepositoRequest';
+import { ReporteRequestMovimiento } from '@models/Reporte/ReporteRequestMovimiento';
+import { ResponseBase } from '@models/ResponseBase';
+import { environment } from '@env/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -22,7 +22,7 @@ export class ReporteService {
   }
 
   generarReporteMovimiento(request: object) {
-    
+
     return this.http.post<ResponseBase<string>>(
       `${environment.apiUrl}/v1/reporte/movimiento`,
       request

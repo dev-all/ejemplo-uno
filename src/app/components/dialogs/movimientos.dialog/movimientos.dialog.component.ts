@@ -3,21 +3,21 @@ import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
-import { Deposito } from 'src/app/models/Deposito/Deposito';
-import { DepositoRequest } from 'src/app/models/Deposito/DepositoRequest';
-import { Movimiento } from 'src/app/models/Movimientos/Movimiento';
-import { MovimientoRequest } from 'src/app/models/Movimientos/MovimientoRequest';
-import { Producto } from 'src/app/models/Producto/Producto';
-import { ReporteBase } from 'src/app/models/Reporte/ReporteBase';
-import { ReporteRequestMovimiento } from 'src/app/models/Reporte/ReporteRequestMovimiento';
-import { TipoReporte } from 'src/app/models/Reporte/TipoReporte.enum';
-import { StockRequest } from 'src/app/models/Stock/StockRequest';
-import { Variante } from 'src/app/models/Variante/Variante';
-import { VarianteRequest } from 'src/app/models/Variante/VarianteRequest';
-import { DepositoService } from 'src/app/services/deposito/deposito.service';
-import { MovimientoService } from 'src/app/services/movimiento/movimiento.service';
-import { ReporteService } from 'src/app/services/reporte/reporte.service';
-import { VarianteService } from 'src/app/services/variante/variante.service';
+import { Deposito } from '@models/Deposito/Deposito';
+import { DepositoRequest } from '@models/Deposito/DepositoRequest';
+import { Movimiento } from '@models/Movimientos/Movimiento';
+import { MovimientoRequest } from '@models/Movimientos/MovimientoRequest';
+import { Producto } from '@models/Producto/Producto';
+import { ReporteBase } from '@models/Reporte/ReporteBase';
+import { ReporteRequestMovimiento } from '@models/Reporte/ReporteRequestMovimiento';
+import { TipoReporte } from '@models/Reporte/TipoReporte.enum';
+import { StockRequest } from '@models/Stock/StockRequest';
+import { Variante } from '@models/Variante/Variante';
+import { VarianteRequest } from '@models/Variante/VarianteRequest';
+import { DepositoService } from '@services/deposito/deposito.service';
+import { MovimientoService } from '@services/movimiento/movimiento.service';
+import { ReporteService } from '@services/reporte/reporte.service';
+import { VarianteService } from '@services/variante/variante.service';
 
 @Component({
   selector: 'app-movimientos.dialog',

@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ProveedorRequest } from 'src/app/models/Proveedor/ProveedorRequest';
-import { ProveedorResponse } from 'src/app/models/Proveedor/ProveedorResponse';
-import { environment } from 'src/environments/environment';
+import { ProveedorRequest } from '@models/Proveedor/ProveedorRequest';
+import { ProveedorResponse } from '@models/Proveedor/ProveedorResponse';
+import { environment } from '@env/environment';
 
 @Injectable({
   providedIn: 'root',

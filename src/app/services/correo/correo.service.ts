@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CorreoRequest } from 'src/app/models/Correo/CorreoRequest';
-import { environment } from 'src/environments/environment';
+import { CorreoRequest } from '@models/Correo/CorreoRequest';
 
+import { environment } from '@env/environment';
 @Injectable({
   providedIn: 'root',
 })

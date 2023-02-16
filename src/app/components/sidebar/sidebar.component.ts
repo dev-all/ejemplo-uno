@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Usuario } from 'src/app/models/Usuario';
-import { LoginService } from 'src/app/services/login/login.service';
-import { UserService } from 'src/app/services/user/user.service';
+import { Usuario } from '@models/Usuario';
+import { LoginService } from '@services/login/login.service';
+import { UserService } from '@services/user/user.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -26,9 +26,9 @@ export class SidebarComponent implements OnInit {
     const dropdown =
       this.elementRef.nativeElement.querySelectorAll('.dropdown-btn');
 
-    
 
-    
+
+
     for (var i = 0; i < dropdown.length; i++) {
       dropdown[i].addEventListener('click', function () {
         this.classList.toggle('active');

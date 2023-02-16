@@ -3,48 +3,49 @@ import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { forkJoin, of, Subscription } from 'rxjs';
 import { max } from 'rxjs/operators';
-import { AgregarProductoDialogComponent } from 'src/app/components/dialogs/agregar-producto-dialog/agregar-producto-dialog.component';
-import { BonificacionGeneralDialogComponent } from 'src/app/components/dialogs/bonificacion.general-dialog/bonificacion.general-dialog.component';
-import { BonificacionItemDialogComponent } from 'src/app/components/dialogs/bonificacion.item-dialog/bonificacion.item-dialog.component';
-import { ClienteDialogComponent } from 'src/app/components/dialogs/cliente-dialog/cliente-dialog.component';
-import { LoginDialogComponent } from 'src/app/components/dialogs/login.dialog/login.dialog.component';
-import { MessageDialogComponent } from 'src/app/components/dialogs/message.dialog/message.dialog.component';
-import { PedidoMercaderiaDialogComponent } from 'src/app/components/dialogs/pedido.mercaderia.dialog/pedido.mercaderia.dialog.component';
-import { ProductoDialogComponent } from 'src/app/components/dialogs/producto.dialog/producto.dialog.component';
-import { SeleccionProductosComponent } from 'src/app/components/dialogs/seleccion-productos/seleccion-productos.component';
-import { SelectOption } from 'src/app/components/magnum-select/magnum-select.component';
-import { BonificacionComercialRequest } from 'src/app/models/Bonificacion/BonificacionComercialRequest';
-import { BonificacionOfertaRequest } from 'src/app/models/Bonificacion/BonificacionOfertaRequest';
-import { ClienteCuentaRequest } from 'src/app/models/Cliente/ClienteCuentaRequest';
-import { ClienteCuentaResponse } from 'src/app/models/Cliente/ClienteCuentaResponse';
-import { ClienteEntrega } from 'src/app/models/ClienteEntrega/ClienteEntrega';
-import { ComprobanteCabeceraRequest } from 'src/app/models/Comprobante/ComprobanteCabeceraRequest';
-import { ComprobanteDetalleRequest } from 'src/app/models/Comprobante/ComprobanteDetalleRequest';
-import { Formas } from 'src/app/models/Formas/Formas';
-import { Lista } from 'src/app/models/Lista/Lista';
-import { PedidoMercaderiaRequest } from 'src/app/models/Mercaderia/PedidoMercaderiaRequest';
-import { AgregarProducto } from 'src/app/models/Producto/AgregarProducto';
-import { ProductoCostosRequest } from 'src/app/models/Producto/ProductoCostosRequest';
-import { ProductoRequest } from 'src/app/models/Producto/ProductoRequest';
-import { ProductoVentaGrid } from 'src/app/models/Producto/ProductoVentaGrid';
-import { ProductoVentaGridRequest } from 'src/app/models/Producto/ProductoVentaGridRequest';
-import { ProductoVentaRequest } from 'src/app/models/Producto/ProductoVentaRequest';
-import { ProductoVentas } from 'src/app/models/Producto/ProductoVentas';
-import { RequestBase } from 'src/app/models/RequestBase';
-import { Seccion } from 'src/app/models/Seccion/Seccion';
-import { StockReponse } from 'src/app/models/Stock/StockInicialReponse';
-import { StockRequest } from 'src/app/models/Stock/StockRequest';
-import { TipoFactura } from 'src/app/models/TipoFactura/TipoFactura';
-import { Transporte } from 'src/app/models/Transporte/Transporte';
-import { Vendedor } from 'src/app/models/Vendedor/Vendedor';
-import { BonificacionService } from 'src/app/services/bonificacion/bonificacion.service';
-import { ClienteService } from 'src/app/services/cliente/cliente.service';
-import { GenericCrudService } from 'src/app/services/generic-crud.service';
-import { AgregarProductoService } from 'src/app/services/producto/agregar-producto.service';
-import { ProductoService } from 'src/app/services/producto/producto.service';
-import { StockService } from 'src/app/services/stock/stock.service';
-import { UserService } from 'src/app/services/user/user.service';
-import { VendedorService } from 'src/app/services/vendedor/vendedor.service';
+import { AgregarProductoDialogComponent } from '@components/dialogs/agregar-producto-dialog/agregar-producto-dialog.component';
+import { BonificacionGeneralDialogComponent } from '@components/dialogs/bonificacion.general-dialog/bonificacion.general-dialog.component';
+import { BonificacionItemDialogComponent } from '@components/dialogs/bonificacion.item-dialog/bonificacion.item-dialog.component';
+import { ClienteDialogComponent } from '@components/dialogs/cliente-dialog/cliente-dialog.component';
+import { LoginDialogComponent } from '@components/dialogs/login.dialog/login.dialog.component';
+import { MessageDialogComponent } from '@components/dialogs/message.dialog/message.dialog.component';
+import { PedidoMercaderiaDialogComponent } from '@components/dialogs/pedido.mercaderia.dialog/pedido.mercaderia.dialog.component';
+import { ProductoDialogComponent } from '@components/dialogs/producto.dialog/producto.dialog.component';
+import { SeleccionProductosComponent } from '@components/dialogs/seleccion-productos/seleccion-productos.component';
+import { SelectOption } from '@components/magnum-select/magnum-select.component';
+import { BonificacionComercialRequest } from '@models/Bonificacion/BonificacionComercialRequest';
+import { BonificacionOfertaRequest } from '@models/Bonificacion/BonificacionOfertaRequest';
+import { ClienteCuentaRequest } from '@models/Cliente/ClienteCuentaRequest';
+import { ClienteCuentaResponse } from '@models/Cliente/ClienteCuentaResponse';
+import { ClienteEntrega } from '@models/ClienteEntrega/ClienteEntrega';
+import { ComprobanteCabeceraRequest } from '@models/Comprobante/ComprobanteCabeceraRequest';
+import { ComprobanteDetalleRequest } from '@models/Comprobante/ComprobanteDetalleRequest';
+import { Formas } from '@models/Formas/Formas';
+import { Lista } from '@models/Lista/Lista';
+import { PedidoMercaderiaRequest } from '@models/Mercaderia/PedidoMercaderiaRequest';
+import { AgregarProducto } from '@models/Producto/AgregarProducto';
+import { ProductoCostosRequest } from '@models/Producto/ProductoCostosRequest';
+import { ProductoRequest } from '@models/Producto/ProductoRequest';
+import { ProductoVentaGrid } from '@models/Producto/ProductoVentaGrid';
+import { ProductoVentaGridRequest } from '@models/Producto/ProductoVentaGridRequest';
+import { ProductoVentaRequest } from '@models/Producto/ProductoVentaRequest';
+import { ProductoVentas } from '@models/Producto/ProductoVentas';
+import { RequestBase } from '@models/RequestBase';
+import { Seccion } from '@models/Seccion/Seccion';
+import { StockReponse } from '@models/Stock/StockInicialReponse';
+import { StockRequest } from '@models/Stock/StockRequest';
+import { TipoFactura } from '@models/TipoFactura/TipoFactura';
+import { Transporte } from '@models/Transporte/Transporte';
+import { Vendedor } from '@models/Vendedor/Vendedor';
+import { BonificacionService } from '@services/bonificacion/bonificacion.service';
+import { ClienteService } from '@services/cliente/cliente.service';
+import { GenericCrudService } from '@services/generic-crud.service';
+import { GlobalSnackbarService } from '@services/global.snackbar/global.snackbar.service';
+import { AgregarProductoService } from '@services/producto/agregar-producto.service';
+import { ProductoService } from '@services/producto/producto.service';
+import { StockService } from '@services/stock/stock.service';
+import { UserService } from '@services/user/user.service';
+import { VendedorService } from '@services/vendedor/vendedor.service';
 
 @Component({
   selector: 'app-ventas',
@@ -121,7 +122,8 @@ export class VentasComponent implements OnInit {
     private userService: UserService,
     private stockService: StockService,
     private nuevoMovimientoService: AgregarProductoService,
-    private bonificacionService: BonificacionService
+    private bonificacionService: BonificacionService,
+    private snackbarService: GlobalSnackbarService
   ) {
     this.vendedorSelect.push(
       new SelectOption({ value: 0, descriptions: 'USUARIO ACTUAL' })
@@ -271,6 +273,10 @@ export class VentasComponent implements OnInit {
     var data = await clienteDialog.afterClosed().toPromise();
 
     var clienteCuenta = await this.getClienteCuenta(data.cuenta);
+
+    if(!clienteCuenta.IdCiudad){
+      this.snackbarService.showSnackBar('El cliente no poseee registro de "ciudad" ');
+    }
 
     this.clienteCuenta = clienteCuenta;
     this.clientFormControl.setValue(this.clienteCuenta.Nombre);

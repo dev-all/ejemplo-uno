@@ -4,7 +4,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { UserService } from 'src/app/services/user/user.service';
+import { UserService } from '@services/user/user.service';
 import { MessageDialogComponent } from '../message.dialog/message.dialog.component';
 
 @Component({
@@ -25,7 +25,7 @@ export class ConfirmationDialogComponent implements OnInit {
     private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    // var allowed = this.userService.getUserAccess('BORRssAR');    
+    // var allowed = this.userService.getUserAccess('BORRssAR');
     // if (!allowed) {
     //   this.dialog.open(MessageDialogComponent, {
     //     data: {

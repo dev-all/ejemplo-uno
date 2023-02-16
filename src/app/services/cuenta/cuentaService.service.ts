@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CuentaPendiente } from 'src/app/models/Cuenta/CuentaPendiente';
-import { CuentaRequest } from 'src/app/models/Cuenta/CuentaRequest';
-import { ResumenCuenta } from 'src/app/models/Cuenta/ResumenCuenta';
-import { ReciboCuentaItem } from 'src/app/models/Recibo/Recibo';
-import { ResponseBase } from 'src/app/models/ResponseBase';
-import { environment } from 'src/environments/environment';
+import { CuentaPendiente } from '@models/Cuenta/CuentaPendiente';
+import { CuentaRequest } from '@models/Cuenta/CuentaRequest';
+import { ResumenCuenta } from '@models/Cuenta/ResumenCuenta';
+import { ReciboCuentaItem } from '@models/Recibo/Recibo';
+import { ResponseBase } from '@models/ResponseBase';
 
+import { environment } from '@env/environment';
 @Injectable({
   providedIn: 'root',
 })

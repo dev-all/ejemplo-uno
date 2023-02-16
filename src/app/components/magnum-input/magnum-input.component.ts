@@ -9,6 +9,7 @@ import { FormControl } from '@angular/forms';
 export class MagnumInputComponent implements OnInit {
   @Input() inputFormControl: FormControl;
   @Input() placeHolder: string;
+  @Input() errorMessage: string;
   @Input() type = 'text';
   @Input() ref: string;
 

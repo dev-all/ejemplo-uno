@@ -3,9 +3,9 @@ import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { forkJoin } from 'rxjs';
-import { CuentaRequest } from 'src/app/models/Cuenta/CuentaRequest';
-import { ResumenCuenta } from 'src/app/models/Cuenta/ResumenCuenta';
-import { CuentaServiceService } from 'src/app/services/cuenta/cuentaService.service';
+import { CuentaRequest } from '@models/Cuenta/CuentaRequest';
+import { ResumenCuenta } from '@models/Cuenta/ResumenCuenta';
+import { CuentaServiceService } from '@services/cuenta/cuentaService.service';
 
 @Component({
   selector: 'app-resumen.cuenta.dialog',

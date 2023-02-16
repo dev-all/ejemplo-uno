@@ -1,12 +1,11 @@
 import { RouterModule, Routes } from '@angular/router';
-import { ClienteComponent } from 'src/app/pages/cliente/cliente.component';
-import { HomePage } from 'src/app/pages/home/home.component';
-import { MovimientoDepositoPage } from 'src/app/pages/movimiento-deposito/movimiento-deposito.component';
-import { PdfViewerPage } from 'src/app/pages/pdf.viewer/pdf.viewer.component';
-import { ProductPage } from 'src/app/pages/producto/product.component';
-import { ReciboCuentaCorrientePage } from 'src/app/pages/recibo-cuenta-corriente/recibo-cuenta-corriente';
-import { ResumenCuentaPage } from 'src/app/pages/resumen.cuenta/resumen.cuenta.component';
-import { VentasComponent } from 'src/app/pages/ventas/ventas.component';
+import { ClienteComponent } from '@pages/cliente/cliente.component';
+import { HomePage } from '@pages/home/home.component';
+import { MovimientoDepositoPage } from '@pages/movimiento-deposito/movimiento-deposito.component';
+import { PdfViewerPage } from '@pages/pdf.viewer/pdf.viewer.component';
+import { ReciboCuentaCorrientePage } from '@pages/recibo-cuenta-corriente/recibo-cuenta-corriente';
+import { ResumenCuentaPage } from '@pages/resumen.cuenta/resumen.cuenta.component';
+import { VentasComponent } from '@pages/ventas/ventas.component';
 import { HomeLayout } from './home.component';
 
 const routes: Routes = [
@@ -20,7 +19,7 @@ const routes: Routes = [
       },
       {
         path: 'productos',
-        component: ProductPage,
+        loadChildren: () => import('@pages/producto/producto.module').then(m => m.ProductoModule)
       },
       {
         path: 'movimiento-depositos',

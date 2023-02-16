@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { GrupoModel } from 'src/app/models/Grupo/GrupoModel';
-import { RequestBase } from 'src/app/models/RequestBase';
-import { ResponseBase } from 'src/app/models/ResponseBase';
-import { environment } from 'src/environments/environment';
+import { GrupoModel } from '@models/Grupo/GrupoModel';
+import { RequestBase } from '@models/RequestBase';
+import { ResponseBase } from '@models/ResponseBase';
 
+import { environment } from '@env/environment';
 @Injectable({
   providedIn: 'root',
 })

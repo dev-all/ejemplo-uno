@@ -10,9 +10,20 @@ const mainModule = () =>
   import('./layouts/home/home.module').then((x) => x.HomeModule);
 
 const routes: Routes = [
-  { path: 'login', loadChildren: loginModule, canActivate: [LoginGuard] },
-  { path: '', loadChildren: mainModule, canActivate: [AuthGuard] },
+  { path: 'login'
+      , loadChildren: loginModule
+      , canActivate: [LoginGuard]
+  },
+  { path: ''
+    , loadChildren: mainModule
+    , canActivate: [AuthGuard]
+  },
 ];
+
+
+
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

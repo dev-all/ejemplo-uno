@@ -5,12 +5,12 @@ import {
   MatDialogConfig,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { CorreoRequest } from 'src/app/models/Correo/CorreoRequest';
-import { CorreoService } from 'src/app/services/correo/correo.service';
-import { ReporteService } from 'src/app/services/reporte/reporte.service';
-import { UserService } from 'src/app/services/user/user.service';
+import { CorreoRequest } from '@models/Correo/CorreoRequest';
+import { CorreoService } from '@services/correo/correo.service';
+import { ReporteService } from '@services/reporte/reporte.service';
+import { UserService } from '@services/user/user.service';
 import { MessageDialogComponent } from '../message.dialog/message.dialog.component';
-import { ConfirmationDialogComponent } from 'src/app/components/dialogs/confirmation.dialog/confirmation.dialog.component';
+import { ConfirmationDialogComponent } from '@components/dialogs/confirmation.dialog/confirmation.dialog.component';
 
 @Component({
   selector: 'app-mail.report.dialog',

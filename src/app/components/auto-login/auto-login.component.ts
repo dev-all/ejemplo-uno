@@ -1,14 +1,14 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { AccesoRequest } from 'src/app/models/Acceso/AccesoRequest';
-import { Inicial } from 'src/app/models/Inicial/Inicial';
-import { LoginRequest } from 'src/app/models/Login/LoginRequest';
-import { RequestBase } from 'src/app/models/RequestBase';
-import { AccesoService } from 'src/app/services/acceso/acceso.service';
-import { GenericCrudService } from 'src/app/services/generic-crud.service';
-import { LoginService } from 'src/app/services/login/login.service';
-import { UserService } from 'src/app/services/user/user.service';
+import { AccesoRequest } from '@models/Acceso/AccesoRequest';
+import { Inicial } from '@models/Inicial/Inicial';
+import { LoginRequest } from '@models/Login/LoginRequest';
+import { RequestBase } from '@models/RequestBase';
+import { AccesoService } from '@services/acceso/acceso.service';
+import { GenericCrudService } from '@services/generic-crud.service';
+import { LoginService } from '@services/login/login.service';
+import { UserService } from '@services/user/user.service';
 
 @Component({
   selector: 'app-auto-login',

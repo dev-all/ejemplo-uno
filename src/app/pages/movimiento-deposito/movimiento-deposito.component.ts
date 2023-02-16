@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MovimientoDepositoRequest } from 'src/app/models/MovimientoDepositos/MovimientoDepositoRequest';
-import { MovimientoDeposito } from 'src/app/models/MovimientoDepositos/MovimientoDepositos';
-import { GlobalSnackbarService } from 'src/app/services/global.snackbar/global.snackbar.service';
-import { MovimientoService } from 'src/app/services/movimiento/movimiento.service';
+import { MovimientoDepositoRequest } from '@models/MovimientoDepositos/MovimientoDepositoRequest';
+import { MovimientoDeposito } from '@models/MovimientoDepositos/MovimientoDepositos';
+import { GlobalSnackbarService } from '@services/global.snackbar/global.snackbar.service';
+import { MovimientoService } from '@services/movimiento/movimiento.service';
 import * as moment from 'moment';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { NuevoMovimientoDialogComponent } from 'src/app/components/dialogs/nuevo-movimiento-dialog/nuevo-movimiento-dialog.component';
-import { AgregarProductoService } from 'src/app/services/producto/agregar-producto.service';
-import { EliminarMovimientoDeposito } from 'src/app/models/MovimientoDepositos/EliminarMovimientoDeposito';
+import { NuevoMovimientoDialogComponent } from '@components/dialogs/nuevo-movimiento-dialog/nuevo-movimiento-dialog.component';
+import { AgregarProductoService } from '@services/producto/agregar-producto.service';
+import { EliminarMovimientoDeposito } from '@models/MovimientoDepositos/EliminarMovimientoDeposito';
 import {
   animate,
   state,
@@ -16,13 +16,13 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { ConfirmationDialogComponent } from 'src/app/components/dialogs/confirmation.dialog/confirmation.dialog.component';
-import { ModificarMovimientoDialogComponent } from 'src/app/components/dialogs/modificar-movimiento-dialog/modificar-movimiento-dialog.component';
-import { ReporteMovimientoDepositoRequest } from 'src/app/models/Reporte/ReporteMovimientoDepositoRequest';
-import { ReporteService } from 'src/app/services/reporte/reporte.service';
+import { ConfirmationDialogComponent } from '@components/dialogs/confirmation.dialog/confirmation.dialog.component';
+import { ModificarMovimientoDialogComponent } from '@components/dialogs/modificar-movimiento-dialog/modificar-movimiento-dialog.component';
+import { ReporteMovimientoDepositoRequest } from '@models/Reporte/ReporteMovimientoDepositoRequest';
+import { ReporteService } from '@services/reporte/reporte.service';
 import { Router } from '@angular/router';
-import { ReporteBase } from 'src/app/models/Reporte/ReporteBase';
-import { TipoReporte } from 'src/app/models/Reporte/TipoReporte.enum';
+import { ReporteBase } from '@models/Reporte/ReporteBase';
+import { TipoReporte } from '@models/Reporte/TipoReporte.enum';
 
 @Component({
   selector: 'app-movimiento-deposito',

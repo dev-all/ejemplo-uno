@@ -7,7 +7,7 @@ import {
   Renderer2,
 } from '@angular/core';
 import { MatSelectionListChange } from '@angular/material/list';
-import { InputDinamico } from 'src/app/models/FormDinamico/InputDinamico';
+import { InputDinamico } from '@models/FormDinamico/InputDinamico';
 
 @Component({
   selector: 'app-lista-inputs',

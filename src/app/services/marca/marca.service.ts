@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Marca } from 'src/app/models/Marca/Marca';
-import { RequestBase } from '../../models/RequestBase';
-import { ResponseBase } from 'src/app/models/ResponseBase';
-import { environment } from 'src/environments/environment';
+import { Marca } from '@models/Marca/Marca';
+import { RequestBase } from '@models/RequestBase';
+import { ResponseBase } from '@models/ResponseBase';
+import { environment } from '@env/environment';
 
 @Injectable({
   providedIn: 'root',

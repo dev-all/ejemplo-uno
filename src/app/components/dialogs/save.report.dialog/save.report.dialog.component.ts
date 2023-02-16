@@ -1,10 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ReporteBase } from 'src/app/models/Reporte/ReporteBase';
-import { ReporteRequestMovimiento } from 'src/app/models/Reporte/ReporteRequestMovimiento';
-import { TipoReporte } from 'src/app/models/Reporte/TipoReporte.enum';
-import { MovimientoService } from 'src/app/services/movimiento/movimiento.service';
-import { ReporteService } from 'src/app/services/reporte/reporte.service';
+import { ReporteBase } from '@models/Reporte/ReporteBase';
+import { ReporteRequestMovimiento } from '@models/Reporte/ReporteRequestMovimiento';
+import { TipoReporte } from '@models/Reporte/TipoReporte.enum';
+import { MovimientoService } from '@services/movimiento/movimiento.service';
+import { ReporteService } from '@services/reporte/reporte.service';
 
 @Component({
   selector: 'app-save.report.dialog',

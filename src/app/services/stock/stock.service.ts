@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { StockReponse } from 'src/app/models/Stock/StockInicialReponse';
-import { StockRequest } from 'src/app/models/Stock/StockRequest';
-import { Stock } from 'src/app/models/Stock/StockInicial';
-import { StockActualRequest } from 'src/app/models/Stock/StockActualRequest';
-import { ResponseBase } from 'src/app/models/ResponseBase';
+import { environment } from '@env/environment';
+import { StockReponse } from '@models/Stock/StockInicialReponse';
+import { StockRequest } from '@models/Stock/StockRequest';
+import { Stock } from '@models/Stock/StockInicial';
+import { StockActualRequest } from '@models/Stock/StockActualRequest';
+import { ResponseBase } from '@models/ResponseBase';
 
 @Injectable({
   providedIn: 'root',

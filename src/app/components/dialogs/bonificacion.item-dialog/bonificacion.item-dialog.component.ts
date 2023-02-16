@@ -2,10 +2,10 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { forkJoin } from 'rxjs';
-import { BonificacionComercialRequest } from 'src/app/models/Bonificacion/BonificacionComercialRequest';
-import { BonificacionOfertaRequest } from 'src/app/models/Bonificacion/BonificacionOfertaRequest';
-import { BonificacionService } from 'src/app/services/bonificacion/bonificacion.service';
-import { UserService } from 'src/app/services/user/user.service';
+import { BonificacionComercialRequest } from '@models/Bonificacion/BonificacionComercialRequest';
+import { BonificacionOfertaRequest } from '@models/Bonificacion/BonificacionOfertaRequest';
+import { BonificacionService } from '@services/bonificacion/bonificacion.service';
+import { UserService } from '@services/user/user.service';
 import { BonificacionGeneralDialogComponent } from '../bonificacion.general-dialog/bonificacion.general-dialog.component';
 
 @Component({

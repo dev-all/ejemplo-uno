@@ -2,18 +2,18 @@ import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { forkJoin } from 'rxjs';
-import { Fondo } from 'src/app/models/Fondo/Fondo';
-import { Imputacion } from 'src/app/models/Imputacion/Imputacion';
-import { ReciboCuentaItem } from 'src/app/models/Recibo/Recibo';
-import { RequestBase } from 'src/app/models/RequestBase';
-import { Vendedor } from 'src/app/models/Vendedor/Vendedor';
-import { VendedorService } from 'src/app/services/vendedor/vendedor.service';
+import { Fondo } from '@models/Fondo/Fondo';
+import { Imputacion } from '@models/Imputacion/Imputacion';
+import { ReciboCuentaItem } from '@models/Recibo/Recibo';
+import { RequestBase } from '@models/RequestBase';
+import { Vendedor } from '@models/Vendedor/Vendedor';
+import { VendedorService } from '@services/vendedor/vendedor.service';
 import { Location } from '@angular/common';
-import { UserService } from 'src/app/services/user/user.service';
-import { GenericCrudService } from 'src/app/services/generic-crud.service';
-import { NumeroFormulario } from 'src/app/models/NumeroFormulario/NumeroFormulario';
-import { CuentaServiceService } from 'src/app/services/cuenta/cuentaService.service';
-import { CuentaRequest } from 'src/app/models/Cuenta/CuentaRequest';
+import { UserService } from '@services/user/user.service';
+import { GenericCrudService } from '@services/generic-crud.service';
+import { NumeroFormulario } from '@models/NumeroFormulario/NumeroFormulario';
+import { CuentaServiceService } from '@services/cuenta/cuentaService.service';
+import { CuentaRequest } from '@models/Cuenta/CuentaRequest';
 
 @Component({
   selector: 'app-ReciboCuentaCorriente',

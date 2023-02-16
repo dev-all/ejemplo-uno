@@ -1,56 +1,49 @@
 <nav class="main-menu menu-closed">
-  <ul>
-    <li class="user-data-wrap">
-      <a>
-        <mat-icon>account_circle</mat-icon>
-        <span class=""> {{ user.nombre }} </span>
-      </a>
-    </li>
+    <ul>
+        <li class="user-data-wrap">
+            <a>
+                <mat-icon>account_circle</mat-icon>
+                <span class=""> {{ user.nombre }} </span>
+            </a>
+        </li>
 
-    <li class="has-subnav">
-      <i class="fa fa-user fa-2x"></i>
-      <span class="nav-text dropdown-btn">Clientes</span>
-      <div class="dropdown-container">
-        <a [routerLink]="'/clientes'" [routerLinkActive]="['is-active']">
+        <li class="has-subnav">
+            <i class="fa fa-user fa-2x"></i>
+            <span class="nav-text dropdown-btn">Clientes</span>
+            <div class="dropdown-container">
+                <a [routerLink]="'/clientes'" [routerLinkActive]="['is-active']">
           Cliente
         </a>
-      </div>
-    </li>
-    <li class="has-subnav">
-      <i class="fa fa-laptop fa-2x"></i>
-      <span class="nav-text dropdown-btn"> Productos </span>
-      <div class="dropdown-container">
-        <a [routerLink]="'/productos'" [routerLinkActive]="['is-active']">
-          Productos
-        </a>
-        <a
-          class="menu-margin"
-          [routerLink]="'/movimiento-depositos'"
-          [routerLinkActive]="['is-active']"
-        >
-          Movimiento entre depositos
-        </a>
-      </div>
-    </li>
-    <li>
-      <mat-icon> attach_money</mat-icon>
-      <span class="nav-text dropdown-btn"> Facturacion </span>
-      <div class="dropdown-container">
-        <a [routerLink]="'/ventas'" [routerLinkActive]="['is-active']">
+            </div>
+        </li>
+        <li class="has-subnav">
+            <i class="fa fa-laptop fa-2x"></i>
+            <span class="nav-text dropdown-btn"> Productos </span>
+            <div class="dropdown-container">
+                <a [routerLink]="'/productos/list'" [routerLinkActive]="['is-active']">  Productos    </a>
+                <a [routerLink]="'/productos/stock'" [routerLinkActive]="['is-active']">  Control de Stock    </a>
+                <a class="menu-margin" [routerLink]="'/movimiento-depositos'" [routerLinkActive]="['is-active']">   Movimiento entre depositos       </a>
+            </div>
+        </li>
+        <li>
+            <mat-icon> attach_money</mat-icon>
+            <span class="nav-text dropdown-btn"> Facturacion </span>
+            <div class="dropdown-container">
+                <a [routerLink]="'/ventas'" [routerLinkActive]="['is-active']">
           Ventas
         </a>
-      </div>
-    </li>
-  </ul>
+            </div>
+        </li>
+    </ul>
 
-  <ul class="logout">
-    <li>
-      <a (click)="logout()">
-        <i class="fa fa-power-off fa-2x"></i>
-        <span class="nav-text"> Salir </span>
-      </a>
-    </li>
-  </ul>
+    <ul class="logout">
+        <li>
+            <a (click)="logout()">
+                <i class="fa fa-power-off fa-2x"></i>
+                <span class="nav-text"> Salir </span>
+            </a>
+        </li>
+    </ul>
 </nav>
 
 <button>click</button>

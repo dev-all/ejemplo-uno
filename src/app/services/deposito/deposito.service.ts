@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DepositoRequest } from 'src/app/models/Deposito/DepositoRequest';
-import { DepositoResponse } from 'src/app/models/Deposito/DepositoResponse';
-import { environment } from 'src/environments/environment';
-
+import { DepositoRequest } from '@models/Deposito/DepositoRequest';
+import { DepositoResponse } from '@models/Deposito/DepositoResponse';
+import { environment } from '@env/environment';
 @Injectable({
   providedIn: 'root',
 })

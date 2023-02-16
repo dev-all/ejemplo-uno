@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Deposito } from 'src/app/models/Deposito/Deposito';
-import { DepositoRequest } from 'src/app/models/Deposito/DepositoRequest';
-import { Stock } from 'src/app/models/Stock/StockInicial';
-import { StockRequest } from 'src/app/models/Stock/StockRequest';
-import { DepositoService } from 'src/app/services/deposito/deposito.service';
-import { StockService } from 'src/app/services/stock/stock.service';
+import { Deposito } from '@models/Deposito/Deposito';
+import { DepositoRequest } from '@models/Deposito/DepositoRequest';
+import { Stock } from '@models/Stock/StockInicial';
+import { StockRequest } from '@models/Stock/StockRequest';
+import { DepositoService } from '@services/deposito/deposito.service';
+import { StockService } from '@services/stock/stock.service';
 import { Inject } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { VarianteService } from 'src/app/services/variante/variante.service';
-import { VarianteRequest } from 'src/app/models/Variante/VarianteRequest';
-import { Variante } from 'src/app/models/Variante/Variante';
+import { VarianteService } from '@services/variante/variante.service';
+import { VarianteRequest } from '@models/Variante/VarianteRequest';
+import { Variante } from '@models/Variante/Variante';
 import { MessageDialogComponent } from '../message.dialog/message.dialog.component';
-import { Producto } from 'src/app/models/Producto/Producto';
+import { Producto } from '@models/Producto/Producto';
 
 @Component({
   selector: 'app-inicio.stock.dialog',

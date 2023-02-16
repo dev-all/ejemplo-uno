@@ -3,16 +3,16 @@ import { FormControl, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { AccesoRequest } from 'src/app/models/Acceso/AccesoRequest';
-import { Inicial } from 'src/app/models/Inicial/Inicial';
-import { LoginRequest } from 'src/app/models/Login/LoginRequest';
-import { RequestBase } from 'src/app/models/RequestBase';
-import { Vendedor } from 'src/app/models/Vendedor/Vendedor';
-import { AccesoService } from 'src/app/services/acceso/acceso.service';
-import { GenericCrudService } from 'src/app/services/generic-crud.service';
-import { LoginService } from 'src/app/services/login/login.service';
-import { UserService } from 'src/app/services/user/user.service';
-import { VendedorService } from 'src/app/services/vendedor/vendedor.service';
+import { AccesoRequest } from '@models/Acceso/AccesoRequest';
+import { Inicial } from '@models/Inicial/Inicial';
+import { LoginRequest } from '@models/Login/LoginRequest';
+import { RequestBase } from '@models/RequestBase';
+import { Vendedor } from '@models/Vendedor/Vendedor';
+import { AccesoService } from '@services/acceso/acceso.service';
+import { GenericCrudService } from '@services/generic-crud.service';
+import { LoginService } from '@services/login/login.service';
+import { UserService } from '@services/user/user.service';
+import { VendedorService } from '@services/vendedor/vendedor.service';
 
 @Component({
   selector: 'app-login',
@@ -91,7 +91,7 @@ export class LoginComponent implements OnInit {
             const inicialResponse = await this.inicialService
               .obtener(baseRequest, 'inicial')
               .toPromise();
-            
+
             this.userService.setUserValue(
               loginResponse,
               accesoResponse,

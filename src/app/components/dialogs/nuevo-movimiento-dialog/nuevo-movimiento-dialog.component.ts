@@ -13,24 +13,24 @@ import {
   MatDialogRef,
 } from '@angular/material/dialog';
 import { async, forkJoin, Subscription } from 'rxjs';
-import { Deposito } from 'src/app/models/Deposito/Deposito';
-import { DepositoRequest } from 'src/app/models/Deposito/DepositoRequest';
-import { EstadoMovimientoDeposito } from 'src/app/models/MovimientoDepositos/EstadoMovimientoDeposito';
-import { MovimientoDepositoAgregar } from 'src/app/models/MovimientoDepositos/MovimientoDepositoAgregar';
-import { MovimientoDeposito } from 'src/app/models/MovimientoDepositos/MovimientoDepositos';
-import { StockActualRequest } from 'src/app/models/Stock/StockActualRequest';
-import { DepositoService } from 'src/app/services/deposito/deposito.service';
-import { AgregarProductoService } from 'src/app/services/producto/agregar-producto.service';
-import { StockService } from 'src/app/services/stock/stock.service';
-import { UserService } from 'src/app/services/user/user.service';
+import { Deposito } from '@models/Deposito/Deposito';
+import { DepositoRequest } from '@models/Deposito/DepositoRequest';
+import { EstadoMovimientoDeposito } from '@models/MovimientoDepositos/EstadoMovimientoDeposito';
+import { MovimientoDepositoAgregar } from '@models/MovimientoDepositos/MovimientoDepositoAgregar';
+import { MovimientoDeposito } from '@models/MovimientoDepositos/MovimientoDepositos';
+import { StockActualRequest } from '@models/Stock/StockActualRequest';
+import { DepositoService } from '@services/deposito/deposito.service';
+import { AgregarProductoService } from '@services/producto/agregar-producto.service';
+import { StockService } from '@services/stock/stock.service';
+import { UserService } from '@services/user/user.service';
 import { ConfirmationDialogComponent } from '../confirmation.dialog/confirmation.dialog.component';
 import { SeleccionProductosComponent } from '../seleccion-productos/seleccion-productos.component';
 import { Registro } from '../../../models/Registro/Registro';
-import { MovimientoService } from 'src/app/services/movimiento/movimiento.service';
-import { CrearMovimientoDeposito } from 'src/app/models/MovimientoDepositos/CrearMovimientoDeposito';
-import { GlobalSnackbarService } from 'src/app/services/global.snackbar/global.snackbar.service';
+import { MovimientoService } from '@services/movimiento/movimiento.service';
+import { CrearMovimientoDeposito } from '@models/MovimientoDepositos/CrearMovimientoDeposito';
+import { GlobalSnackbarService } from '@services/global.snackbar/global.snackbar.service';
 import { AgregarMercaderiaDialogComponent } from '../agregar-mercaderia-dialog/agregar-mercaderia-dialog/agregar-mercaderia-dialog.component';
-import { Mercaderia } from 'src/app/models/Mercaderia/Mercaderia';
+import { Mercaderia } from '@models/Mercaderia/Mercaderia';
 
 @Component({
   selector: 'app-nuevo-movimiento-dialog',

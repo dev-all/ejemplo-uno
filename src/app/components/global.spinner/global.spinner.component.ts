@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalSpinnerService } from 'src/app/services/global.spinner/global.spinner.service';
+import { GlobalSpinnerService } from '@services/global.spinner/global.spinner.service';
 
 @Component({
   selector: 'app-global-spinner',

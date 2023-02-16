@@ -1,19 +1,19 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { StockService } from 'src/app/services/stock/stock.service';
-import { Stock } from 'src/app/models/Stock/StockInicial';
+import { StockService } from '@services/stock/stock.service';
+import { Stock } from '@models/Stock/StockInicial';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { StockRequest } from 'src/app/models/Stock/StockRequest';
+import { StockRequest } from '@models/Stock/StockRequest';
 import { FormControl } from '@angular/forms';
-import { RegistroService } from 'src/app/services/registro/registro.service';
-import { Registro } from 'src/app/models/Registro/Registro';
-import { UserService } from 'src/app/services/user/user.service';
+import { RegistroService } from '@services/registro/registro.service';
+import { Registro } from '@models/Registro/Registro';
+import { UserService } from '@services/user/user.service';
 import { MessageDialogComponent } from '../message.dialog/message.dialog.component';
-import { Deposito } from 'src/app/models/Deposito/Deposito';
-import { VarianteService } from 'src/app/services/variante/variante.service';
-import { VarianteRequest } from 'src/app/models/Variante/VarianteRequest';
-import { Variante } from 'src/app/models/Variante/Variante';
-import { ModalService } from 'src/app/services/modal/modal.service';
-import { Producto } from 'src/app/models/Producto/Producto';
+import { Deposito } from '@models/Deposito/Deposito';
+import { VarianteService } from '@services/variante/variante.service';
+import { VarianteRequest } from '@models/Variante/VarianteRequest';
+import { Variante } from '@models/Variante/Variante';
+import { ModalService } from '@services/modal/modal.service';
+import { Producto } from '@models/Producto/Producto';
 import { forkJoin } from 'rxjs';
 
 @Component({

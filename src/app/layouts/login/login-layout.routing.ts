@@ -1,6 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
-import { AutoLoginComponent } from 'src/app/components/auto-login/auto-login.component';
-import { LoginComponent } from 'src/app/pages/login/login.component';
+import { AutoLoginComponent } from '@components/auto-login/auto-login.component';
+import { LoginComponent } from '@pages/login/login.component';
 import { LoginLayoutComponent } from './login.component';
 
 const routes: Routes = [

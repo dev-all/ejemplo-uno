@@ -1,45 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Producto } from 'src/app/models/Producto/Producto';
-import { ProductoRequest } from 'src/app/models/Producto/ProductoRequest';
-import { ProductoService } from 'src/app/services/producto/producto.service';
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
-import { ProveedorService } from 'src/app/services/proveedor/proveedor.service';
-import { Proveedor } from 'src/app/models/Proveedor/Proveedor';
-import { ProveedorRequest } from 'src/app/models/Proveedor/ProveedorRequest';
-import { DepositoRequest } from 'src/app/models/Deposito/DepositoRequest';
-import { Deposito } from 'src/app/models/Deposito/Deposito';
-import { DepositoService } from 'src/app/services/deposito/deposito.service';
+import { Producto } from '@models/Producto/Producto';
+import { ProductoRequest } from '@models/Producto/ProductoRequest';
+import { ProductoService } from '@services/producto/producto.service';
+import { animate,  state,  style,  transition,  trigger,} from '@angular/animations';
+import { ProveedorService } from '@services/proveedor/proveedor.service';
+import { Proveedor } from '@models/Proveedor/Proveedor';
+import { ProveedorRequest } from '@models/Proveedor/ProveedorRequest';
+import { DepositoRequest } from '@models/Deposito/DepositoRequest';
+import { Deposito } from '@models/Deposito/Deposito';
+import { DepositoService } from '@services/deposito/deposito.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { ModalService } from 'src/app/services/modal/modal.service';
-import { ConfirmationDialogComponent } from 'src/app/components/dialogs/confirmation.dialog/confirmation.dialog.component';
-import { DialogsTypes } from 'src/app/shared/dialogs-types';
-import { SecurityAccess } from 'src/app/shared/securityAccess';
+import { ModalService } from '@services/modal/modal.service';
+import { ConfirmationDialogComponent } from '@components/dialogs/confirmation.dialog/confirmation.dialog.component';
+import { DialogsTypes } from '@shared/dialogs-types';
+import { SecurityAccess } from '@shared/securityAccess';
 import { PageEvent } from '@angular/material/paginator';
-import { TreeEvent } from 'src/app/models/Tree/TreeEvent';
-import { MarcaService } from 'src/app/services/marca/marca.service';
-import { MonedaService } from 'src/app/services/moneda/moneda.service';
-import { RequestBase } from 'src/app/models/RequestBase';
-import { Marca } from 'src/app/models/Marca/Marca';
-import { Moneda } from 'src/app/models/Moneda/Moneda';
-import { InputDinamico } from 'src/app/models/FormDinamico/InputDinamico';
-import { StockInput } from 'src/app/shared/enums/StockInput.enum';
-import { NovedadInput } from 'src/app/shared/enums/NovedadInput.enum';
-import { OfertaInput } from 'src/app/shared/enums/OfertaInput.enum';
-import { SuspendidoInput } from 'src/app/shared/enums/SuspendidoInput.enum';
-import { CodigoInput } from 'src/app/shared/enums/CodigoInput.enum';
-import { UserService } from 'src/app/services/user/user.service';
+import { TreeEvent } from '@models/Tree/TreeEvent';
+import { MarcaService } from '@services/marca/marca.service';
+import { MonedaService } from '@services/moneda/moneda.service';
+import { RequestBase } from '@models/RequestBase';
+import { Marca } from '@models/Marca/Marca';
+import { Moneda } from '@models/Moneda/Moneda';
+import { InputDinamico } from '@models/FormDinamico/InputDinamico';
+import { StockInput } from '@shared/enums/StockInput.enum';
+import { NovedadInput } from '@shared/enums/NovedadInput.enum';
+import { OfertaInput } from '@shared/enums/OfertaInput.enum';
+import { SuspendidoInput } from '@shared/enums/SuspendidoInput.enum';
+import { CodigoInput } from '@shared/enums/CodigoInput.enum';
+import { UserService } from '@services/user/user.service';
 
 @Component({
-  selector: 'app-producto',
-  templateUrl: './producto.component.html',
-  styleUrls: ['./producto.component.scss'],
+  selector: 'app-producto-list',
+  templateUrl: './producto-list.component.html',
+  styleUrls: ['./producto-list.component.scss'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({ height: '0px', minHeight: '0' })),
@@ -51,7 +45,7 @@ import { UserService } from 'src/app/services/user/user.service';
     ]),
   ],
 })
-export class ProductPage implements OnInit {
+export class ProductoListComponent implements OnInit {
   columnasTabla: string[] = [
     'codigo',
     'descripcion',

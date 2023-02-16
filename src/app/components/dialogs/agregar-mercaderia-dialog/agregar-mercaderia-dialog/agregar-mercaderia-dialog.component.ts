@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MercaderiaRequest } from 'src/app/models/Mercaderia/MercaderiaRequest';
-import { MercaderiaService } from 'src/app/services/mercaderia/mercancia.service';
+import { MercaderiaRequest } from '@models/Mercaderia/MercaderiaRequest';
+import { MercaderiaService } from '@services/mercaderia/mercancia.service';
 
 @Component({
   selector: 'app-agregar-mercaderia-dialog',

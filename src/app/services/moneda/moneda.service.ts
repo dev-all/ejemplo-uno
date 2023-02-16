@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Moneda } from 'src/app/models/Moneda/Moneda';
-import { RequestBase } from 'src/app/models/RequestBase';
-import { ResponseBase } from 'src/app/models/ResponseBase';
-import { environment } from 'src/environments/environment';
+import { Moneda } from '@models/Moneda/Moneda';
+import { RequestBase } from '@models/RequestBase';
+import { ResponseBase } from '@models/ResponseBase';
 
+import { environment } from '@env/environment';
 @Injectable({
   providedIn: 'root',
 })

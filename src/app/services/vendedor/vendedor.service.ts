@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { RequestBase } from 'src/app/models/RequestBase';
-import { ResponseBase } from 'src/app/models/ResponseBase';
-import { Vendedor } from 'src/app/models/Vendedor/Vendedor';
-import { environment } from 'src/environments/environment';
+import { RequestBase } from '@models/RequestBase';
+import { ResponseBase } from '@models/ResponseBase';
+import { Vendedor } from '@models/Vendedor/Vendedor';
 
+import { environment } from '@env/environment';
 @Injectable({
   providedIn: 'root',
 })

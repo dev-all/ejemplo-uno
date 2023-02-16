@@ -1,22 +1,8 @@
 <mat-form-field appearance="outline" style="width: 100%">
-  <mat-label>{{ placeHolder }}</mat-label>
-  <input
-    matInput
-    [type]="type"
-    [formControl]="inputFormControl"
-    (input)="input_Change($event)"
-    (keyup.enter)="keyUpEnter($event)"    
-  />
-  <div
-    class="clear-option"
-    clear-option
-    mat-button
-    *ngIf="inputFormControl.value"
-    matSuffix
-    mat-icon-button
-    aria-label="Clear"
-    (click)="inputFormControl.setValue('')"
-  >
-    <mat-icon>close</mat-icon>
-  </div>
+    <mat-label>{{ placeHolder }}</mat-label>
+    <input matInput [type]="type" [formControl]="inputFormControl" (input)="input_Change($event)" (keyup.enter)="keyUpEnter($event)" />
+    <mat-error *ngIf="inputFormControl.invalid">{{ errorMessage }}</mat-error>
+    <div class="clear-option" clear-option mat-button *ngIf="inputFormControl.value" matSuffix mat-icon-button aria-label="Clear" (click)="inputFormControl.setValue('')">
+        <mat-icon>close</mat-icon>
+    </div>
 </mat-form-field>

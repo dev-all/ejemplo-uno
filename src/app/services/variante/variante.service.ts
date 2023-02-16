@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ResponseBase } from 'src/app/models/ResponseBase';
-import { Variante } from 'src/app/models/Variante/Variante';
-import { VarianteRequest } from 'src/app/models/Variante/VarianteRequest';
-import { VarianteResponse } from 'src/app/models/Variante/VarianteResponse';
-import { environment } from 'src/environments/environment';
+import { ResponseBase } from '@models/ResponseBase';
+import { Variante } from '@models/Variante/Variante';
+import { VarianteRequest } from '@models/Variante/VarianteRequest';
+import { VarianteResponse } from '@models/Variante/VarianteResponse';
+import { environment } from '@env/environment';
 
 @Injectable({
   providedIn: 'root',

@@ -1,18 +1,18 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from '@env/environment';
 import { ProductoRequest } from '../../models/Producto/ProductoRequest';
-import { ProductosResponse } from 'src/app/models/Producto/ProductosResponse';
-import { ResponseBase } from 'src/app/models/ResponseBase';
-import { ProductoVentaRequest } from 'src/app/models/Producto/ProductoVentaRequest';
-import { ProductoVentas } from 'src/app/models/Producto/ProductoVentas';
-import { ProductoVentaGridRequest } from 'src/app/models/Producto/ProductoVentaGridRequest';
-import { ProductoVentaGrid } from 'src/app/models/Producto/ProductoVentaGrid';
-import { ProductoCostosRequest } from 'src/app/models/Producto/ProductoCostosRequest';
-import { ProductoCostos } from 'src/app/models/Producto/ProductoCostos';
-import { ProductoByCodigoRequest } from 'src/app/models/Producto/ProductoByCodigoRequest';
-import { ProductoByCodigoResponse } from 'src/app/models/Producto/ProductoByCodigoResponse';
+import { ProductosResponse } from '@models/Producto/ProductosResponse';
+import { ResponseBase } from '@models/ResponseBase';
+import { ProductoVentaRequest } from '@models/Producto/ProductoVentaRequest';
+import { ProductoVentas } from '@models/Producto/ProductoVentas';
+import { ProductoVentaGridRequest } from '@models/Producto/ProductoVentaGridRequest';
+import { ProductoVentaGrid } from '@models/Producto/ProductoVentaGrid';
+import { ProductoCostosRequest } from '@models/Producto/ProductoCostosRequest';
+import { ProductoCostos } from '@models/Producto/ProductoCostos';
+import { ProductoByCodigoRequest } from '@models/Producto/ProductoByCodigoRequest';
+import { ProductoByCodigoResponse } from '@models/Producto/ProductoByCodigoResponse';
 
 @Injectable({
   providedIn: 'root',

@@ -1,64 +1,41 @@
 <div class="login-wrap">
-  <div class="form-wrap">
-    <div class="logo-wrap">
-      <a href="https://gestionmagnum.com.ar/" target="_blank">
-        <img src="assets/logo_2.jpeg" alt="" />
-      </a>
-    </div>
-    <form class="example-form" (ngSubmit)="login()">
-      <mat-form-field class="example-full-width">
-        <mat-label>Usuario</mat-label>
-        <mat-select
-          [(ngModel)]="vendedorSelected"
-          name="vendedor"
-          [(value)]="vendedorSelected"
-          [disabled]="this.loading"
-        >
-          <mat-option
-            *ngFor="let vendedor of vendedores"
-            [value]="vendedor.Nombre"
-          >
-            {{ vendedor.Nombre | uppercase }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+    <div class="form-wrap">
+        <div class="logo-wrap">
+            <a href="https://gestionmagnum.com.ar/" target="_blank">
+                <img src="assets/logo_2.jpeg" alt="" />
+            </a>
+        </div>
+        <form class="example-form" (ngSubmit)="login()">
+            <mat-form-field class="example-full-width">
+                <mat-label>Usuario</mat-label>
+                <mat-select [(ngModel)]="vendedorSelected" name="vendedor" [(value)]="vendedorSelected" [disabled]="this.loading">
+                    <mat-option *ngFor="let vendedor of vendedores" [value]="vendedor.Nombre">
+                        {{ vendedor.Nombre | uppercase }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <mat-label>Contraseña</mat-label>
-        <input
-          type="password"
-          matInput
-          [formControl]="passFormControl"
-          [errorStateMatcher]="matcher"
-          autocomplete="on"
-        />
-        <mat-error
-          *ngIf="
-            passFormControl.hasError('pass') &&
-            !passFormControl.hasError('required')
-          "
-        >
-          Por favor ingrese ua Contraseña
-        </mat-error>
-        <mat-error *ngIf="passFormControl.hasError('required')">
-          Debe ingresar una <strong>contraseña</strong>
-        </mat-error>
-      </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Contraseña</mat-label>
+                <input type="password" matInput [formControl]="passFormControl" [errorStateMatcher]="matcher" autocomplete="on" />
+                <mat-error *ngIf="  passFormControl.hasError('pass') &&  !passFormControl.hasError('required')      ">
+                    Por favor ingrese una Contraseña
+                </mat-error>
+                <mat-error *ngIf="passFormControl.hasError('required')">
+                    Debe ingresar una <strong>contraseña</strong>
+                </mat-error>
+            </mat-form-field>
 
-      <button
-        mat-raised-button
-        color="primary"
-        [disabled]="passFormControl.hasError('required') || !vendedorSelected"
-      >
+            <button mat-raised-button color="primary" [disabled]="passFormControl.hasError('required') || !vendedorSelected">
         <span *ngIf="!loading">Ingresar</span>
         <mat-spinner *ngIf="loading" [diameter]="25"></mat-spinner>
       </button>
-      <p *ngIf="!validCredentials" class="invalid-message">
-        Usuario y/o contraseña invalidos
-      </p>
-      <p *ngIf="serviceError" class="invalid-message">
-        Hubo un error en nuestro servicios, intente más tarde
-      </p>
-    </form>
-  </div>
+            <p *ngIf="!validCredentials" class="invalid-message">
+                Usuario y/o contraseña invalidos
+            </p>
+            <p *ngIf="serviceError" class="invalid-message">
+                Hubo un error en nuestro servicios, intente más tarde
+            </p>
+        </form>
+    </div>
 </div>

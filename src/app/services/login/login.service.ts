@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { LoginResponse } from 'src/app/models/Login/LoginResponse';
-import { environment } from 'src/environments/environment';
-import { LoginRequest } from 'src/app/models/Login/LoginRequest';
+import { LoginResponse } from '@models/Login/LoginResponse';
+import { environment } from '@env/environment';
+import { LoginRequest } from '@models/Login/LoginRequest';
 import { Observable } from 'rxjs';
 import { UserService } from '../user/user.service';
 
@@ -19,7 +19,7 @@ export class LoginService {
       .set('password', request.password)
       .set('database', request.database)
       .set('esAutomatico', request.esAutomatico.toString());
-      
+
     return this.http.post<LoginResponse>(
       `${environment.apiUrl}/token`,
       body.toString(),

@@ -10,21 +10,21 @@ import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { forkJoin } from 'rxjs';
-import { Categoria } from 'src/app/models/Categoria/Categoria';
-import { Ciudad } from 'src/app/models/Ciudad/Ciudad';
-import { Cliente } from 'src/app/models/Cliente/Cliente';
-import { ClienteRequest } from 'src/app/models/Cliente/ClienteRequest';
-import { Formas } from 'src/app/models/Formas/Formas';
-import { InputDinamico } from 'src/app/models/FormDinamico/InputDinamico';
-import { Lista } from 'src/app/models/Lista/Lista';
-import { Provincia } from 'src/app/models/Provincia/Provincia';
-import { RequestBase } from 'src/app/models/RequestBase';
-import { Sucursal } from 'src/app/models/Sucursal/Sucursal';
-import { Vendedor } from 'src/app/models/Vendedor/Vendedor';
-import { Zona } from 'src/app/models/Zona/Zona';
-import { ClienteService } from 'src/app/services/cliente/cliente.service';
-import { GenericCrudService } from 'src/app/services/generic-crud.service';
-import { VendedorService } from 'src/app/services/vendedor/vendedor.service';
+import { Categoria } from '@models/Categoria/Categoria';
+import { Ciudad } from '@models/Ciudad/Ciudad';
+import { Cliente } from '@models/Cliente/Cliente';
+import { ClienteRequest } from '@models/Cliente/ClienteRequest';
+import { Formas } from '@models/Formas/Formas';
+import { InputDinamico } from '@models/FormDinamico/InputDinamico';
+import { Lista } from '@models/Lista/Lista';
+import { Provincia } from '@models/Provincia/Provincia';
+import { RequestBase } from '@models/RequestBase';
+import { Sucursal } from '@models/Sucursal/Sucursal';
+import { Vendedor } from '@models/Vendedor/Vendedor';
+import { Zona } from '@models/Zona/Zona';
+import { ClienteService } from '@services/cliente/cliente.service';
+import { GenericCrudService } from '@services/generic-crud.service';
+import { VendedorService } from '@services/vendedor/vendedor.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -254,5 +254,5 @@ export class ClienteComponent implements OnInit {
   recibo_Click(numeroCuenta: number, nombreCliente: string) {
     this.router.navigate(['/recibo-cuenta-corriente', numeroCuenta, nombreCliente]);
   }
-  
+
 }

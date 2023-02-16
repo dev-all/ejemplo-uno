@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Bonificacion } from 'src/app/models/Bonificacion/Bonificacion';
-import { BonificacionComercialRequest } from 'src/app/models/Bonificacion/BonificacionComercialRequest';
-import { BonificacionOfertaRequest } from 'src/app/models/Bonificacion/BonificacionOfertaRequest';
-import { ResponseBase } from 'src/app/models/ResponseBase';
-import { environment } from 'src/environments/environment';
+import { Bonificacion } from '@models/Bonificacion/Bonificacion';
+import { BonificacionComercialRequest } from '@models/Bonificacion/BonificacionComercialRequest';
+import { BonificacionOfertaRequest } from '@models/Bonificacion/BonificacionOfertaRequest';
+import { ResponseBase } from '@models/ResponseBase';
+import { environment } from '@env/environment';
 
 @Injectable({
   providedIn: 'root',

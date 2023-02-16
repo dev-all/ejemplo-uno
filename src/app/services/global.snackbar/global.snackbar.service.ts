@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { SnackBar } from 'src/app/models/SnackBar/SnackBar';
+import { SnackBar } from '@models/SnackBar/SnackBar';
 
 @Injectable({
   providedIn: 'root',

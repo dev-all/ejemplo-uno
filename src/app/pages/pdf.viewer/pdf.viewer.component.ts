@@ -1,14 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { SaveReportDialogComponent } from 'src/app/components/dialogs/save.report.dialog/save.report.dialog.component';
-import { ReporteService } from 'src/app/services/reporte/reporte.service';
+import { SaveReportDialogComponent } from '@components/dialogs/save.report.dialog/save.report.dialog.component';
+import { ReporteService } from '@services/reporte/reporte.service';
 import * as es6printJS from 'print-js';
-import { WhatsappReportDialogComponent } from 'src/app/components/dialogs/whatsapp.report.dialog/whatsapp.report.dialog.component';
-import { MailReportDialogComponent } from 'src/app/components/dialogs/mail.report.dialog/mail.report.dialog.component';
+import { WhatsappReportDialogComponent } from '@components/dialogs/whatsapp.report.dialog/whatsapp.report.dialog.component';
+import { MailReportDialogComponent } from '@components/dialogs/mail.report.dialog/mail.report.dialog.component';
 import { Location } from '@angular/common';
 import { HostListener } from '@angular/core';
-import { GlobalSnackbarService } from 'src/app/services/global.snackbar/global.snackbar.service';
+import { GlobalSnackbarService } from '@services/global.snackbar/global.snackbar.service';
 
 @Component({
   selector: 'app-pdf.viewer',

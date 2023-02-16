@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { AccesoReponse } from 'src/app/models/Acceso/AccesoReponse';
-import { Inicial } from 'src/app/models/Inicial/Inicial';
-import { LoginResponse } from 'src/app/models/Login/LoginResponse';
-import { Usuario } from 'src/app/models/Usuario';
+import { AccesoReponse } from '@models/Acceso/AccesoReponse';
+import { Inicial } from '@models/Inicial/Inicial';
+import { LoginResponse } from '@models/Login/LoginResponse';
+import { Usuario } from '@models/Usuario';
 import { LocalService } from '../secure/local.service';
 
 @Injectable({
@@ -42,7 +42,7 @@ export class UserService {
     loginResponse: LoginResponse,
     accesoReponse: AccesoReponse,
     inicialResponse: Inicial
-  ): void {    
+  ): void {
     var user = new Usuario({
       Id: loginResponse.idVendedor,
       token: loginResponse.access_token,

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Stock } from 'src/app/models/Stock/StockInicial';
+import { Stock } from '@models/Stock/StockInicial';
 
 @Component({
   selector: 'app-stock-grid',

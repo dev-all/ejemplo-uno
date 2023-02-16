@@ -9,10 +9,10 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
-import { GrupoModel } from 'src/app/models/Grupo/GrupoModel';
-import { RequestBase } from 'src/app/models/RequestBase';
-import { TreeEvent } from 'src/app/models/Tree/TreeEvent';
-import { ArbolService } from 'src/app/services/arbol/arbol.service';
+import { GrupoModel } from '@models/Grupo/GrupoModel';
+import { RequestBase } from '@models/RequestBase';
+import { TreeEvent } from '@models/Tree/TreeEvent';
+import { ArbolService } from '@services/arbol/arbol.service';
 
 @Component({
   selector: 'app-tree',

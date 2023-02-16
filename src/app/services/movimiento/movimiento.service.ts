@@ -1,15 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CrearMovimientoDeposito } from 'src/app/models/MovimientoDepositos/CrearMovimientoDeposito';
-import { EliminarMovimientoDeposito } from 'src/app/models/MovimientoDepositos/EliminarMovimientoDeposito';
-import { ModificarMovimientoDepositoRequest } from 'src/app/models/MovimientoDepositos/ModificarMovimientoDepositoRequest';
+import { CrearMovimientoDeposito } from '@models/MovimientoDepositos/CrearMovimientoDeposito';
+import { EliminarMovimientoDeposito } from '@models/MovimientoDepositos/EliminarMovimientoDeposito';
+import { ModificarMovimientoDepositoRequest } from '@models/MovimientoDepositos/ModificarMovimientoDepositoRequest';
 
-import { MovimientoDepositoRequest } from 'src/app/models/MovimientoDepositos/MovimientoDepositoRequest';
-import { MovimientoDeposito } from 'src/app/models/MovimientoDepositos/MovimientoDepositos';
-import { MovimientoReport } from 'src/app/models/Movimientos/MovimientoReport';
-import { MovimientoRequest } from 'src/app/models/Movimientos/MovimientoRequest';
-import { ResponseBase } from 'src/app/models/ResponseBase';
-import { environment } from 'src/environments/environment';
+import { MovimientoDepositoRequest } from '@models/MovimientoDepositos/MovimientoDepositoRequest';
+import { MovimientoDeposito } from '@models/MovimientoDepositos/MovimientoDepositos';
+import { MovimientoReport } from '@models/Movimientos/MovimientoReport';
+import { MovimientoRequest } from '@models/Movimientos/MovimientoRequest';
+import { ResponseBase } from '@models/ResponseBase';
+import { environment } from '@env/environment';
 
 @Injectable({
   providedIn: 'root',

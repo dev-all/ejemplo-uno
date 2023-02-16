@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ProductoByCodigoRequest } from 'src/app/models/Producto/ProductoByCodigoRequest';
-import { ProductoByCodigoResponse } from 'src/app/models/Producto/ProductoByCodigoResponse';
-import { ProductoService } from 'src/app/services/producto/producto.service';
+import { ProductoByCodigoRequest } from '@models/Producto/ProductoByCodigoRequest';
+import { ProductoByCodigoResponse } from '@models/Producto/ProductoByCodigoResponse';
+import { ProductoService } from '@services/producto/producto.service';
 
 @Component({
   selector: 'app-producto.dialog',
@@ -31,7 +31,7 @@ export class ProductoDialogComponent {
   aceptar_Click() {
     var productoSeleccionado: ProductoByCodigoResponse;
     this.clickedRows.forEach((x) => (productoSeleccionado = x));
-    
+
 
     this.dialogRef.close(productoSeleccionado);
   }

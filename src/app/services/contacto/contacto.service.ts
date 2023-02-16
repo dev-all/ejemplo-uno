@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Contacto } from 'src/app/models/Contacto/Contacto';
-import { ContactoRequest } from 'src/app/models/Contacto/ContactoRequest';
-import { ResponseBase } from 'src/app/models/ResponseBase';
-import { environment } from 'src/environments/environment';
+import { Contacto } from '@models/Contacto/Contacto';
+import { ContactoRequest } from '@models/Contacto/ContactoRequest';
+import { ResponseBase } from '@models/ResponseBase';
 
+import { environment } from '@env/environment';
 @Injectable({
   providedIn: 'root',
 })

@@ -1,10 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MovimientoDepositoAgregar } from 'src/app/models/MovimientoDepositos/MovimientoDepositoAgregar';
-import { AgregarProducto } from 'src/app/models/Producto/AgregarProducto';
-import { SeleccionProducto } from 'src/app/models/SeleccionProducto/SeleccionProducto';
-import { AgregarProductoService } from 'src/app/services/producto/agregar-producto.service';
+import { MovimientoDepositoAgregar } from '@models/MovimientoDepositos/MovimientoDepositoAgregar';
+import { AgregarProducto } from '@models/Producto/AgregarProducto';
+import { SeleccionProducto } from '@models/SeleccionProducto/SeleccionProducto';
+import { AgregarProductoService } from '@services/producto/agregar-producto.service';
 
 @Component({
   selector: 'app-agregar-producto-dialog',
@@ -23,7 +23,7 @@ export class AgregarProductoDialogComponent implements OnInit {
 
   ngOnInit() {}
 
-  agregarProducto() {    
+  agregarProducto() {
     this.dialogRef.close(this.cantidadFormControl.value)
   }
 }

@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { PedidoMercaderiaRequest } from 'src/app/models/Mercaderia/PedidoMercaderiaRequest';
-import { ResponseBase } from 'src/app/models/ResponseBase';
-import { environment } from 'src/environments/environment';
+import { PedidoMercaderiaRequest } from '@models/Mercaderia/PedidoMercaderiaRequest';
+import { ResponseBase } from '@models/ResponseBase';
 
+import { environment } from '@env/environment';
 @Injectable({
   providedIn: 'root',
 })

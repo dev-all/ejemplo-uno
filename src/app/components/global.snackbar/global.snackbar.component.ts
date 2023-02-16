@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
-import { SnackBar } from 'src/app/models/SnackBar/SnackBar';
-import { GlobalSnackbarService } from 'src/app/services/global.snackbar/global.snackbar.service';
+import { SnackBar } from '@models/SnackBar/SnackBar';
+import { GlobalSnackbarService } from '@services/global.snackbar/global.snackbar.service';
 
 @Component({
   selector: 'app-global-snackbar',
@@ -20,7 +20,7 @@ export class GlobalSnackbarComponent implements OnInit {
   ngOnInit() {
     this.snakSubscription = this.snackBarService
       .onSnackBar()
-      .subscribe((snackBar) => {        
+      .subscribe((snackBar) => {
         if (snackBar.mensaje)
           this.snackBar.open(snackBar.mensaje, snackBar.action, {
             duration: 2000,

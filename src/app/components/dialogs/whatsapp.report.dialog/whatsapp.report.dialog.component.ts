@@ -1,13 +1,13 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Contacto } from 'src/app/models/Contacto/Contacto';
-import { ContactoRequest } from 'src/app/models/Contacto/ContactoRequest';
-import { TipoReporte } from 'src/app/models/Reporte/TipoReporte.enum';
-import { WhatsappRequest } from 'src/app/models/Whatsapp/WhatsappRequest';
-import { ContactoService } from 'src/app/services/contacto/contacto.service';
-import { ReporteService } from 'src/app/services/reporte/reporte.service';
-import { WhatsappService } from 'src/app/services/whatsapp/whatsapp.service';
+import { Contacto } from '@models/Contacto/Contacto';
+import { ContactoRequest } from '@models/Contacto/ContactoRequest';
+import { TipoReporte } from '@models/Reporte/TipoReporte.enum';
+import { WhatsappRequest } from '@models/Whatsapp/WhatsappRequest';
+import { ContactoService } from '@services/contacto/contacto.service';
+import { ReporteService } from '@services/reporte/reporte.service';
+import { WhatsappService } from '@services/whatsapp/whatsapp.service';
 
 @Component({
   selector: 'app-whatsapp.report.dialog',

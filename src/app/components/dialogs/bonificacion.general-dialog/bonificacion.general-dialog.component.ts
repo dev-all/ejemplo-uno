@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { UserService } from 'src/app/services/user/user.service';
+import { UserService } from '@services/user/user.service';
 
 @Component({
   selector: 'app-bonificacion.general-dialog',

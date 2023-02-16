@@ -1,15 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Cliente } from 'src/app/models/Cliente/Cliente';
-import { ClienteCuentaRequest } from 'src/app/models/Cliente/ClienteCuentaRequest';
-import { ClienteCuentaResponse } from 'src/app/models/Cliente/ClienteCuentaResponse';
-import { ClienteRequest } from 'src/app/models/Cliente/ClienteRequest';
-import { ClienteResponse } from 'src/app/models/Cliente/ClienteResponse';
-import { ClienteVentaRequest } from 'src/app/models/Cliente/ClienteVentaRequest';
-import { ClienteVentaResponse } from 'src/app/models/Cliente/ClienteVentaResponse';
-import { ResponseBase } from 'src/app/models/ResponseBase';
-import { environment } from 'src/environments/environment';
+import { Cliente } from '@models/Cliente/Cliente';
+import { ClienteCuentaRequest } from '@models/Cliente/ClienteCuentaRequest';
+import { ClienteCuentaResponse } from '@models/Cliente/ClienteCuentaResponse';
+import { ClienteRequest } from '@models/Cliente/ClienteRequest';
+import { ClienteResponse } from '@models/Cliente/ClienteResponse';
+import { ClienteVentaRequest } from '@models/Cliente/ClienteVentaRequest';
+import { ClienteVentaResponse } from '@models/Cliente/ClienteVentaResponse';
+import { ResponseBase } from '@models/ResponseBase';
 
+import { environment } from '@env/environment';
 @Injectable({
   providedIn: 'root',
 })

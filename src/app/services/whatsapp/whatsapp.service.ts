@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ResponseBase } from 'src/app/models/ResponseBase';
-import { WhatsappRequest } from 'src/app/models/Whatsapp/WhatsappRequest';
-import { environment } from 'src/environments/environment';
+import { environment } from '@env/environment';
+import { ResponseBase } from '@models/ResponseBase';
+import { WhatsappRequest } from '@models/Whatsapp/WhatsappRequest';
 
 @Injectable({
   providedIn: 'root',

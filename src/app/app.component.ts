@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 export class AppComponent {
   appVersion = environment.appVersion;
 
-  constructor() {    
+  constructor() {
     localStorage.removeItem('appVersion');
     localStorage.setItem('appVersion', this.appVersion);
   }

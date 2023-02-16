@@ -1,12 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Ciudad } from 'src/app/models/Ciudad/Ciudad';
-import { PedidoMercaderiaRequest } from 'src/app/models/Mercaderia/PedidoMercaderiaRequest';
-import { RequestBase } from 'src/app/models/RequestBase';
-import { ComprobanteService } from 'src/app/services/comprobante/comprobante.service';
-import { GenericCrudService } from 'src/app/services/generic-crud.service';
-import { GlobalSnackbarService } from 'src/app/services/global.snackbar/global.snackbar.service';
+import { Ciudad } from '@models/Ciudad/Ciudad';
+import { PedidoMercaderiaRequest } from '@models/Mercaderia/PedidoMercaderiaRequest';
+import { RequestBase } from '@models/RequestBase';
+import { ComprobanteService } from '@services/comprobante/comprobante.service';
+import { GenericCrudService } from '@services/generic-crud.service';
+import { GlobalSnackbarService } from '@services/global.snackbar/global.snackbar.service';
 
 @Component({
   selector: 'app-pedido.mercaderia.dialog',
@@ -17,7 +17,7 @@ export class PedidoMercaderiaDialogComponent implements OnInit {
   estados: EstadosPedido[] = [];
   estadoSelected: string;
   localidadSelected: number;
-  nombreClienteFormControl = new FormControl();
+  nombreClienteFormControl = new FormControl('', [Validators.required]);
   direccionFormControl = new FormControl();
   tlfFormControl = new FormControl();
   correoFormControl = new FormControl();
@@ -74,9 +74,11 @@ export class PedidoMercaderiaDialogComponent implements OnInit {
 
   async aceptar_Click() {
     var request = this.dialogData;
+
     var ciudadSelected = this.ciudades.find(
       (x) => x.Id === this.localidadSelected
     );
+
     request.comprobanteCabecera.nombre = this.nombreClienteFormControl.value;
     request.comprobanteCabecera.direccion = this.direccionFormControl.value;
     request.comprobanteCabecera.ciudad = ciudadSelected.Ciudad;
@@ -89,7 +91,7 @@ export class PedidoMercaderiaDialogComponent implements OnInit {
     request.comprobanteCabecera.lugar = this.lugarEntregaFormControl.value;
     request.comprobanteCabecera.envio = this.transportadoPorFormControl.value;
     request.comprobanteCabecera.aclaracion = this.aclaracionFormControl.value;
-    request.comprobanteCabecera.auxiliar = this.observacionFormControl.value;    
+    request.comprobanteCabecera.auxiliar = this.observacionFormControl.value;
     request.comprobanteCabecera.estado = this.estadoSelected;
     request.comprobanteCabecera.tipocbte = 1;
     await this.comprobanteService

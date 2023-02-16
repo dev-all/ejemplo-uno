@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Registro } from 'src/app/models/Registro/Registro';
-import { RegistroRequest } from 'src/app/models/Registro/RegistroRequest';
-import { ResponseBase } from 'src/app/models/ResponseBase';
-import { environment } from 'src/environments/environment';
+import { Registro } from '@models/Registro/Registro';
+import { RegistroRequest } from '@models/Registro/RegistroRequest';
+import { ResponseBase } from '@models/ResponseBase';
+import { environment } from '@env/environment';
 
 @Injectable({
   providedIn: 'root',
