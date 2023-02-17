@@ -1,21 +1,22 @@
-import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, ViewChild, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Producto } from '@models/Producto/Producto';
 import { ProductoRequest } from '@models/Producto/ProductoRequest';
 import { ProductoService } from '@services/producto/producto.service';
-import { CodigoInput } from '@shared/enums/CodigoInput.enum';
-import { debug } from 'console';
+import {TooltipPosition} from '@angular/material/tooltip';
+
+
 @Component({
   selector: 'app-control-stock',
   templateUrl: './control-stock.component.html',
-  styleUrls: ['./control-stock.component.scss']
+  styleUrls: ['./control-stock.component.scss'],
+   // Need to remove view encapsulation so that the custom tooltip style defined in
+  // `tooltip-custom-class-example.css` will not be scoped to this component's view.
+  encapsulation: ViewEncapsulation.None,
 })
 export class ControlStockComponent implements OnInit {
 
-
-  isAddMode: boolean = true;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   operacionSeleccionada: string = 'Código de barras';
@@ -26,20 +27,52 @@ export class ControlStockComponent implements OnInit {
   pageSize: number = 10;
   totalRows: number;
   totalPages: number;
+
   cargando = true;
   errorEnServicios: boolean;
-  dataSource: Producto[] = [];
+
+
   columnasTabla: string[] = ['codigo', 'detalle','deposito','stockactual'];
 
+  VOForm: FormGroup;
+  dataSourceEditing = new MatTableDataSource<any>();
 
-constructor( private productoService: ProductoService,) { }
+
+constructor( private productoService: ProductoService
+            ,private fb: FormBuilder,
+            private _formBuilder: FormBuilder)
+   { }
 
 
   ngOnInit(): void {
+
     this.search();
+    this.VOForm = this._formBuilder.group({
+      VORows: this._formBuilder.array([])
+    });
+
+
   }
 
+ // this function will enabled the select field for editd
+ EditSVO(VOFormElement, i) {
+  // VOFormElement.get('VORows').at(i).get('name').disabled(false)
+  VOFormElement.get('VORows').at(i).get('isEditable').patchValue(false);
+  // this.isEditableNew = true;
+}
+ // On click of correct button in table (after click on edit) this method will call
+ SaveVO(VOFormElement, i) {
+  // alert('SaveVO')
+  VOFormElement.get('VORows').at(i).get('isEditable').patchValue(true);
+}
+// On click of cancel button in the table (after click on edit) this method will call and reset the previous data
+CancelSVO(VOFormElement, i) {
+  VOFormElement.get('VORows').at(i).get('isEditable').patchValue(true);
+}
 
+
+
+//----------------
   pagesChange(event?: PageEvent) {
     this.pageSize = event.pageSize;
     this.page = event.pageIndex;
@@ -53,8 +86,7 @@ constructor( private productoService: ProductoService,) { }
   }
 
  private async search() {
-  debugger;
-  this.dataSource = [];
+
   this.cargando = true;
   let getby = null;
   switch (this.operacionSeleccionada) {
@@ -88,12 +120,25 @@ constructor( private productoService: ProductoService,) { }
   this.productoService.getByFiltros(request).subscribe(
     (x) => {
 
-      debugger;
       this.cargando = false;
-      this.dataSource = x.Data.Productos;
       this.page = x.Data.CurrentPage;
       this.totalPages = x.Data.TotalPages;
       this.totalRows = x.Data.TotalRows;
+
+      this.VOForm = this.fb.group({
+        VORows: this.fb.array(x.Data.Productos.map(val => this.fb.group({
+                  codigo: new FormControl(val.Codigo),
+                  detalle: new FormControl(val.Detalle),
+                  deposito: new FormControl(val.Deposito),
+                  stockactual: new FormControl(val.StockActual),
+                  action: new FormControl('existingRecord'),
+                  isEditable: new FormControl(true),
+                  isNewRow: new FormControl(false),
+        })
+        )) //end of fb array
+      }); // end of form group cretation
+      this.dataSourceEditing = new MatTableDataSource((this.VOForm.get('VORows') as FormArray).controls);
+      this.dataSourceEditing.paginator = this.paginator;
       return;
     },
     (error) => {
@@ -102,7 +147,6 @@ constructor( private productoService: ProductoService,) { }
     },
     () => (this.cargando = false)
   );
-
 
 
 

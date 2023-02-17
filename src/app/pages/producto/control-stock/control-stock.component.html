@@ -35,69 +35,76 @@
 
 <br>
 
-
-
 <div class="mat-elevation-z8">
 
+  <form [formGroup]="VOForm" autocomplete="off">
+    <ng-container formArrayName="VORows">
+      <table #table mat-table [dataSource]="dataSourceEditing" class="mat-elevation-z8">
 
-    <div class="table-wrap">
-        <div *ngIf="cargando" class="spinner-wrap">
-            <mat-spinner [diameter]="80"></mat-spinner>
-        </div>
-        <div *ngIf="dataSource.length === 0 && !cargando && !this.errorEnServicios">
-            <h4 class="text-center">
-                No se encontraron productos con los filtros establecidos
-            </h4>
-        </div>
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element; let i = index" [formGroup]="element">
+            {{ element.get('codigo').value }}
+          </td>
+        </ng-container>
 
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" multiTemplateDataRows >
-          <ng-container matColumnDef="codigo">
-              <th class="producto-column small-colunm" mat-header-cell *matHeaderCellDef>
-                  Codigo
-              </th>
-              <td class="producto-column small-colunm" mat-cell *matCellDef="let element">
-                  {{ element.Codigo }}
-              </td>
-          </ng-container>
-            <ng-container matColumnDef="detalle">
-                <th class="producto-column large-colunm" mat-header-cell *matHeaderCellDef>
-                    Descripción
-                </th>
-                <td class="producto-column large-colunm" mat-cell *matCellDef="let element">
-                    {{ element.Detalle }}
-                </td>
-            </ng-container>
+        <ng-container matColumnDef="detalle">
+          <th mat-header-cell *matHeaderCellDef> Detalle </th>
+          <td mat-cell *matCellDef="let element; let i = index" [formGroup]="element">
+            {{ element.get('detalle').value }}
+          </td>
+        </ng-container>
 
-            <ng-container matColumnDef="deposito">
-                <th class="producto-column large-colunm" mat-header-cell *matHeaderCellDef>
-                  Deposito
-                </th>
-                <td class="producto-column large-colunm" mat-cell *matCellDef="let element">
-                    {{ element.Deposito }}
-                </td>
-            </ng-container>
+        <ng-container matColumnDef="deposito">
+          <th mat-header-cell *matHeaderCellDef> Deposito </th>
+          <td mat-cell *matCellDef="let element; let i = index" [formGroup]="element">
+            {{ element.get('deposito').value }}
+          </td>
+        </ng-container>
 
-            <ng-container matColumnDef="stockactual">
-                <th class="producto-column small-colunm text-right" mat-header-cell *matHeaderCellDef>
-                    Stock Actual
-                </th>
-                <td class="producto-column small-colunm text-right" mat-cell *matCellDef="let element">
-                    {{ element.StockActual | currency:'es-AR':'' }}
-                </td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="columnasTabla"></tr>
-            <tr mat-row *matRowDef="let row; columns: columnasTabla;"></tr>
-        </table>
-    </div>
-    <div class="footer">
+        <ng-container matColumnDef="stockactual">
+          <th mat-header-cell *matHeaderCellDef> stock actual </th>
+          <td mat-cell *matCellDef="let element; let i = index" [formGroup]="element">
+            <mat-form-field style="width: 70px;">
+              <input matInput type="text" formControlName="stockactual" [readonly]="VOForm.get('VORows').value[i].isEditable">
+            </mat-form-field>
+            <button mat-icon-button class="material-icons save-button"
+            matTooltip="Save Changes" (click)="SaveVO(VOForm,i)"
+            *ngIf="!VOForm.get('VORows').value[i].isEditable" color="primary">
+            <mat-icon>check_circle</mat-icon>
+        </button>
 
-        <mat-paginator #paginator [length]="totalRows" [pageIndex]="page - 1"
-              [pageSizeOptions]="[5, 10, 50, 100]" (page)="pagesChange($event)"
-              [pageSize]="pageSize" aria-label="Select page">
-        </mat-paginator>
+        <button mat-icon-button class="material-icons app-toolbar-menu cancel-button"
+                    matTooltip="Cancel Changes"
+                    matTooltipClass="example-tooltip-red"
+                    color="warn"
+                    (click)="CancelSVO(VOForm,i)"
+                    *ngIf="!VOForm.get('VORows').value[i].isEditable">
+                    <mat-icon>cancel</mat-icon>
+        </button>
 
-         <mat-card *ngIf="dataSource.length" >Total Productos {{ totalRows }}</mat-card>
-    </div>
+        <button mat-icon-button class="material-icons app-toolbar-menu save-button"
+                    *ngIf="VOForm.get('VORows').value[i].isEditable"
+                    matTooltip="Edit" color="primary" (click)="EditSVO(VOForm,i)">
+                    <mat-icon>edit</mat-icon>
+                </button>
 
 
-</div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnasTabla"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnasTabla;"></tr>
+
+      </table>
+    </ng-container>
+  </form>
+
+      <mat-paginator #paginator [length]="totalRows" [pageIndex]="page - 1"
+            [pageSizeOptions]="[5, 10, 50, 100]" (page)="pagesChange($event)"
+            [pageSize]="pageSize" aria-label="Select page">
+      </mat-paginator>
+      <mat-card  >Total Productos {{ totalRows }}</mat-card>
+  </div>
+
+
