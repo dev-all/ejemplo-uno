@@ -1,59 +1,114 @@
-import { AfterViewInit, Component,  ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
+import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-
+import { Producto } from '@models/Producto/Producto';
+import { ProductoRequest } from '@models/Producto/ProductoRequest';
+import { ProductoService } from '@services/producto/producto.service';
+import { CodigoInput } from '@shared/enums/CodigoInput.enum';
+import { debug } from 'console';
 @Component({
   selector: 'app-control-stock',
   templateUrl: './control-stock.component.html',
   styleUrls: ['./control-stock.component.scss']
 })
-export class ControlStockComponent implements AfterViewInit {
+export class ControlStockComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  //dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   isAddMode: boolean = true;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-constructor() { }
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+  operacionSeleccionada: string = 'Código de barras';
+  TipoBusqueda = [ 'Código de barras','Código'];
+  incluirVariantes: boolean = false;
+  codigoFormControl = new FormControl('');
+  page: number = 0;
+  pageSize: number = 100;
+  totalRows: number;
+  totalPages: number;
+  cargando = true;
+  errorEnServicios: boolean;
+  dataSource: Producto[] = [];
+  columnasTabla: string[] = [
+    'codigo',
+    'descripcion',
+    'ubicacion',
+    'stockActual'
+  ];
+
+constructor( private productoService: ProductoService,) { }
+
+
+  ngOnInit(): void {
+    this.search();
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  pagesChange(event?: PageEvent) {
+    this.pageSize = event.pageSize;
+    this.page = event.pageIndex;
+    this.search();
   }
 
+  async getByProducto_Change() {
+       this.search();
+  }
+
+ private async search() {
+  debugger;
+  this.dataSource = [];
+  this.cargando = true;
+  let getby = null;
+ switch (this.operacionSeleccionada) {
+  case 'Código' : getby = 1 ;
+                break;
+  case 'Código de barras': getby=2;
+                 break;
+}
+
+  var request = new ProductoRequest({
+    codigo:  getby == 1  ? this.codigoFormControl.value : null,
+    codigoBarra: getby == 2  ? this.codigoFormControl.value : null,
+    codigoProveedor: null,
+    bajoControlStock: null,
+    stockPositivo: null,
+    excluirNovedades: null,
+    enOferta: null,
+    suspendido: null,
+    detalle:  null,
+    idProveedor:  null,
+    idDeposito:  null,
+    codigoMarca:  null,
+    codigoMoneda:  null,
+    page: this.page + 1,
+    pageSize: this.pageSize,
+    database:null,
+    IncluirVariante: this.incluirVariantes,
+
+  });
+
+  this.productoService.getByFiltros(request).subscribe(
+    (x) => {
+      this.cargando = false;
+      this.dataSource = x.Data.Productos;
+      this.page = x.Data.CurrentPage;
+      this.totalPages = x.Data.TotalPages;
+      this.totalRows = x.Data.TotalRows;
+      return;
+    },
+    (error) => {
+      this.errorEnServicios = true;
+      this.cargando = false;
+    },
+    () => (this.cargando = false)
+  );
+
+
+
+
+
+  }
 
 
 }
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-  {position: 11, name: 'Sodium', weight: 22.9897, symbol: 'Na'},
-  {position: 12, name: 'Magnesium', weight: 24.305, symbol: 'Mg'},
-  {position: 13, name: 'Aluminum', weight: 26.9815, symbol: 'Al'},
-  {position: 14, name: 'Silicon', weight: 28.0855, symbol: 'Si'},
-  {position: 15, name: 'Phosphorus', weight: 30.9738, symbol: 'P'},
-  {position: 16, name: 'Sulfur', weight: 32.065, symbol: 'S'},
-  {position: 17, name: 'Chlorine', weight: 35.453, symbol: 'Cl'},
-  {position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar'},
-  {position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K'},
-  {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
-];
