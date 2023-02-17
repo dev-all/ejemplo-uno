@@ -14,8 +14,7 @@ import { debug } from 'console';
 })
 export class ControlStockComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  //dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+
   isAddMode: boolean = true;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -24,18 +23,14 @@ export class ControlStockComponent implements OnInit {
   incluirVariantes: boolean = false;
   codigoFormControl = new FormControl('');
   page: number = 0;
-  pageSize: number = 100;
+  pageSize: number = 10;
   totalRows: number;
   totalPages: number;
   cargando = true;
   errorEnServicios: boolean;
   dataSource: Producto[] = [];
-  columnasTabla: string[] = [
-    'codigo',
-    'descripcion',
-    'ubicacion',
-    'stockActual'
-  ];
+  columnasTabla: string[] = ['codigo', 'detalle','deposito','stockactual'];
+
 
 constructor( private productoService: ProductoService,) { }
 
@@ -52,6 +47,8 @@ constructor( private productoService: ProductoService,) { }
   }
 
   async getByProducto_Change() {
+    this.page = 0;
+    this.errorEnServicios = false;
        this.search();
   }
 
@@ -60,12 +57,12 @@ constructor( private productoService: ProductoService,) { }
   this.dataSource = [];
   this.cargando = true;
   let getby = null;
- switch (this.operacionSeleccionada) {
-  case 'Código' : getby = 1 ;
-                break;
-  case 'Código de barras': getby=2;
-                 break;
-}
+  switch (this.operacionSeleccionada) {
+    case 'Código' : getby = 1 ;
+                  break;
+    case 'Código de barras': getby=2;
+                  break;
+  }
 
   var request = new ProductoRequest({
     codigo:  getby == 1  ? this.codigoFormControl.value : null,
@@ -90,6 +87,8 @@ constructor( private productoService: ProductoService,) { }
 
   this.productoService.getByFiltros(request).subscribe(
     (x) => {
+
+      debugger;
       this.cargando = false;
       this.dataSource = x.Data.Productos;
       this.page = x.Data.CurrentPage;

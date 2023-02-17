@@ -270,6 +270,7 @@ export class ProductoListComponent implements OnInit {
   }
 
   buscar(treeEvent: TreeEvent = null) {
+
     this.page = 0;
     this.errorEnServicios = false;
     this.obtenerProductosPorFiltros(null, treeEvent);
@@ -369,7 +370,7 @@ export class ProductoListComponent implements OnInit {
     this.cargando = true;
 
     var codigoCustom = this.removeSign(this.codigoFormControl.value);
-
+debugger;
     this.codigoFormControl.setValue(codigoCustom);
     var request = new ProductoRequest({
       codigo:

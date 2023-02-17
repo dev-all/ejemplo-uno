@@ -4,28 +4,28 @@
         <mat-card-subtitle>Control de Stock</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <form class="form-wrap mt-2" (ngSubmit)="getByProducto_Change()">
-            <mat-form-field class="filter">
-                <mat-label>Buscar Producto por código </mat-label>
-                <input matInput (inputChange)="getByProducto_Change()" type="text" [formControl]="codigoFormControl">
-                <mat-hint></mat-hint>
-            </mat-form-field>
-            <mat-card-actions align="end">
-                <button mat-raised-button color="primary" type="submit">Buscar</button>
-            </mat-card-actions>
-        </form>
-        <section class="mag-section" align="end">
+       <section class="mag-section" align="end">
             <mat-radio-group name="opciones" [(ngModel)]="operacionSeleccionada">
                 <mat-radio-button *ngFor="let op of TipoBusqueda" name="opciones" [value]="op" style="margin: 10px">
                     {{op}}
                 </mat-radio-button>
             </mat-radio-group>
         </section>
-        <div class="example-spacer"></div>
-        <section class="mag-section" align="end">
 
+        <section class="mag-section" align="end">
             <mat-checkbox class="example-margin" [(ngModel)]="incluirVariantes" [disabled]="this.cargando">Incluir variantes</mat-checkbox>
         </section>
+
+        <form class="form-wrap" (ngSubmit)="getByProducto_Change()">
+            <mat-form-field class="filter" focused="true">
+                <mat-label>Buscar Producto por código </mat-label>
+                <input matInput  (inputChange)="getByProducto_Change()" type="text" [formControl]="codigoFormControl">
+                <mat-hint>No buscar por descripción</mat-hint>
+            </mat-form-field>
+            <mat-card-actions align="end">
+                <button mat-raised-button color="primary" type="submit">Buscar</button>
+            </mat-card-actions>
+        </form>
 
 
     </mat-card-content>
@@ -45,22 +45,21 @@
             <mat-spinner [diameter]="80"></mat-spinner>
         </div>
         <div *ngIf="dataSource.length === 0 && !cargando && !this.errorEnServicios">
-            <h1 class="text-center">
+            <h4 class="text-center">
                 No se encontraron productos con los filtros establecidos
-            </h1>
+            </h4>
         </div>
 
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" multiTemplateDataRows [ngClass]="this.cargando ? 'min-height' : ''">
-            <ng-container matColumnDef="codigo">
-                <th class="producto-column small-colunm" mat-header-cell *matHeaderCellDef>
-                    Codigo
-                </th>
-                <td class="producto-column small-colunm" mat-cell *matCellDef="let element">
-                    {{ element.Codigo }}
-                </td>
-            </ng-container>
-
-            <ng-container matColumnDef="descripcion">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" multiTemplateDataRows >
+          <ng-container matColumnDef="codigo">
+              <th class="producto-column small-colunm" mat-header-cell *matHeaderCellDef>
+                  Codigo
+              </th>
+              <td class="producto-column small-colunm" mat-cell *matCellDef="let element">
+                  {{ element.Codigo }}
+              </td>
+          </ng-container>
+            <ng-container matColumnDef="detalle">
                 <th class="producto-column large-colunm" mat-header-cell *matHeaderCellDef>
                     Descripción
                 </th>
@@ -69,16 +68,16 @@
                 </td>
             </ng-container>
 
-            <ng-container matColumnDef="ubicacion">
+            <ng-container matColumnDef="deposito">
                 <th class="producto-column large-colunm" mat-header-cell *matHeaderCellDef>
-                    Ubicación
+                  Deposito
                 </th>
                 <td class="producto-column large-colunm" mat-cell *matCellDef="let element">
-                    {{ element.Ubicacion }}
+                    {{ element.Deposito }}
                 </td>
             </ng-container>
 
-            <ng-container matColumnDef="stockActual">
+            <ng-container matColumnDef="stockactual">
                 <th class="producto-column small-colunm text-right" mat-header-cell *matHeaderCellDef>
                     Stock Actual
                 </th>
@@ -86,16 +85,18 @@
                     {{ element.StockActual | currency:'es-AR':'' }}
                 </td>
             </ng-container>
-
-
-
             <tr mat-header-row *matHeaderRowDef="columnasTabla"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnasTabla;"></tr>
         </table>
     </div>
     <div class="footer">
-        <h3 *ngIf="dataSource.length">Total Productos {{ totalRows }}</h3>
-        <mat-paginator #paginator [length]="totalRows" [pageIndex]="page - 1" [pageSizeOptions]="[5, 10, 50, 100]" (page)="pagesChange($event)" [pageSize]="pageSize" aria-label="Select page">
+
+        <mat-paginator #paginator [length]="totalRows" [pageIndex]="page - 1"
+              [pageSizeOptions]="[5, 10, 50, 100]" (page)="pagesChange($event)"
+              [pageSize]="pageSize" aria-label="Select page">
         </mat-paginator>
+
+         <mat-card *ngIf="dataSource.length" >Total Productos {{ totalRows }}</mat-card>
     </div>
 
 
