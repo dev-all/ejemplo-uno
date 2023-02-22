@@ -38,7 +38,7 @@ input[type=number] {
     flex-direction: column;
 }
 
-.icon {
+.gr {
     width: 25px;
     align-self: center;
 }
@@ -252,8 +252,3 @@ tr.example-element-row:not(.example-expanded-row):active {
     flex: 1 1 auto;
     /*flex es un shorthand de las propiedades flex-grow flex-shrink flex-basis*/
 }
-
-// .flex-container .flex-item:nth-child(2) {
-//     //flex-grow: 2;
-//     /* default 0 valores no negativos*/
-// }
