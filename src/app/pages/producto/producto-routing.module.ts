@@ -13,10 +13,10 @@ const routes: Routes = [
         path: 'list',
         component: ProductoListComponent,
       },
-      {
-        path: 'stock',
-        component: ControlStockComponent,
-      },
+      // {
+      //   path: 'stock',
+      //   component: ControlStockComponent,
+      // },
 
 
 

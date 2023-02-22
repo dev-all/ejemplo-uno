@@ -1,22 +1,19 @@
-import { Component, ViewChild, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ProductoRequest } from '@models/Producto/ProductoRequest';
 import { ProductoService } from '@services/producto/producto.service';
-import {TooltipPosition} from '@angular/material/tooltip';
-
 
 @Component({
-  selector: 'app-control-stock',
-  templateUrl: './control-stock.component.html',
-  styleUrls: ['./control-stock.component.scss'],
+  selector: 'app-gestion-stock',
+  templateUrl: './gestion-stock.component.html',
+  styleUrls: ['./gestion-stock.component.scss'],
    // Need to remove view encapsulation so that the custom tooltip style defined in
   // `tooltip-custom-class-example.css` will not be scoped to this component's view.
   encapsulation: ViewEncapsulation.None,
 })
-export class ControlStockComponent implements OnInit {
-
+export class GestionStockComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   operacionSeleccionada: string = 'Código de barras';
@@ -37,21 +34,36 @@ export class ControlStockComponent implements OnInit {
   VOForm: FormGroup;
   dataSourceEditing = new MatTableDataSource<any>();
 
+  addressForm = this.fb.group({
+    company: null,
+    firstName: [null, Validators.required],
+    lastName: [null, Validators.required],
+    address: [null, Validators.required],
+    address2: null,
+    city: [null, Validators.required],
+    state: [null, Validators.required],
+    postalCode: [null, Validators.compose([
+      Validators.required, Validators.minLength(5), Validators.maxLength(5)])
+    ], shipping: ['free', Validators.required]
+  });
+  hasUnitNumber = false;
+  states = [ {name: 'Alabama', abbreviation: 'AL'}];
 
-constructor( private productoService: ProductoService
+  constructor( private productoService: ProductoService
             ,private fb: FormBuilder,
             private _formBuilder: FormBuilder)
    { }
 
 
   ngOnInit(): void {
-
     this.search();
     this.VOForm = this._formBuilder.group({
       VORows: this._formBuilder.array([])
     });
+  }
 
-
+  onSubmit() {
+    alert('Thanks!');
   }
 
  // this function will enabled the select field for editd

@@ -4,6 +4,7 @@
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: #F0F2F2;
 }
 
 .container {
@@ -218,3 +219,41 @@ tr.example-element-row:not(.example-expanded-row):active {
         max-height: 250px !important;
     }
 }
+
+///alldev https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+///https://fonts.google.com/icons
+.card-detalle {
+    background: #F0F2F2;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+
+.flex-container::after,
+ ::before {
+    box-sizing: border-box;
+}
+
+.flex-container .flex-item {
+    margin: 5px;
+    padding: 10px;
+    width: 20%;
+    // flex-grow: 1;
+    /* default 0 valores no negativos*/
+    // flex-shrink: 1;
+    /* default 1 */
+    // flex-basis: auto;
+    /* default auto */
+    flex: 1 1 auto;
+    /*flex es un shorthand de las propiedades flex-grow flex-shrink flex-basis*/
+}
+
+// .flex-container .flex-item:nth-child(2) {
+//     //flex-grow: 2;
+//     /* default 0 valores no negativos*/
+// }

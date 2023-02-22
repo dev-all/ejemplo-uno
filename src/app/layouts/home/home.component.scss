@@ -1,24 +1,19 @@
 .content-wrap {
-  background: white;
-  height: 100vh;
-
-  .content {
-
-    margin-left: 100px;
-    margin-right: 50px;
-    padding-top: 18px;
-  }
+    background: #F0F2F2;
+    height: 100vh;
+    .content {
+        margin-left: 100px;
+        margin-right: 50px;
+        padding-top: 18px;
+    }
 }
 
 @media only screen and (max-width:340px) {
-  .content-wrap {
-
-  
-    .content {
-  
-      margin-left: 100px;
-      margin-right: 0px;
-      padding-top: 18px;
+    .content-wrap {
+        .content {
+            margin-left: 100px;
+            margin-right: 0px;
+            padding-top: 18px;
+        }
     }
-  }
 }

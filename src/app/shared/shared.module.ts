@@ -36,6 +36,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 
 import {MatGridListModule} from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   imports: [
@@ -62,7 +64,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
       MatRadioModule,
       MatToolbarModule,
       MatCardModule,
-      MatGridListModule
+      MatGridListModule,
+      MatMenuModule,
+      MatTooltipModule
     ],
   declarations: [],
   exports: [
@@ -89,7 +93,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatRadioModule,
     MatToolbarModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatMenuModule,
+    MatTooltipModule
+
   ],
 })
 export class SharedModule { }
