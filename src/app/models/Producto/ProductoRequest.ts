@@ -3,6 +3,7 @@ import { RequestBase } from '../RequestBase';
 export class ProductoRequest extends RequestBase {
   codigo: string;
   codigoBarra: string;
+  CodigoGlobal: string;
   codigoProveedor: string;
   cpInterno: number;
   detalle: string;

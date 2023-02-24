@@ -279,7 +279,6 @@ export class ProductoListComponent implements OnInit {
   openDialog(producto: Producto, tipoDialog: string) {
     {
       const dialogTypes = new DialogsTypes();
-
       const dialog = dialogTypes.types.find(
         (x) => x.description === tipoDialog
       );
@@ -368,9 +367,7 @@ export class ProductoListComponent implements OnInit {
   ) {
     this.dataSource = [];
     this.cargando = true;
-
     var codigoCustom = this.removeSign(this.codigoFormControl.value);
-debugger;
     this.codigoFormControl.setValue(codigoCustom);
     var request = new ProductoRequest({
       codigo:
@@ -385,6 +382,7 @@ debugger;
         this.codigoSelected == 2 && this.codigoFormControl.value
           ? codigoCustom
           : null,
+      CodigoGlobal:null,
       bajoControlStock: this.obtenerControlStockValor(),
       stockPositivo: this.obtenerStockPositivoValor(),
       excluirNovedades: this.obtenerNovedadesValor(),

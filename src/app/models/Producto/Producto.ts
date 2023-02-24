@@ -6,6 +6,8 @@ export class Producto {
   Precio2: number;
   Costo: number;
   StockActual: number;
+  StockActualDeposito1:number;
+  StockActualDeposito2:number;
   UltiCambio: Date;
   UltiVenta: Date;
   CpInterno: number;
