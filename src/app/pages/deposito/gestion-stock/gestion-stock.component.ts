@@ -18,7 +18,7 @@ export class GestionStockComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   operacionSeleccionada: string = 'Código de barras';
   TipoBusqueda = [ 'Código de barras','Código'];
-  incluirVariantes: boolean = false;
+  incluirVariantes: boolean = true;
   codigoFormControl = new FormControl('');
   page: number = 0;
   pageSize: number = 10;

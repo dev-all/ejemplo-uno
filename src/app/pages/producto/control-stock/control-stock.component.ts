@@ -62,7 +62,7 @@ constructor( private productoService: ProductoService
     this.myForm = this.fb.group({
       codigo : ['',],
       proveedor : [''],
-      incluirVariantes: [false],
+      incluirVariantes: [true],
       });
 
     }
