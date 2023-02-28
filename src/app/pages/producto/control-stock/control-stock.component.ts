@@ -117,15 +117,6 @@ constructor( private productoService: ProductoService
     stock =parseInt(VOFormElement.get('VORows').at(i).get('stockActualDepositoDos').value)
   }
 
-  if (stock == 0 ) {
-    this.dialog.open(MessageDialogComponent, {
-      data: {
-        message: 'La cantidad debe ser mayor a 0',
-      },
-    });
-    return;
-  }
-
    const registro = new Registro({
     Cantidad:stock,
     Tipo: 3,
