@@ -4,15 +4,6 @@
     <mat-card-subtitle>Control de Stock</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <!-- <section class="mag-section" align="end">
-            <mat-radio-group name="opciones" [(ngModel)]="operacionSeleccionada">
-                <mat-radio-button *ngFor="let op of TipoBusqueda" name="opciones" [value]="op" style="margin: 10px">
-                    {{op}}
-                </mat-radio-button>
-            </mat-radio-group>
-        </section> -->
-
-
 
     <form class="form-wrap" [formGroup]="myForm" (ngSubmit)="getByProducto_Change()">
       <!-- codigo -->
@@ -33,27 +24,12 @@
         </mat-select>
       </mat-form-field>
 
-
-      <!-- <mat-checkbox class="input" id="incluirVariantes" formControlName="incluirVariantes" >Incluir variantes</mat-checkbox> -->
-
-      <!-- <mat-checkbox class="input" [(ngModel)]="incluirVariantes" [disabled]="this.cargando">Incluir variantes</mat-checkbox> -->
-
-      <!-- <mat-checkbox [checked]="cliente.habilitado"
-                      color="primary"
-                      (change)="setAll($event.checked)">
-            </mat-checkbox> -->
-
       <mat-card-actions>
         <button mat-raised-button color="primary" style="width: 100%; min-width: 150px;" type="submit">Buscar</button>
       </mat-card-actions>
     </form>
-
-
   </mat-card-content>
-
-
 </mat-card>
-
 <br>
 
 <mat-card class="magnum-card">
@@ -62,9 +38,7 @@
     <mat-card-subtitle> Registros encontrados</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-
     <div class="mat-elevation-z8">
-
       <form [formGroup]="VOForm" autocomplete="off">
         <ng-container formArrayName="VORows">
           <table #table mat-table [dataSource]="dataSourceEditing" class="mat-elevation-z8">
@@ -133,31 +107,6 @@
                     (click)="EditSVO(2,VOForm,i)">
                     <mat-icon>edit</mat-icon>
                   </button>
-
-
-                  <!-- <mat-form-field style="width: 70px;">
-                  <input matInput type="text" formControlName="stockactual" [readonly]="VOForm.get('VORows').value[i].isEditable">
-                </mat-form-field>
-                    <button mat-icon-button class="material-icons save-button"
-                        matTooltip="Guardar" (click)="SaveVO(VOForm,i)"
-                        *ngIf="!VOForm.get('VORows').value[i].isEditable" color="primary">
-                        <mat-icon>check_circle</mat-icon>
-                    </button>
-
-                    <button mat-icon-button class="material-icons app-toolbar-menu cancel-button"
-                                matTooltip="Cancelar"
-                                matTooltipClass="example-tooltip-red"
-                                color="warn"
-                                (click)="CancelSVO(VOForm,i)"
-                                *ngIf="!VOForm.get('VORows').value[i].isEditable">
-                                <mat-icon>cancel</mat-icon>
-                    </button>
-
-                    <button mat-icon-button class="material-icons app-toolbar-menu save-button"
-                        *ngIf="VOForm.get('VORows').value[i].isEditable"
-                        matTooltip="Editar" color="primary" (click)="EditSVO(VOForm,i)">
-                        <mat-icon>edit</mat-icon>
-                  </button> -->
                 </div>
                 <ng-template #elseBlock>
                   <label matTooltip="Antes de ajustar debe inicializar este stock.">(s.n.)</label>
@@ -165,16 +114,6 @@
 
               </td>
             </ng-container>
-            <!-- <ng-container matColumnDef="depositodos">
-
-          <th mat-header-cell *matHeaderCellDef> Deposito 2</th>
-          <td mat-cell *matCellDef="let element; let i = index" [formGroup]="element">
-            {{ element.get('deposito').value }}
-          </td>
-        </ng-container> -->
-
-
-
             <tr mat-header-row *matHeaderRowDef="columnasTabla"></tr>
             <tr mat-row *matRowDef="let row; columns: columnasTabla;"></tr>
 

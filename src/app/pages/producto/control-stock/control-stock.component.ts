@@ -5,7 +5,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ProductoRequest } from '@models/Producto/ProductoRequest';
 import { ProductoService } from '@services/producto/producto.service';
 import {TooltipPosition} from '@angular/material/tooltip';
-import { debug } from 'console';
 import { MessageDialogComponent } from '@components/dialogs/message.dialog/message.dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { RegistroService } from '@services/registro/registro.service';
@@ -15,7 +14,6 @@ import { GlobalSnackbarService } from '@services/global.snackbar/global.snackbar
 import { ProveedorService } from '@services/proveedor/proveedor.service';
 import { Proveedor } from '@models/Proveedor/Proveedor';
 import { ProveedorRequest } from '@models/Proveedor/ProveedorRequest';
-
 
 @Component({
   selector: 'app-control-stock',
@@ -29,27 +27,21 @@ export class ControlStockComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   operacionSeleccionada: string = 'Código de barras';
   TipoBusqueda = [ 'Código de barras','Código'];
- // incluirVariantes: boolean = false;
   codigoFormControl = new FormControl('');
 
   page: number = 0;
   pageSize: number = 10;
   totalRows: number;
   totalPages: number;
-
   cargando = true;
   errorEnServicios: boolean;
-
-
   columnasTabla: string[] = ['codigo', 'detalle','depositouno','depositodos'];
-
   VOForm: FormGroup;
   dataSourceEditing = new MatTableDataSource<any>();
-
   proveedoresSource: Proveedor[];
   requestProveedor = new ProveedorRequest({ database: null });
   public myForm;
-This: any;
+  //This: any;
 constructor( private productoService: ProductoService
             ,private fb: FormBuilder,
             private _formBuilder: FormBuilder,
@@ -69,7 +61,6 @@ constructor( private productoService: ProductoService
 
 
   ngOnInit(): void {
-
     this.search();
     this.VOForm = this._formBuilder.group({
       VORows: this._formBuilder.array([])
@@ -89,22 +80,17 @@ constructor( private productoService: ProductoService
     );
 	}
 
- // this function will enabled the select field for editd
+
  EditSVO(deposito,VOFormElement, i) {
-  // VOFormElement.get('VORows').at(i).get('name').disabled(false)
-  debugger;
   if(deposito == 1){
     VOFormElement.get('VORows').at(i).get('isEditableSADU').patchValue(false);
   }
   else{
     VOFormElement.get('VORows').at(i).get('isEditableSADD').patchValue(false);
   }
-
 }
- // On click of correct button in table (after click on edit) this method will call
- SaveVO(deposito, VOFormElement, i) {
-   debugger;
 
+ SaveVO(deposito, VOFormElement, i) {
   let stock = 0;
   if(deposito == 1){
     VOFormElement.get('VORows').at(i).get('isEditableSADU').patchValue(true);
@@ -116,7 +102,6 @@ constructor( private productoService: ProductoService
     deposito=2;
     stock =parseInt(VOFormElement.get('VORows').at(i).get('stockActualDepositoDos').value)
   }
-
    const registro = new Registro({
     Cantidad:stock,
     Tipo: 3,
@@ -129,10 +114,8 @@ constructor( private productoService: ProductoService
   });
 this.createRegistro(registro);
 }
-// On click of cancel button in the table (after click on edit) this method will call and reset the previous data
-CancelSVO(deposito,VOFormElement, i) {
 
- // VOFormElement.get('VORows').at(i).get('isEditable').patchValue(true);
+CancelSVO(deposito,VOFormElement, i) {
  if(deposito == 1){
   VOFormElement.get('VORows').at(i).get('isEditableSADU').patchValue(true);
 }
@@ -140,16 +123,14 @@ else{
   VOFormElement.get('VORows').at(i).get('isEditableSADD').patchValue(true);
 }
 }
-//----------------
+
 private createRegistro(registro: Registro) {
-  debugger;
   this.registroService.createRegistro(registro).subscribe(
     () => {
       this.snackbarService.showSnackBar('Se actualizoó el Stock...');
     },
     (err) => {
       const errorStatus = err.error.Error.Status;
-
       if (errorStatus === 2) {
         this.snackbarService.showSnackBar('No existe en stock el ajuste que desea realizar')
       } else {
@@ -159,14 +140,11 @@ private createRegistro(registro: Registro) {
   );
 }
 
-
-//----------------
   pagesChange(event?: PageEvent) {
     this.pageSize = event.pageSize;
     this.page = event.pageIndex;
     this.search();
   }
-
   async getByProducto_Change() {
     this.page = 0;
     this.errorEnServicios = false;
@@ -175,19 +153,10 @@ private createRegistro(registro: Registro) {
 
  private async search() {
 
-  //console.log(this.myForm.value);
   this.cargando = true;
-  //let getby = null;
-  // switch (this.operacionSeleccionada) {
-  //   case 'Código' : getby = 1 ;
-  //                 break;
-  //   case 'Código de barras': getby=2;
-  //                 break;
-  // }
-
   var request = new ProductoRequest({
-    codigo:  null,//getby == 1  ? this.codigoFormControl.value : null,
-    codigoBarra: null, // getby == 2  ? this.codigoFormControl.value : null,
+    codigo:  null,
+    codigoBarra: null,
     CodigoGlobal: this.myForm.get('codigo')?.value,
     codigoProveedor: null,
     bajoControlStock: null,
@@ -209,7 +178,6 @@ private createRegistro(registro: Registro) {
 
   this.productoService.getByFiltros(request).subscribe(
     (x) => {
-      debugger;
       this.cargando = false;
       this.page = x.Data.CurrentPage;
       this.totalPages = x.Data.TotalPages;
@@ -230,11 +198,10 @@ private createRegistro(registro: Registro) {
                   cpInterno: new FormControl(val.CpInterno),
                   idVariante: new FormControl(val.IdVariante),
                   action: new FormControl('existingRecord'),
-                 // isEditable: new FormControl(true),
                   isNewRow: new FormControl(false),
         })
-        )) //end of fb array
-      }); // end of form group cretation
+        ))
+      });
       this.dataSourceEditing = new MatTableDataSource((this.VOForm.get('VORows') as FormArray).controls);
       this.dataSourceEditing.paginator = this.paginator;
       return;
@@ -246,10 +213,6 @@ private createRegistro(registro: Registro) {
     () => (this.cargando = false)
   );
 
-
-
-
   }
-
 
 }

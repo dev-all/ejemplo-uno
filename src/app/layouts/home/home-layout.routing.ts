@@ -22,10 +22,6 @@ const routes: Routes = [
         loadChildren: () => import('@pages/producto/producto.module').then(m => m.ProductoModule)
       },
       {
-        path: 'deposito',
-        loadChildren: () => import('@pages/deposito/deposito.module').then(m => m.DepositoModule)
-      },
-      {
         path: 'movimiento-depositos',
         component: MovimientoDepositoPage,
       },

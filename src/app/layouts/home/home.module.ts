@@ -70,12 +70,11 @@ import {MatRadioModule} from '@angular/material/radio';
     ResumenCuentaPage,
     ClienteComponent,
     VentasComponent,
-    ClienteComponent,
     RoundPipe,
     FixedPipe,
     ReciboCuentaCorrientePage
   ],
-  
+
   providers: [
     SecurityAccess,
     {

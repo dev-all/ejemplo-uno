@@ -198,16 +198,6 @@ export class ProductoListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    /*Seguridad*/
-    // this.allowed = this.securityAccess.validateAccess(
-    //   'MANPRODU',
-    //   'ver productos'
-    // );
-
-    // if (!this.allowed) {
-    //   return;
-    // }
-
     this.allowed = true;
     var requestProveedor = new ProveedorRequest({ database: null });
 
@@ -265,12 +255,10 @@ export class ProductoListComponent implements OnInit {
 
   incluirVariante_Change() {
     this.page = this.page - 1;
-
     this.obtenerProductosPorFiltros();
   }
 
   buscar(treeEvent: TreeEvent = null) {
-
     this.page = 0;
     this.errorEnServicios = false;
     this.obtenerProductosPorFiltros(null, treeEvent);
@@ -295,7 +283,6 @@ export class ProductoListComponent implements OnInit {
           if (this.modalService.value()) {
             this.modalService.changeValue();
             this.page = this.page - 1;
-
             this.obtenerProductosPorFiltros();
           }
         });
@@ -304,7 +291,6 @@ export class ProductoListComponent implements OnInit {
 
   search() {
     let search = this.bankFilterCtrl.value.toLowerCase();
-
     if (!search) {
       this.proveedores = this.proveedoresDb;
       return;
@@ -343,7 +329,6 @@ export class ProductoListComponent implements OnInit {
   pagesChange(event?: PageEvent) {
     this.pageSize = event.pageSize;
     this.page = event.pageIndex;
-
     this.obtenerProductosPorFiltros();
   }
 

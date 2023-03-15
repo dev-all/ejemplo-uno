@@ -17,19 +17,6 @@ const routes: Routes = [
         path: 'stock',
         component: ControlStockComponent,
       },
-
-
-
-
-      // {
-      //   path: 'detail/:id',
-      //   component: UserDetailComponent
-      // }
-      // ,
-      // {
-      //   path: 'profile/:id',
-      //   component: UserProfileComponent
-      // }
     ]
   }
 ];

@@ -59,10 +59,7 @@ export class ApiInterceptorService implements HttpInterceptor {
       )
       .pipe(
         catchError((err: any) => {
-          // this.snackBarService.showSnackBar(
-          //   'Ha ocurrido un error en la comunicacion con el servidor',JSON.stringify(err)
-          // );
-          console.log(err)
+
           this.spinnerService.hideSpinner();
           this.snackBarService.showSnackBar('Error en los servicios');
           if (err.status === 401) {
