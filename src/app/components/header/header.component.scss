@@ -1,0 +1,20 @@
+.toolbar-item-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.icon span{
+  margin: 10px;
+}
+button span{
+  margin: 10px;
+}
+
+a span{
+  margin: 10px;
+}

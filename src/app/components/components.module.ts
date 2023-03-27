@@ -51,6 +51,10 @@ import { PedidoMercaderiaDialogComponent } from './dialogs/pedido.mercaderia.dia
 import { BonificacionGeneralDialogComponent } from './dialogs/bonificacion.general-dialog/bonificacion.general-dialog.component';
 import { BonificacionItemDialogComponent } from './dialogs/bonificacion.item-dialog/bonificacion.item-dialog.component';
 import { ProductoDialogComponent } from './dialogs/producto.dialog/producto.dialog.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { HeaderComponent } from './header/header.component';
+import { LayoutComponent } from './layout/layout.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -109,7 +113,11 @@ import { ProductoDialogComponent } from './dialogs/producto.dialog/producto.dial
     PedidoMercaderiaDialogComponent,
     BonificacionGeneralDialogComponent,
     BonificacionItemDialogComponent,
-    ProductoDialogComponent,    
+    ProductoDialogComponent,
+    SidenavComponent,
+    HeaderComponent,
+    LayoutComponent,
+    FooterComponent,
   ],
   exports: [
     AjusteStockDialogComponent,
@@ -137,7 +145,12 @@ import { ProductoDialogComponent } from './dialogs/producto.dialog/producto.dial
     PedidoMercaderiaDialogComponent,
     BonificacionGeneralDialogComponent,
     BonificacionItemDialogComponent,
-    ProductoDialogComponent,    
+    ProductoDialogComponent,
+    SidenavComponent,
+    HeaderComponent,
+    LayoutComponent,
+    FooterComponent,
+
   ],
 })
 export class ComponentsModule {}

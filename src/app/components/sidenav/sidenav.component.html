@@ -1,0 +1,60 @@
+<mat-nav-list>
+  <mat-list-item class="icon" routerLink="">
+      <mat-icon> dashboard </mat-icon> <span>Menu</span>
+  </mat-list-item>
+
+  <mat-expansion-panel [class.mat-elevation-z0]="true">
+      <mat-expansion-panel-header>
+        Clientes
+      </mat-expansion-panel-header>
+      <mat-nav-list >
+
+          <a mat-list-item [routerLink]="routes.TABLES" routerLinkActive="['is-active']">
+              <mat-icon >view_list</mat-icon><span>Tablas</span>
+          </a>
+          <a mat-list-item [routerLink]="routes.FORMONE" routerLinkActive="['is-active']">
+              <mat-icon>feed</mat-icon><span>Form ONE</span>
+          </a>
+      </mat-nav-list>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [class.mat-elevation-z0]="true">
+      <mat-expansion-panel-header>
+        Productos
+      </mat-expansion-panel-header>
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="routes.FORMFLEX" routerLinkActive="['is-active']">
+          <mat-icon>feed</mat-icon><span>Form Flex</span>
+      </a>
+          <a mat-list-item routerLink="#">Hibernate</a>
+          <a mat-list-item routerLink="#">Struts</a>
+      </mat-nav-list>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [class.mat-elevation-z0]="true">
+    <mat-expansion-panel-header>
+        Depósito
+    </mat-expansion-panel-header>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="routes.FORMFLEX" routerLinkActive="['is-active']">
+        <mat-icon>feed</mat-icon><span>Form Flex</span>
+    </a>
+        <a mat-list-item routerLink="#">Hibernate</a>
+        <a mat-list-item routerLink="#">Struts</a>
+    </mat-nav-list>
+</mat-expansion-panel>
+<mat-expansion-panel [class.mat-elevation-z0]="true">
+  <mat-expansion-panel-header>
+      Facturación
+  </mat-expansion-panel-header>
+  <mat-nav-list>
+    <a mat-list-item [routerLink]="routes.FORMFLEX" routerLinkActive="['is-active']">
+      <mat-icon>feed</mat-icon><span>Form Flex</span>
+  </a>
+      <a mat-list-item routerLink="#">Hibernate</a>
+      <a mat-list-item routerLink="#">Struts</a>
+  </mat-nav-list>
+</mat-expansion-panel>
+
+
+</mat-nav-list>

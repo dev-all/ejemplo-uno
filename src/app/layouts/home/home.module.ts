@@ -35,6 +35,15 @@ import { ResumenCuentaPage } from '@pages/resumen.cuenta/resumen.cuenta.componen
 import { MatDividerModule } from '@angular/material/divider';
 import { ReciboCuentaCorrientePage } from '@pages/recibo-cuenta-corriente/recibo-cuenta-corriente';
 import {MatRadioModule} from '@angular/material/radio';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+
+import {MatExpansionModule} from '@angular/material/expansion';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -60,7 +69,19 @@ import {MatRadioModule} from '@angular/material/radio';
     MatDatepickerModule,
     MatDividerModule,
     MatButtonToggleModule,
-    MatRadioModule
+    MatRadioModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatMenuModule,
+    MatListModule,
+    MatExpansionModule,
+    MatCardModule,
+    MatGridListModule,
+    MatSnackBarModule,
+    MatSelectModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatPaginatorModule,
   ],
   declarations: [
     HomePage,
@@ -72,9 +93,8 @@ import {MatRadioModule} from '@angular/material/radio';
     VentasComponent,
     RoundPipe,
     FixedPipe,
-    ReciboCuentaCorrientePage
+    ReciboCuentaCorrientePage,
   ],
-
   providers: [
     SecurityAccess,
     {
