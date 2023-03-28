@@ -18,11 +18,6 @@ const routes: Routes = [
         component: HomePage,
       },
       {
-        path: 'test',
-        pathMatch: 'full',
-        loadChildren: () => import('@pages/typography/typography.module').then(m => m.TypographyModule)
-      },
-      {
         path: 'productos',
         loadChildren: () => import('@pages/producto/producto.module').then(m => m.ProductoModule)
       },
@@ -49,6 +44,10 @@ const routes: Routes = [
       {
         path:'recibo-cuenta-corriente/:numeroCuenta/:nombreCliente',
         component:ReciboCuentaCorrientePage
+      },
+      {
+        path: 'test',
+        loadChildren: () => import('@pages/typography/typography.module').then(m => m.TypographyModule)
       },
       {
         path: '**',

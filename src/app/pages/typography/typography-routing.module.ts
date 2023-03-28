@@ -2,12 +2,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { TypographyPageComponent } from './containers';
+import { DevformComponent } from './containers/devform/devform.component';
 
 const routes: Routes = [
   {
     path: '',
     component: TypographyPageComponent
+  },
+  {
+    path: 'form',
+    component: DevformComponent
   }
+
 ];
 
 @NgModule({
