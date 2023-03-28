@@ -1,6 +1,10 @@
-<div class="container">
+<app-layout>
+  <mat-toolbar class="page-header" role="heading">
+    <h1>Clientes</h1>
+  </mat-toolbar>
+<!-- <div class="container">
   <h2>Clientes</h2>
-</div>
+</div> -->
 <form class="form-wrap mt-2">
   <div class="filtros-wrap">
     <div class="filtros" *ngFor="let tipoInput of listaInputsParaMostrar">
@@ -430,5 +434,9 @@
   >
   </mat-paginator>
 </div>
+
+<app-footer></app-footer>
+</app-layout>
+
 <app-global-spinner></app-global-spinner>
 <app-global-snackbar></app-global-snackbar>

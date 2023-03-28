@@ -15,26 +15,17 @@
   <!-- top-menu -->
   <div>
 
-  <button mat-icon-button matTooltip="Notifications">
-      <mat-icon>notifications</mat-icon>
-  </button>
-  <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu">
-      <mat-icon>account_circle</mat-icon>
-  </button>
+
+  <button mat-icon-button matTooltip="Mi Cuenta" [matMenuTriggerFor]="userAccountMenu">
+      <mat-icon>account_circle</mat-icon>  </button>
 </div>
   <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below" >
       <button mat-menu-item routerLink="#">
-          <mat-icon>person</mat-icon><span>My Account</span>
-      </button>
-      <button mat-menu-item routerLink="#">
-          <mat-icon>settings</mat-icon><span>Settings</span>
-      </button>
-      <button mat-menu-item routerLink="#">
-          <mat-icon>help</mat-icon><span>Help</span>
+          <mat-icon>person</mat-icon><span>{{user.nombre}}</span>
       </button>
       <mat-divider></mat-divider>
-      <button mat-menu-item routerLink="#">
-          <mat-icon>exit_to_app</mat-icon>Logout
+      <button mat-menu-item routerLink="#" (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>Salir
       </button>
   </mat-menu>
 <!-- fin top-menu -->

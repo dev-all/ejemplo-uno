@@ -1,5 +1,5 @@
 export enum routes {
-  DASHBOARD = '/dashboard',
+  CLIENTES = '/clientes',
   TABLES = '/tables',
   FORMONE = '/formOne',
   FORMFLEX = '/formflex',

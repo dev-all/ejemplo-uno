@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { routes } from 'app/data/consts';
+import { routes } from 'app/data/consts/routes';
 
 @Component({
   selector: 'app-sidenav',
