@@ -1,8 +1,18 @@
+<mat-card-content class="card-magnum-content">
+  <div class="card-magnum-content__wrapper">
+    <mat-card class="card-magnum-content__item-wrapper">
+      <mat-card-title> Productos</mat-card-title>
+      <mat-card-subtitle>Gestión de productos	</mat-card-subtitle>
+      <div class="card-magnum-content__headings">
+
+
+
+
 <div class="noAutorizado-wrap" *ngIf="!this.allowed">
     <i class="fa fa-lock" aria-hidden="true"></i>
 </div>
 <div *ngIf="this.allowed" class="container">
-    <h2>Productos</h2>
+    <h2></h2>
     <app-tree (TreeChangeEvent)="buscar($event)"></app-tree>
     <form class="form-wrap mt-2" (ngSubmit)="buscar()">
         <div class="filtros-wrap">
@@ -334,3 +344,12 @@
         </div>
     </div>
 </div>
+
+</div>
+</mat-card>
+</div>
+</mat-card-content>
+
+<app-footer></app-footer>
+<app-global-spinner></app-global-spinner>
+<app-global-snackbar></app-global-snackbar>

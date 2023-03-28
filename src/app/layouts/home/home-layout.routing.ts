@@ -18,6 +18,11 @@ const routes: Routes = [
         component: HomePage,
       },
       {
+        path: 'test',
+        pathMatch: 'full',
+        loadChildren: () => import('@pages/typography/typography.module').then(m => m.TypographyModule)
+      },
+      {
         path: 'productos',
         loadChildren: () => import('@pages/producto/producto.module').then(m => m.ProductoModule)
       },

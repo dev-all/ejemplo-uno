@@ -53,6 +53,7 @@ const MaterialComponent =[
     MatPaginatorModule,
     MatNativeDateModule,
     MatTreeModule,
+
   ];
 
 

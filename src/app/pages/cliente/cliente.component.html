@@ -1,442 +1,442 @@
-<app-layout>
-  <mat-toolbar class="page-header" role="heading">
-    <h1>Clientes</h1>
-  </mat-toolbar>
-<!-- <div class="container">
-  <h2>Clientes</h2>
-</div> -->
-<form class="form-wrap mt-2">
-  <div class="filtros-wrap">
-    <div class="filtros" *ngFor="let tipoInput of listaInputsParaMostrar">
-      <!--Nombre-->
-      <app-magnum-input
-        *ngIf="tipoInput.descripcion.toLowerCase() === 'nombre'"
-        [inputFormControl]="nombreFormControl"
-        placeHolder="Nombre"
-      ></app-magnum-input>
-      <!--CUIT-->
-      <app-magnum-input
-        *ngIf="tipoInput.descripcion.toLowerCase() === 'cuit'"
-        [inputFormControl]="cuitFormControl"
-        placeHolder="Cuit"
-      ></app-magnum-input>
 
-      <!--CUENTA-->
-      <app-magnum-input
-        *ngIf="tipoInput.descripcion.toLowerCase() === 'cuenta'"
-        [inputFormControl]="cuentaFormControl"
-        placeHolder="cuenta"
-      ></app-magnum-input>
+  <mat-card-content class="card-magnum-content">
+    <div class="card-magnum-content__wrapper">
+      <mat-card class="card-magnum-content__item-wrapper">
+        <mat-card-title> Cliente</mat-card-title>
+        <mat-card-subtitle>Resumen de Cuenta y Recibos	</mat-card-subtitle>
+        <div class="card-magnum-content__headings">
+            <form class="form-wrap mt-2">
+              <div class="filtros-wrap">
+                <div class="filtros" *ngFor="let tipoInput of listaInputsParaMostrar">
+                  <!--Nombre-->
+                  <app-magnum-input
+                    *ngIf="tipoInput.descripcion.toLowerCase() === 'nombre'"
+                    [inputFormControl]="nombreFormControl"
+                    placeHolder="Nombre"
+                  ></app-magnum-input>
+                  <!--CUIT-->
+                  <app-magnum-input
+                    *ngIf="tipoInput.descripcion.toLowerCase() === 'cuit'"
+                    [inputFormControl]="cuitFormControl"
+                    placeHolder="Cuit"
+                  ></app-magnum-input>
 
-      <!--Nombre fantasia-->
-      <app-magnum-input
-        *ngIf="tipoInput.descripcion.toLowerCase() === 'nomre fantasia'"
-        [inputFormControl]="nombreFantasiaFormControl"
-        placeHolder="Nombre fantasia"
-      ></app-magnum-input>
+                  <!--CUENTA-->
+                  <app-magnum-input
+                    *ngIf="tipoInput.descripcion.toLowerCase() === 'cuenta'"
+                    [inputFormControl]="cuentaFormControl"
+                    placeHolder="cuenta"
+                  ></app-magnum-input>
 
-      <!--Provincia-->
-      <mat-form-field
-        *ngIf="tipoInput.descripcion.toLowerCase() === 'provincia'"
-        focused="false"
-        appearance="outline"
-      >
-        <mat-label>{{ tipoInput.descripcion }}</mat-label>
-        <mat-select
-          *ngIf="tipoInput.descripcion.toLowerCase() === 'provincia'"
-          [(ngModel)]="provinciaSelected"
-          name="provincia"
-        >
-          <mat-option
-            *ngFor="let provincia of provincias"
-            [value]="provincia.Id"
-          >
-            {{ provincia.Nombre | uppercase }}
-          </mat-option>
-        </mat-select>
-        <div
-          clear-option
-          mat-button
-          *ngIf="
-            provinciaSelected &&
-            tipoInput.descripcion.toLowerCase() === 'provincia'
-          "
-          matSuffix
-          mat-icon-button
-          aria-label="Clear"
-          (click)="provinciaSelected = undefined; $event.stopPropagation()"
-        >
-          <mat-icon>close</mat-icon>
+                  <!--Nombre fantasia-->
+                  <app-magnum-input
+                    *ngIf="tipoInput.descripcion.toLowerCase() === 'nomre fantasia'"
+                    [inputFormControl]="nombreFantasiaFormControl"
+                    placeHolder="Nombre fantasia"
+                  ></app-magnum-input>
+
+                  <!--Provincia-->
+                  <mat-form-field
+                    *ngIf="tipoInput.descripcion.toLowerCase() === 'provincia'"
+                    focused="false"
+                    appearance="outline"
+                  >
+                    <mat-label>{{ tipoInput.descripcion }}</mat-label>
+                    <mat-select
+                      *ngIf="tipoInput.descripcion.toLowerCase() === 'provincia'"
+                      [(ngModel)]="provinciaSelected"
+                      name="provincia"
+                    >
+                      <mat-option
+                        *ngFor="let provincia of provincias"
+                        [value]="provincia.Id"
+                      >
+                        {{ provincia.Nombre | uppercase }}
+                      </mat-option>
+                    </mat-select>
+                    <div
+                      clear-option
+                      mat-button
+                      *ngIf="
+                        provinciaSelected &&
+                        tipoInput.descripcion.toLowerCase() === 'provincia'
+                      "
+                      matSuffix
+                      mat-icon-button
+                      aria-label="Clear"
+                      (click)="provinciaSelected = undefined; $event.stopPropagation()"
+                    >
+                      <mat-icon>close</mat-icon>
+                    </div>
+                  </mat-form-field>
+
+                  <!--Categoria-->
+                  <mat-form-field
+                    *ngIf="tipoInput.descripcion.toLowerCase() === 'categoria'"
+                    focused="false"
+                    appearance="outline"
+                  >
+                    <mat-label>{{ tipoInput.descripcion }}</mat-label>
+                    <mat-select
+                      *ngIf="tipoInput.descripcion.toLowerCase() === 'categoria'"
+                      [(ngModel)]="categoriaSelected"
+                      name="categoria"
+                    >
+                      <mat-option
+                        *ngFor="let categoria of categorias"
+                        [value]="categoria.Id"
+                      >
+                        {{ categoria.Detalle | uppercase }}
+                      </mat-option>
+                    </mat-select>
+                    <div
+                      clear-option
+                      mat-button
+                      *ngIf="
+                        categoriaSelected &&
+                        tipoInput.descripcion.toLowerCase() === 'categoria'
+                      "
+                      matSuffix
+                      mat-icon-button
+                      aria-label="Clear"
+                      (click)="categoriaSelected = undefined; $event.stopPropagation()"
+                    >
+                      <mat-icon>close</mat-icon>
+                    </div>
+                  </mat-form-field>
+
+                  <!--Forma Venta-->
+                  <mat-form-field
+                    *ngIf="tipoInput.descripcion.toLowerCase() === 'forma venta'"
+                    focused="false"
+                    appearance="outline"
+                  >
+                    <mat-label>{{ tipoInput.descripcion }}</mat-label>
+                    <mat-select
+                      *ngIf="tipoInput.descripcion.toLowerCase() === 'forma venta'"
+                      [(ngModel)]="formaVentaSelected"
+                      name="forma venta"
+                    >
+                      <mat-option *ngFor="let forma of formas" [value]="forma.Id">
+                        {{ forma.Expresion | uppercase }}
+                      </mat-option>
+                    </mat-select>
+                    <div
+                      clear-option
+                      mat-button
+                      *ngIf="
+                        formaVentaSelected &&
+                        tipoInput.descripcion.toLowerCase() === 'forma venta'
+                      "
+                      matSuffix
+                      mat-icon-button
+                      aria-label="Clear"
+                      (click)="formaVentaSelected = undefined; $event.stopPropagation()"
+                    >
+                      <mat-icon>close</mat-icon>
+                    </div>
+                  </mat-form-field>
+
+                  <!--Ciudad-->
+                  <mat-form-field
+                    *ngIf="tipoInput.descripcion.toLowerCase() === 'ciudad'"
+                    focused="false"
+                    appearance="outline"
+                  >
+                    <mat-label>{{ tipoInput.descripcion }}</mat-label>
+                    <mat-select
+                      *ngIf="tipoInput.descripcion.toLowerCase() === 'ciudad'"
+                      [(ngModel)]="ciudadSelected"
+                      name="ciudad"
+                    >
+                      <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad.Id">
+                        {{ ciudad.Ciudad | uppercase }}
+                      </mat-option>
+                    </mat-select>
+                    <div
+                      clear-option
+                      mat-button
+                      *ngIf="
+                        ciudadSelected && tipoInput.descripcion.toLowerCase() === 'ciudad'
+                      "
+                      matSuffix
+                      mat-icon-button
+                      aria-label="Clear"
+                      (click)="ciudadSelected = undefined; $event.stopPropagation()"
+                    >
+                      <mat-icon>close</mat-icon>
+                    </div>
+                  </mat-form-field>
+
+                  <!--Lista-->
+                  <mat-form-field
+                    *ngIf="tipoInput.descripcion.toLowerCase() === 'lista'"
+                    focused="false"
+                    appearance="outline"
+                  >
+                    <mat-label>{{ tipoInput.descripcion }}</mat-label>
+                    <mat-select
+                      *ngIf="tipoInput.descripcion.toLowerCase() === 'lista'"
+                      [(ngModel)]="listaSelected"
+                      name="lista"
+                    >
+                      <mat-option *ngFor="let lista of listas" [value]="lista.Id">
+                        {{ lista.Aclaracion | uppercase }}
+                      </mat-option>
+                    </mat-select>
+                    <div
+                      clear-option
+                      mat-button
+                      *ngIf="
+                        listaSelected && tipoInput.descripcion.toLowerCase() === 'lista'
+                      "
+                      matSuffix
+                      mat-icon-button
+                      aria-label="Clear"
+                      (click)="listaSelected = undefined; $event.stopPropagation()"
+                    >
+                      <mat-icon>close</mat-icon>
+                    </div>
+                  </mat-form-field>
+
+                  <!--Zona-->
+                  <mat-form-field
+                    *ngIf="tipoInput.descripcion.toLowerCase() === 'zona'"
+                    focused="false"
+                    appearance="outline"
+                  >
+                    <mat-label>{{ tipoInput.descripcion }}</mat-label>
+                    <mat-select
+                      *ngIf="tipoInput.descripcion.toLowerCase() === 'zona'"
+                      [(ngModel)]="zonaSelected"
+                      name="zona"
+                    >
+                      <mat-option *ngFor="let zona of zonas" [value]="zona.Id">
+                        {{ zona.Descripcion | uppercase }}
+                      </mat-option>
+                    </mat-select>
+                    <div
+                      clear-option
+                      mat-button
+                      *ngIf="zonaSelected && tipoInput.descripcion.toLowerCase() === 'zona'"
+                      matSuffix
+                      mat-icon-button
+                      aria-label="Clear"
+                      (click)="zonaSelected = undefined; $event.stopPropagation()"
+                    >
+                      <mat-icon>close</mat-icon>
+                    </div>
+                  </mat-form-field>
+
+                  <!--Vendedor Exclusivo-->
+                  <mat-form-field
+                    *ngIf="tipoInput.descripcion.toLowerCase() === 'vendedor exclusivo'"
+                    focused="false"
+                    appearance="outline"
+                  >
+                    <mat-label>{{ tipoInput.descripcion }}</mat-label>
+                    <mat-select
+                      *ngIf="tipoInput.descripcion.toLowerCase() === 'vendedor exclusivo'"
+                      [(ngModel)]="vendedorSelected"
+                      name="vendedor exclusivo"
+                    >
+                      <mat-option *ngFor="let vendedor of vendedores" [value]="vendedor.Id">
+                        {{ vendedor.Nombre | uppercase }}
+                      </mat-option>
+                    </mat-select>
+                    <div
+                      clear-option
+                      mat-button
+                      *ngIf="
+                        vendedorSelected &&
+                        tipoInput.descripcion.toLowerCase() === 'vendedor exclusivo'
+                      "
+                      matSuffix
+                      mat-icon-button
+                      aria-label="Clear"
+                      (click)="vendedorSelected = undefined; $event.stopPropagation()"
+                    >
+                      <mat-icon>close</mat-icon>
+                    </div>
+                  </mat-form-field>
+
+                  <!--Agenda-->
+                  <app-magnum-input
+                    *ngIf="tipoInput.descripcion.toLowerCase() === 'agenda'"
+                    [inputFormControl]="agendaFormControl"
+                    placeHolder="Agenda"
+                  ></app-magnum-input>
+
+                  <!--Direccion-->
+                  <app-magnum-input
+                    *ngIf="tipoInput.descripcion.toLowerCase() === 'direccion'"
+                    [inputFormControl]="direccionFormControl"
+                    placeHolder="Direccion"
+                  ></app-magnum-input>
+
+                  <!--Sucursal-->
+                  <mat-form-field
+                    *ngIf="tipoInput.descripcion.toLowerCase() === 'sucursal'"
+                    focused="false"
+                    appearance="outline"
+                  >
+                    <mat-label>{{ tipoInput.descripcion }}</mat-label>
+                    <mat-select
+                      *ngIf="tipoInput.descripcion.toLowerCase() === 'sucursal'"
+                      [(ngModel)]="sucursalSelected"
+                      name="sucursal"
+                    >
+                      <mat-option *ngFor="let sucursal of sucursales" [value]="sucursal.Id">
+                        {{ sucursal.Nombre | uppercase }}
+                      </mat-option>
+                    </mat-select>
+                    <div
+                      clear-option
+                      mat-button
+                      *ngIf="
+                        sucursalSelected &&
+                        tipoInput.descripcion.toLowerCase() === 'sucursal'
+                      "
+                      matSuffix
+                      mat-icon-button
+                      aria-label="Clear"
+                      (click)="sucursalSelected = undefined; $event.stopPropagation()"
+                    >
+                      <mat-icon>close</mat-icon>
+                    </div>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <app-lista-inputs
+                class="lista-inputs"
+                listaInput="true"
+                [listaInputs]="this.listaInputs"
+                (listaChange_Event)="lista_Event($event)"
+              ></app-lista-inputs>
+              <div class="button-wrap">
+                <app-magnum-button
+                  (btnClickEmt)="this.buscar_Click()"
+                  text="Buscar"
+                  class="cf-wrap"
+                ></app-magnum-button>
+              </div>
+            </form>
+            <div class="table-wrap">
+              <table
+                mat-table
+                [dataSource]="clientes"
+                class="mat-elevation-z8"
+                multiTemplateDataRows
+              >
+                <ng-container matColumnDef="razonSocial">
+                  <th class="table-padding-left" mat-header-cell *matHeaderCellDef>
+                    Razon Social
+                  </th>
+                  <td class="table-padding-left" mat-cell *matCellDef="let element">
+                    {{ element.Nombre }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="nombreFantasia">
+                  <th class="table-padding-left" mat-header-cell *matHeaderCellDef>
+                    Nombre de fantasia
+                  </th>
+                  <td class="table-padding-left" mat-cell *matCellDef="let element">
+                    {{ element.Fantasia }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="tlf">
+                  <th class="table-padding-left" mat-header-cell *matHeaderCellDef></th>
+                  <td class="table-padding-left" mat-cell *matCellDef="let element">x</td>
+                </ng-container>
+                <ng-container matColumnDef="ciudad">
+                  <th class="table-padding-left" mat-header-cell *matHeaderCellDef>
+                    Ciudad
+                  </th>
+                  <td class="table-padding-left" mat-cell *matCellDef="let element">
+                    {{ element.Ciudad }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="direccion">
+                  <th class="table-padding-left" mat-header-cell *matHeaderCellDef>
+                    Dirección
+                  </th>
+                  <td class="table-padding-left" mat-cell *matCellDef="let element">
+                    {{ element.Direccion }}
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="columnasTabla"></tr>
+                <tr
+                  mat-row
+                  *matRowDef="let row; columns: columnasTabla"
+                  [class.options-expanded-row]="expandedElement === row"
+                  (click)="expandedElement = expandedElement === row ? null : row"
+                ></tr>
+
+                <ng-container matColumnDef="expandedDetail">
+                  <td
+                    mat-cell
+                    *matCellDef="let element"
+                    [attr.colspan]="columnasTabla.length"
+                  >
+                    <div
+                      class="options-detail"
+                      [@detailExpand]="
+                        element == expandedElement ? 'expanded' : 'collapsed'
+                      "
+                    >
+                      <div class="options-wrap">
+                        <button
+                          (click)="this.resumenCuenta_Click(element.Cuenta, element.Nombre)"
+                          class="ml-1"
+                          mat-raised-button
+                          color="primary"
+                        >
+                          <span>Resumen de cuenta</span>
+                        </button>
+                      </div>
+
+                      <div class="options-wrap">
+                        <button
+                          (click)="this.recibo_Click(element.Cuenta, element.Nombre)"
+                          class="ml-1"
+                          mat-raised-button
+                          color="primary"
+                        >
+                          <span>Recibo</span>
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </ng-container>
+                <tr
+                  mat-row
+                  *matRowDef="let row; columns: ['expandedDetail']"
+                  class="options-detail-row"
+                ></tr>
+              </table>
+            </div>
+            <div class="footer">
+              <h3>Total Clientes {{ totalRows }}</h3>
+              <mat-paginator
+                #paginator
+                [length]="totalRows"
+                [pageIndex]="page - 1"
+                [pageSizeOptions]="[5, 10, 50, 100]"
+                (page)="pagesChange($event)"
+                [pageSize]="pageSize"
+                aria-label="Select page"
+              >
+              </mat-paginator>
+            </div>
         </div>
-      </mat-form-field>
-
-      <!--Categoria-->
-      <mat-form-field
-        *ngIf="tipoInput.descripcion.toLowerCase() === 'categoria'"
-        focused="false"
-        appearance="outline"
-      >
-        <mat-label>{{ tipoInput.descripcion }}</mat-label>
-        <mat-select
-          *ngIf="tipoInput.descripcion.toLowerCase() === 'categoria'"
-          [(ngModel)]="categoriaSelected"
-          name="categoria"
-        >
-          <mat-option
-            *ngFor="let categoria of categorias"
-            [value]="categoria.Id"
-          >
-            {{ categoria.Detalle | uppercase }}
-          </mat-option>
-        </mat-select>
-        <div
-          clear-option
-          mat-button
-          *ngIf="
-            categoriaSelected &&
-            tipoInput.descripcion.toLowerCase() === 'categoria'
-          "
-          matSuffix
-          mat-icon-button
-          aria-label="Clear"
-          (click)="categoriaSelected = undefined; $event.stopPropagation()"
-        >
-          <mat-icon>close</mat-icon>
-        </div>
-      </mat-form-field>
-
-      <!--Forma Venta-->
-      <mat-form-field
-        *ngIf="tipoInput.descripcion.toLowerCase() === 'forma venta'"
-        focused="false"
-        appearance="outline"
-      >
-        <mat-label>{{ tipoInput.descripcion }}</mat-label>
-        <mat-select
-          *ngIf="tipoInput.descripcion.toLowerCase() === 'forma venta'"
-          [(ngModel)]="formaVentaSelected"
-          name="forma venta"
-        >
-          <mat-option *ngFor="let forma of formas" [value]="forma.Id">
-            {{ forma.Expresion | uppercase }}
-          </mat-option>
-        </mat-select>
-        <div
-          clear-option
-          mat-button
-          *ngIf="
-            formaVentaSelected &&
-            tipoInput.descripcion.toLowerCase() === 'forma venta'
-          "
-          matSuffix
-          mat-icon-button
-          aria-label="Clear"
-          (click)="formaVentaSelected = undefined; $event.stopPropagation()"
-        >
-          <mat-icon>close</mat-icon>
-        </div>
-      </mat-form-field>
-
-      <!--Ciudad-->
-      <mat-form-field
-        *ngIf="tipoInput.descripcion.toLowerCase() === 'ciudad'"
-        focused="false"
-        appearance="outline"
-      >
-        <mat-label>{{ tipoInput.descripcion }}</mat-label>
-        <mat-select
-          *ngIf="tipoInput.descripcion.toLowerCase() === 'ciudad'"
-          [(ngModel)]="ciudadSelected"
-          name="ciudad"
-        >
-          <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad.Id">
-            {{ ciudad.Ciudad | uppercase }}
-          </mat-option>
-        </mat-select>
-        <div
-          clear-option
-          mat-button
-          *ngIf="
-            ciudadSelected && tipoInput.descripcion.toLowerCase() === 'ciudad'
-          "
-          matSuffix
-          mat-icon-button
-          aria-label="Clear"
-          (click)="ciudadSelected = undefined; $event.stopPropagation()"
-        >
-          <mat-icon>close</mat-icon>
-        </div>
-      </mat-form-field>
-
-      <!--Lista-->
-      <mat-form-field
-        *ngIf="tipoInput.descripcion.toLowerCase() === 'lista'"
-        focused="false"
-        appearance="outline"
-      >
-        <mat-label>{{ tipoInput.descripcion }}</mat-label>
-        <mat-select
-          *ngIf="tipoInput.descripcion.toLowerCase() === 'lista'"
-          [(ngModel)]="listaSelected"
-          name="lista"
-        >
-          <mat-option *ngFor="let lista of listas" [value]="lista.Id">
-            {{ lista.Aclaracion | uppercase }}
-          </mat-option>
-        </mat-select>
-        <div
-          clear-option
-          mat-button
-          *ngIf="
-            listaSelected && tipoInput.descripcion.toLowerCase() === 'lista'
-          "
-          matSuffix
-          mat-icon-button
-          aria-label="Clear"
-          (click)="listaSelected = undefined; $event.stopPropagation()"
-        >
-          <mat-icon>close</mat-icon>
-        </div>
-      </mat-form-field>
-
-      <!--Zona-->
-      <mat-form-field
-        *ngIf="tipoInput.descripcion.toLowerCase() === 'zona'"
-        focused="false"
-        appearance="outline"
-      >
-        <mat-label>{{ tipoInput.descripcion }}</mat-label>
-        <mat-select
-          *ngIf="tipoInput.descripcion.toLowerCase() === 'zona'"
-          [(ngModel)]="zonaSelected"
-          name="zona"
-        >
-          <mat-option *ngFor="let zona of zonas" [value]="zona.Id">
-            {{ zona.Descripcion | uppercase }}
-          </mat-option>
-        </mat-select>
-        <div
-          clear-option
-          mat-button
-          *ngIf="zonaSelected && tipoInput.descripcion.toLowerCase() === 'zona'"
-          matSuffix
-          mat-icon-button
-          aria-label="Clear"
-          (click)="zonaSelected = undefined; $event.stopPropagation()"
-        >
-          <mat-icon>close</mat-icon>
-        </div>
-      </mat-form-field>
-
-      <!--Vendedor Exclusivo-->
-      <mat-form-field
-        *ngIf="tipoInput.descripcion.toLowerCase() === 'vendedor exclusivo'"
-        focused="false"
-        appearance="outline"
-      >
-        <mat-label>{{ tipoInput.descripcion }}</mat-label>
-        <mat-select
-          *ngIf="tipoInput.descripcion.toLowerCase() === 'vendedor exclusivo'"
-          [(ngModel)]="vendedorSelected"
-          name="vendedor exclusivo"
-        >
-          <mat-option *ngFor="let vendedor of vendedores" [value]="vendedor.Id">
-            {{ vendedor.Nombre | uppercase }}
-          </mat-option>
-        </mat-select>
-        <div
-          clear-option
-          mat-button
-          *ngIf="
-            vendedorSelected &&
-            tipoInput.descripcion.toLowerCase() === 'vendedor exclusivo'
-          "
-          matSuffix
-          mat-icon-button
-          aria-label="Clear"
-          (click)="vendedorSelected = undefined; $event.stopPropagation()"
-        >
-          <mat-icon>close</mat-icon>
-        </div>
-      </mat-form-field>
-
-      <!--Agenda-->
-      <app-magnum-input
-        *ngIf="tipoInput.descripcion.toLowerCase() === 'agenda'"
-        [inputFormControl]="agendaFormControl"
-        placeHolder="Agenda"
-      ></app-magnum-input>
-
-      <!--Direccion-->
-      <app-magnum-input
-        *ngIf="tipoInput.descripcion.toLowerCase() === 'direccion'"
-        [inputFormControl]="direccionFormControl"
-        placeHolder="Direccion"
-      ></app-magnum-input>
-
-      <!--Sucursal-->
-      <mat-form-field
-        *ngIf="tipoInput.descripcion.toLowerCase() === 'sucursal'"
-        focused="false"
-        appearance="outline"
-      >
-        <mat-label>{{ tipoInput.descripcion }}</mat-label>
-        <mat-select
-          *ngIf="tipoInput.descripcion.toLowerCase() === 'sucursal'"
-          [(ngModel)]="sucursalSelected"
-          name="sucursal"
-        >
-          <mat-option *ngFor="let sucursal of sucursales" [value]="sucursal.Id">
-            {{ sucursal.Nombre | uppercase }}
-          </mat-option>
-        </mat-select>
-        <div
-          clear-option
-          mat-button
-          *ngIf="
-            sucursalSelected &&
-            tipoInput.descripcion.toLowerCase() === 'sucursal'
-          "
-          matSuffix
-          mat-icon-button
-          aria-label="Clear"
-          (click)="sucursalSelected = undefined; $event.stopPropagation()"
-        >
-          <mat-icon>close</mat-icon>
-        </div>
-      </mat-form-field>
+      </mat-card>
     </div>
-  </div>
-
-  <app-lista-inputs
-    class="lista-inputs"
-    listaInput="true"
-    [listaInputs]="this.listaInputs"
-    (listaChange_Event)="lista_Event($event)"
-  ></app-lista-inputs>
-  <div class="button-wrap">
-    <app-magnum-button
-      (btnClickEmt)="this.buscar_Click()"
-      text="Buscar"
-      class="cf-wrap"
-    ></app-magnum-button>
-  </div>
-</form>
-
-<div class="table-wrap">
-  <table
-    mat-table
-    [dataSource]="clientes"
-    class="mat-elevation-z8"
-    multiTemplateDataRows
-  >
-    <ng-container matColumnDef="razonSocial">
-      <th class="table-padding-left" mat-header-cell *matHeaderCellDef>
-        Razon Social
-      </th>
-      <td class="table-padding-left" mat-cell *matCellDef="let element">
-        {{ element.Nombre }}
-      </td>
-    </ng-container>
-
-    <ng-container matColumnDef="nombreFantasia">
-      <th class="table-padding-left" mat-header-cell *matHeaderCellDef>
-        Nombre de fantasia
-      </th>
-      <td class="table-padding-left" mat-cell *matCellDef="let element">
-        {{ element.Fantasia }}
-      </td>
-    </ng-container>
-
-    <ng-container matColumnDef="tlf">
-      <th class="table-padding-left" mat-header-cell *matHeaderCellDef></th>
-      <td class="table-padding-left" mat-cell *matCellDef="let element">x</td>
-    </ng-container>
-    <ng-container matColumnDef="ciudad">
-      <th class="table-padding-left" mat-header-cell *matHeaderCellDef>
-        Ciudad
-      </th>
-      <td class="table-padding-left" mat-cell *matCellDef="let element">
-        {{ element.Ciudad }}
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="direccion">
-      <th class="table-padding-left" mat-header-cell *matHeaderCellDef>
-        Dirección
-      </th>
-      <td class="table-padding-left" mat-cell *matCellDef="let element">
-        {{ element.Direccion }}
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="columnasTabla"></tr>
-    <tr
-      mat-row
-      *matRowDef="let row; columns: columnasTabla"
-      [class.options-expanded-row]="expandedElement === row"
-      (click)="expandedElement = expandedElement === row ? null : row"
-    ></tr>
-
-    <ng-container matColumnDef="expandedDetail">
-      <td
-        mat-cell
-        *matCellDef="let element"
-        [attr.colspan]="columnasTabla.length"
-      >
-        <div
-          class="options-detail"
-          [@detailExpand]="
-            element == expandedElement ? 'expanded' : 'collapsed'
-          "
-        >
-          <div class="options-wrap">
-            <button
-              (click)="this.resumenCuenta_Click(element.Cuenta, element.Nombre)"
-              class="ml-1"
-              mat-raised-button
-              color="primary"
-            >
-              <span>Resumen de cuenta</span>
-            </button>
-          </div>
-
-          <div class="options-wrap">
-            <button
-              (click)="this.recibo_Click(element.Cuenta, element.Nombre)"
-              class="ml-1"
-              mat-raised-button
-              color="primary"
-            >
-              <span>Recibo</span>
-            </button>
-          </div>
-        </div>
-      </td>
-    </ng-container>
-    <tr
-      mat-row
-      *matRowDef="let row; columns: ['expandedDetail']"
-      class="options-detail-row"
-    ></tr>
-  </table>
-</div>
-
-<div class="footer">
-  <h3>Total Clientes {{ totalRows }}</h3>
-  <mat-paginator
-    #paginator
-    [length]="totalRows"
-    [pageIndex]="page - 1"
-    [pageSizeOptions]="[5, 10, 50, 100]"
-    (page)="pagesChange($event)"
-    [pageSize]="pageSize"
-    aria-label="Select page"
-  >
-  </mat-paginator>
-</div>
+  </mat-card-content>
 
 <app-footer></app-footer>
-</app-layout>
-
 <app-global-spinner></app-global-spinner>
 <app-global-snackbar></app-global-snackbar>

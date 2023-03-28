@@ -1,7 +1,8 @@
 @import "src/app/styles/variables";
 @import "src/app/styles/colors";
-
-
+.mat-nav-magnum{
+  max-width: 250px;
+}
 .icon span{
   margin: 10px;
 }
@@ -14,4 +15,10 @@ a span{
 }
 .mat-expansion-panel {
  background: none;
+}
+.mat-expansion-panel-body {
+  padding: 0 6px 5px;
+}
+.mat-list-base .mat-list-item {
+  font-size: 13px;
 }
