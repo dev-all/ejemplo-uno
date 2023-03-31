@@ -1,4 +1,4 @@
-<mat-form-field *ngIf="!showSearchBar" style="width: 100%" appearance="fill">
+<mat-form-field *ngIf="!showSearchBar" style="width: 100%" appearance="outline">
   <mat-label>{{ text }}</mat-label>
   <mat-select
     panelClass="example-long-panel"
@@ -14,7 +14,7 @@
   </mat-select>
 </mat-form-field>
 
-<mat-form-field *ngIf="showSearchBar" style="width: 100%" appearance="fill">
+<mat-form-field *ngIf="showSearchBar" style="width: 100%" appearance="outline">
   <mat-label>{{ text }}</mat-label>
   <mat-select
     [panelClass]="showSearchBar ? 'custom-search-select':''"
@@ -41,7 +41,7 @@
     mat-icon-button
     aria-label="Clear"
     (click)="$event.stopPropagation()"
-    
+
   >
     <mat-icon>close</mat-icon>
   </div>

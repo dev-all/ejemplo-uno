@@ -1,50 +1,51 @@
-<mat-card-content class="card-magnum-content">
+<!-- <div fxLayoutAlign="center center" fxFlexAling="center">
+  <div fxLayout="column wrap" fxLayoutGap="10px">
+</div>
+</div> -->
+    <mat-card-content class="card-magnum-content">
   <div class="card-magnum-content__wrapper">
     <mat-card class="card-magnum-content__item-wrapper">
       <mat-card-title> forms</mat-card-title>
-      <mat-card-subtitle>flex-layout	</mat-card-subtitle>
+      <mat-card-subtitle>flex-layout </mat-card-subtitle>
       <div class="card-magnum-content__headings">
 
-        <div class="container" fxLayout="" fxLayout.xs="" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
-          <div fxFlex="20%">
-            <mat-form-field appearance="outline">
+        <div fxLayout="row wrap" fxLayoutGap="10px">
+          <div fxFlex>
+             <mat-form-field appearance="outline" fxFill>
               <mat-label>Enter your email</mat-label>
               <input matInput placeholder="pat@example.com" [formControl]="email" required>
               <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
           </div>
-          <div fxFlex="20%">
-            <mat-form-field appearance="outline">
-              <mat-label>Enter your email</mat-label>
-              <input matInput placeholder="pat@example.com" [formControl]="email" required>
-              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-            </mat-form-field>
+
+          <div fxFlex>
+ <mat-form-field appearance="outline" fxFill>
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
           </div>
-          <div fxFlex="20%">
-            <mat-form-field appearance="outline">
-              <mat-label>Enter your email</mat-label>
-              <input matInput placeholder="pat@example.com" [formControl]="email" required>
-              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-            </mat-form-field>
+
+          <div fxFlex>
+  <mat-form-field appearance="outline" fxFill>
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
           </div>
-          <div fxFlex="20%">
-            <mat-form-field appearance="outline">
-              <mat-label>Enter your email</mat-label>
-              <input matInput placeholder="pat@example.com" [formControl]="email" required>
-              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-            </mat-form-field>
-          </div>
+
+
+
+
         </div>
-
-
-   </div>
+      </div>
     </mat-card>
   </div>
 </mat-card-content>
 
+
+
+
 <app-footer></app-footer>
 <app-global-spinner></app-global-spinner>
 <app-global-snackbar></app-global-snackbar>
-
-
-

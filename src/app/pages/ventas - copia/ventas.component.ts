@@ -79,13 +79,13 @@ export class VentasComponent implements OnInit {
     'cantidad',
     'codigo',
     'unitario',
-     'bonif',
-     'descripcion',
-     'optionX',
-     'parcial',
-     'stock',
-    // 'iva',
-    // 'neto',
+    'bonif',
+    'descripcion',
+    'optionX',
+    'parcial',
+    'stock',
+    'iva',
+    'neto',
   ];
   secciones: Seccion[];
   tipoFacturas: TipoFactura[];
@@ -107,7 +107,6 @@ export class VentasComponent implements OnInit {
   buscarPorDetalle: boolean = true;
   nuevoMovimeintoSubscription: Subscription;
   bonificacionUsuario: number = 0;
-  BuscandoPor:string ='Descripción';
 
   constructor(
     private seccionService: GenericCrudService<Seccion>,
@@ -671,7 +670,7 @@ export class VentasComponent implements OnInit {
 
   detalleCodigo_Click() {
     this.buscarPorDetalle = !this.buscarPorDetalle;
-    this.BuscandoPor = this.buscarPorDetalle ? 'Descripción' : 'Código'
+
     this.descripcionesSelect = null;
     this.descripcionSelected = null;
     this.productoSelected = null;

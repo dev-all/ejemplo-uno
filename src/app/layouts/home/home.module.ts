@@ -12,7 +12,6 @@ import { PdfViewerPage } from '@pages/pdf.viewer/pdf.viewer.component';
 import { MatPaginatorIntl} from '@angular/material/paginator';
 import { CustomMatPaginatorIntl } from '@shared/CustomMatPaginatorIntl';
 import { MovimientoDepositoPage } from '@pages/movimiento-deposito/movimiento-deposito.component';
-
 import { VentasComponent } from '@pages/ventas/ventas.component';
 import { RoundPipe } from '@pipes/round.pipe';
 import { FixedPipe } from '@pipes/fixed.pipe';
@@ -20,11 +19,13 @@ import { ClienteComponent } from '@pages/cliente/cliente.component';
 import { ResumenCuentaPage } from '@pages/resumen.cuenta/resumen.cuenta.component';
 import { ReciboCuentaCorrientePage } from '@pages/recibo-cuenta-corriente/recibo-cuenta-corriente';
 import { MaterialModule } from '@shared/material/material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
 @NgModule({
   imports: [
+
     MainRoutes,
     FormsModule,
     CommonModule,
@@ -33,6 +34,7 @@ import { MaterialModule } from '@shared/material/material.module';
     ComponentsModule,
     PdfViewerModule,
     MaterialModule,
+    FlexLayoutModule,
   ],
   declarations: [
     HomePage,

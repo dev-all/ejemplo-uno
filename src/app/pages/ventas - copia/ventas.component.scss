@@ -1,0 +1,378 @@
+.cliente-wrap {
+  display: flex;
+  flex-direction: row;
+  height: inherit;
+}
+
+.ventas-header,
+.ventas-footer {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-gap: 10px;
+
+}
+
+.ventas-header-left {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  height: 38px;
+}
+
+.tipo-factura-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  text-align: center;
+  width: 52px;
+  height: inherit;
+  width: 100%;
+
+  span {
+    font-size: 40px;
+  }
+}
+
+.ciudad-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid;
+
+  width: 100%;
+  grid-column-start: span 3;
+
+  h2 {
+    margin: 0px;
+  }
+
+  .ciudad {
+    margin-left: 10px;
+  }
+
+  .descripcion-ciudad {
+    margin-left: 10px;
+  }
+}
+
+.datos-adjuntos-btn {
+  grid-column-start: span 2;
+}
+
+.tipo-documento-select {
+
+  grid-column-start: span 3;
+}
+
+.space-documento {
+  grid-column-start: span 2;
+
+}
+
+.descripcion-select {
+  grid-column-start: span 2;
+
+}
+
+app-magnum-button {
+  height: inherit;
+}
+
+.additional-options-wrap {
+  display: flex;
+  flex-direction: row;
+  height: inherit;
+
+  .producto-avanzado {
+    margin-left: 2px;
+  }
+}
+
+.min-height-table {
+  min-height: 450px;
+}
+
+.ventas-header-right {
+  display: grid;
+  grid-template-columns: 26% 26% 26%;
+  grid-gap: 30px;
+}
+
+
+
+::ng-deep .mat-form-field-flex>.mat-form-field-infix {
+  padding: 0.4em 0px !important;
+}
+
+::ng-deep .mat-form-field-label-wrapper {
+  top: -1.5em;
+}
+
+::ng-deep #hola.mat-form-field-flex>.mat-form-field-infix {
+  padding: 0.1em 0px !important;
+}
+
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  padding: 0.1em 0px !important;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-label {
+  top: 1.09375em;
+  margin-top: 0px;
+  margin-left: 2px;
+}
+
+table {
+  margin-top: 25px;
+}
+
+.transporte-select {
+  grid-column-start: span 2;
+}
+
+.lugar-select {
+  grid-column-start: span 2;
+}
+
+.ventas-footer {
+  margin-top: 5px;
+}
+
+.ventas-footer-left-option-1,
+.ventas-footer-left-option-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  height: 38px;
+}
+
+.ventas-footer-left-option-2 {
+  margin-top: 44px;
+}
+
+.ventas-footer-left-option-3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.observaciones {
+  width: 100%;
+  margin-top: 25px;
+
+  textarea {
+    resize: none;
+  }
+}
+
+.logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 190px;
+    display: block;
+    margin: auto;
+  }
+
+  h2 {
+
+    font-family: monospace;
+    font-size: 32px;
+  }
+}
+
+.ventas-footer-right {
+  box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+
+  .totales-wrap {
+    padding: 24px;
+
+    table {
+
+      border-collapse: collapse;
+      width: 100%;
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+    }
+  }
+
+  .total-items,
+  .total {
+    font-size: 26px;
+  }
+
+  .total {
+    margin-top: 16px;
+    text-align: end;
+  }
+}
+
+
+
+
+.cancel-icon {
+  cursor: pointer;
+}
+
+
+
+.wrap-table {
+  min-height: 240px;
+  max-height: 240px;
+  overflow-y: auto;
+  overflow-x: auto;
+
+  box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+
+  table {
+    box-shadow: none;
+  }
+}
+
+.bonifiacion-column {
+  cursor: pointer;
+}
+
+.descripcion-select-mobile,
+.cantidad-mobile,
+.detalle-codigo-mobile,
+.add-producto-mobile,
+.additional-options-wrap-mobile,
+.imprimir-button-mobile {
+  display: none;
+}
+
+.cantidad {
+  grid-column-start: 1;
+}
+
+@media only screen and (max-width:1178px) {
+
+  table {
+    width: 1200px;
+  }
+
+  .descripcion-select,
+  .cantidad,
+  .detalle-codigo,
+  .add-producto,
+  .additional-options-wrap,
+  .imprimir-button {
+    display: none
+  }
+
+
+  .descripcion-select-mobile,
+  .cantidad-mobile,
+  .detalle-codigo-mobile,
+  .add-producto-mobile,
+  .imprimir-button-mobile {
+    display: block;
+  }
+
+  .seleccion-producto-wrap-mobile {
+    display: flex;
+    height: 42px;
+  }
+
+  .descripcion-select-mobile,
+  .detalle-codigo-wrap-mobile,
+  .bonificacion-button {
+    width: 100%;
+  }
+
+  .additional-options-wrap-mobile,
+  .ventas-footer-left-option-1 {
+    display: flex;
+  }
+
+  .ventas-header {
+    grid-template-columns: 100%;
+  }
+
+  .ventas-header-left {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tipo-factura-wrap {
+    grid-column-start: span 2;
+  }
+
+  .cf-wrap {
+    grid-column-start: span 2;
+  }
+
+  .additional-options-wrap {
+    width: 100%;
+    grid-column-start: span 3;
+
+    .detalle-codigo-wrap {
+      width: 100%;
+    }
+  }
+
+  .ventas-header-right {
+    display: flex;
+    flex-direction: column
+  }
+
+  .ventas-header-left {
+    height: auto;
+  }
+
+  .cliente-wrap {
+    height: 36px;
+  }
+
+  .tipo-factura-wrap {
+    height: 40px;
+  }
+
+  .wrap-table {
+    margin: 30px 0px;
+  }
+
+  .logo-wrapper {
+    display: none;
+  }
+
+  .ventas-footer-left-option-3 {
+    display: flex;
+  }
+
+  .ventas-footer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .buttons-wrap {
+    padding-bottom: 10px;
+  }
+
+
+  .cantidad-mobile,
+  .detalle-codigo-mobile {
+    width: 50%;
+  }
+}
+
+
+@media only screen and (max-width:658px) {
+  .ventas-header-left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cliente-buscar-button {
+    width: 100%;
+  }
+}

@@ -67,6 +67,7 @@ export class LayoutComponent implements OnInit {
       .subscribe((result) => {
         this.isShowSidebar = false;
         if(result.breakpoints[Breakpoints.Small,Breakpoints.XSmall]){
+          console.log("mostrar sidenav");
           this.isShowSidebar = true;
         }
       });

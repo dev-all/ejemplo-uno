@@ -10,7 +10,7 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class HomeLayout implements OnInit {
   @ViewChild('sidenav') sidenav!: MatSidenav;
-  public isShowSidebar!: boolean ;
+  public isShowSidebar: boolean =false;
   currentScreenSize = '';
   orientation = '';
   // Create a map to display breakpoint names for demonstration purposes.
@@ -36,18 +36,11 @@ export class HomeLayout implements OnInit {
         .subscribe((result) => {
           for (const query of Object.keys(result.breakpoints)) {
             if (result.breakpoints[query]) {
-              console.log(query);
+
+              if(result.breakpoints[Breakpoints.XSmall] || result.breakpoints[Breakpoints.Small] ||  result.breakpoints[Breakpoints.Medium] ){
+                this.isShowSidebar = true;
+              }
               this.currentScreenSize = this.displayNameMap.get(query) ?? 'Unknown';
-            }
-          }
-        });
-        breakpointObserver
-        .observe(['(orientation: portrait)', '(orientation: landscape)'])
-        .subscribe((result) => {
-          for (const query of Object.keys(result.breakpoints)) {
-            if (result.breakpoints[query]) {
-              console.log(query);
-              this.orientation = this.displayNameMap.get(query) ?? 'Unknown';
             }
           }
         });
@@ -55,6 +48,7 @@ export class HomeLayout implements OnInit {
   }
 
     ngOnInit(): void {
+
       this.breakpointObserver
       .observe([
                 Breakpoints.XSmall, //0-600
@@ -64,8 +58,7 @@ export class HomeLayout implements OnInit {
                 Breakpoints.XLarge, //+
               ])
       .subscribe((result) => {
-        this.isShowSidebar = false;
-        if(result.breakpoints[Breakpoints.Small,Breakpoints.XSmall]){
+        if(result.breakpoints[Breakpoints.XSmall] || result.breakpoints[Breakpoints.Small]){
           this.isShowSidebar = true;
         }
       });

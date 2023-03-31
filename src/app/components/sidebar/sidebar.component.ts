@@ -11,6 +11,7 @@ import { UserService } from '@services/user/user.service';
 })
 export class SidebarComponent implements OnInit {
   user: Usuario;
+
   constructor(
     private router: Router,
     private loginService: LoginService,
@@ -25,8 +26,6 @@ export class SidebarComponent implements OnInit {
   ngAfterViewInit() {
     const dropdown =
       this.elementRef.nativeElement.querySelectorAll('.dropdown-btn');
-
-
 
 
     for (var i = 0; i < dropdown.length; i++) {

@@ -7,6 +7,7 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./devform.component.scss']
 })
 export class DevformComponent implements OnInit {
+
   email = new FormControl('', [Validators.required, Validators.email]);
 
   getErrorMessage() {

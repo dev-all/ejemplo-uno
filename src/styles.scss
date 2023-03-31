@@ -1,6 +1,7 @@
 @import 'src/app/styles/colors';
 @import 'src/app/styles/variables';
 @import 'src/app/styles/font';
+
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -219,75 +220,6 @@ tr.example-element-row:not(.example-expanded-row):active {
         max-height: 250px !important;
     }
 }
-
-///alldev https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-///https://fonts.google.com/icons
-
-.card-detalle {
-    background: #F0F2F2;
-}
-.fx-container {
-  margin: auto;
-  max-width: 1200px;
-}
-.flex-container {
-    display: flex;
-   // flex-direction: row;
-    flex-flow: row wrap;
- //   justify-content: flex-start;
-   // align-content: flex-start;
-}
-
-.flex-container::after,
- ::before {
-    box-sizing: border-box;
-}
-
-.flex-container .flex-item {
-    // margin: 5px;
-    // padding: 10px;
-    // width: 20%;
-    // flex-grow: 1;
-    /* default 0 valores no negativos*/
-    // flex-shrink: 1;
-    /* default 1 */
-    // flex-basis: auto;
-    /* default auto */
-    border: thin solid #CCC;
-
-    flex: 0 0 100%;
-    /*flex es un shorthand de las propiedades flex-grow flex-shrink flex-basis*/
-}
-@media (min-width: 576px) {
-  .flex-item {
-    flex: 0 0 50%;
-  }
-}
-
-
-@media (min-width: 768px) {
-  .flex-item {
-    flex: 0 0 33.33333333333333%;
-  }
-}
-
-
-@media (min-width: 992px) {
-  .flex-item {
-    flex: 0 0 25%;
-  }
-}
-
-
-@media (min-width: 1200px) {
-  .flex-item {
-    flex: 0 0 16.6666666667%;
-  }
-}
-
-
-///------
-///
 
 .card-magnum-content {
 

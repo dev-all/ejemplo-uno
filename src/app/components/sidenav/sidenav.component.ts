@@ -18,7 +18,7 @@ export class SidenavComponent implements OnInit {
   hasItems(item: MenuItem) {
     return item.subItems !== undefined ? item.subItems.length > 0 : false;
   }
-  public openUiElements() {
-    this.isOpenUiElements = !this.isOpenUiElements;
-  }
+  // public openUiElements() {
+  //   this.isOpenUiElements = !this.isOpenUiElements;
+  // }
 }

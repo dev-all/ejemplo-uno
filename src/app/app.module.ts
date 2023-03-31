@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {
@@ -12,6 +11,7 @@ import { APP_BASE_HREF, CommonModule, HashLocationStrategy, LocationStrategy, re
 import localeEs from '@angular/common/locales/es-AR';
 import { MatDialogModule } from '@angular/material/dialog';
 
+
 registerLocaleData(localeEs, 'es-AR');
 
 @NgModule({
@@ -22,7 +22,8 @@ registerLocaleData(localeEs, 'es-AR');
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+
   ],
   providers: [
     {

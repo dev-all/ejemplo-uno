@@ -27,7 +27,6 @@ export class HeaderComponent implements OnInit {
 
   public openMenu(): void {
     this.isMenuOpened = !this.isMenuOpened;
-
     this.isShowSidebar.emit(this.isMenuOpened);
   }
   logout() {

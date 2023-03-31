@@ -17,6 +17,7 @@ import { ClienteComponent } from '@pages/cliente/cliente.component';
 import { ResumenCuentaPage } from '@pages/resumen.cuenta/resumen.cuenta.component';
 import { ReciboCuentaCorrientePage } from '@pages/recibo-cuenta-corriente/recibo-cuenta-corriente';
 import { MaterialModule } from './material/material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { MaterialModule } from './material/material.module';
       ComponentsModule,
       PdfViewerModule,
       MaterialModule,
+   FlexLayoutModule,
     ],
   declarations: [],
   exports: [
