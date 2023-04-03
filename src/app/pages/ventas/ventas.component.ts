@@ -84,8 +84,8 @@ export class VentasComponent implements OnInit {
      'optionX',
      'parcial',
      'stock',
-    // 'iva',
-    // 'neto',
+    'iva',
+    'neto',
   ];
   secciones: Seccion[];
   tipoFacturas: TipoFactura[];

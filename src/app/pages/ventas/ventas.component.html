@@ -1,10 +1,10 @@
 <mat-card-content class="card-magnum-content">
-  <div class="card-magnum-content__wrapper">
-    <mat-card class="card-magnum-content__item-wrapper">
-      <mat-card-title> Facturación </mat-card-title>
-      <mat-card-subtitle> Registro de Ventas </mat-card-subtitle>
-      <div class="card-magnum-content__headings">
-        <!--   <div fxLayout="row wrap">
+    <div class="card-magnum-content__wrapper">
+        <mat-card class="card-magnum-content__item-wrapper">
+            <mat-card-title> Facturación </mat-card-title>
+            <mat-card-subtitle> Registro de Ventas </mat-card-subtitle>
+            <div class="card-magnum-content__headings">
+                <!--   <div fxLayout="row wrap">
           <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="40%" fxLayoutAlign="center">
             <div class="fs-xl"
               style="padding-top: 5px; text-align: center;margin-left: 10px; margin-right: 10px; border: 1px dashed #333; min-height: 30px;min-width: 100px;">
@@ -37,242 +37,200 @@
 
               </div>
             </div> -->
-        <div fxLayout="row wrap">
-          <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="70%" fxFlex.md="30%" fxFlex.lg="30%" fxLayoutAlign="center">
-            <div class="cliente-wrap">
-              <app-magnum-input [inputFormControl]="clientFormControl" placeHolder="Cliente"></app-magnum-input>
-              <app-magnum-button text="Buscar" class="cliente-buscar-button"
-                (btnClickEmt)="buscarCliente_Click($event)"></app-magnum-button>
-            </div>
-          </div>
+                <div fxLayout="row wrap">
+                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="70%" fxFlex.md="30%" fxFlex.lg="30%" fxLayoutAlign="center">
+                        <div class="cliente-wrap">
+                            <app-magnum-input [inputFormControl]="clientFormControl" placeHolder="Cliente"></app-magnum-input>
+                            <app-magnum-button text="Buscar" class="cliente-buscar-button" (btnClickEmt)="buscarCliente_Click($event)"></app-magnum-button>
+                        </div>
+                    </div>
 
-          <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="30%" fxFlex.md="10%" fxFlex.lg="10%" fxLayoutAlign="center"
-            style="margin-bottom: 18px;">
-            <app-magnum-button text="C.F" (btnClickEmt)="resetCliente_Click()"
-              style="min-width:100px;"></app-magnum-button>
-          </div>
-          <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="30%" fxFlex.lg="10%">
-            <div class="fs-xl"
-              style="padding-top:5px;margin-bottom: 18px; text-align: center;margin-left: 10px; margin-right: 10px; border: 1px solid #333; min-height: 30px;min-width: 100px;">
-              <span>{{ this.clienteCuenta.Boleta }}</span>
-            </div>
-          </div>
-          <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="30%">
-            <mat-form-field appearance="outline" style="width: 100%; ">
-              <mat-label>Ciudad</mat-label>
-              <input matInput disabled style="color: #333;"
-                value=" {{ this.clienteCuenta.Ciudad }}, {{ this.clienteCuenta.Provincia }}">
-            </mat-form-field>
-          </div>
-        </div>
+                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="30%" fxFlex.md="10%" fxFlex.lg="10%" fxLayoutAlign="center" style="margin-bottom: 18px;">
+                        <app-magnum-button text="C.F" (btnClickEmt)="resetCliente_Click()" style="min-width:100px;"></app-magnum-button>
+                    </div>
+                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="30%" fxFlex.lg="10%">
+                        <div class="fs-xl" style="padding-top:5px;margin-bottom: 18px; text-align: center;margin-left: 10px; margin-right: 10px; border: 1px solid #333; min-height: 30px;min-width: 100px;">
+                            <span>{{ this.clienteCuenta.Boleta }}</span>
+                        </div>
+                    </div>
+                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="30%">
+                        <mat-form-field appearance="outline" style="width: 100%; ">
+                            <mat-label>Ciudad</mat-label>
+                            <input matInput disabled style="color: #333;" value=" {{ this.clienteCuenta.Ciudad }}, {{ this.clienteCuenta.Provincia }}">
+                        </mat-form-field>
+                    </div>
+                </div>
 
 
-        <div fxLayout="row wrap" fxLayoutGap="1px" style="padding-top: 18px;">
-          <div fxFlex>
-            <app-magnum-select text="Comprobante" [itemSelected]="8"
-              [options]="this.tipoComprobantesSelect"></app-magnum-select>
-          </div>
-          <div fxFlex>
-            <app-magnum-select text="Condición" [itemSelected]="this.clienteCuenta.CodigoFactura"
-              [options]="this.condicionSelect"></app-magnum-select>
-          </div>
-          <div fxFlex>
-            <app-magnum-select text="Forma de venta" [itemSelected]="this.clienteCuenta.IdForma"
-              [options]="this.formasVentaSelect"></app-magnum-select>
-          </div>
+                <div fxLayout="row wrap" fxLayoutGap="1px" style="padding-top: 18px;">
+                    <div fxFlex>
+                        <app-magnum-select text="Comprobante" [itemSelected]="8" [options]="this.tipoComprobantesSelect"></app-magnum-select>
+                    </div>
+                    <div fxFlex>
+                        <app-magnum-select text="Condición" [itemSelected]="this.clienteCuenta.CodigoFactura" [options]="this.condicionSelect"></app-magnum-select>
+                    </div>
+                    <div fxFlex>
+                        <app-magnum-select text="Forma de venta" [itemSelected]="this.clienteCuenta.IdForma" [options]="this.formasVentaSelect"></app-magnum-select>
+                    </div>
 
-        </div>
-        <div fxLayout="row wrap" fxLayoutGap="1px">
-          <div fxFlex>
-            <app-magnum-select text="Lista" [itemSelected]="this.clienteCuenta.IdLista" [options]="this.listaSelect"
-              (selectChange)="this.lista_Change($event)"></app-magnum-select>
-          </div>
-          <div fxFlex>
-            <app-magnum-select text="Vendedor" [itemSelected]="0" [options]="this.vendedorSelect"></app-magnum-select>
-          </div>
-          <div fxFlex>
-            <app-magnum-select class="transporte-select" text="Transporte"
-              [options]="this.transporteSelect"></app-magnum-select>
-          </div>
-        </div>
-        <div fxLayout="row wrap" fxLayoutGap="1px">
-          <div fxFlex> <app-magnum-select text="Forma de entrega"
-              [options]="this.formaEntregaSelect"></app-magnum-select></div>
-          <div fxFlex> <app-magnum-select class="lugar-select" text="Lugar"
-              [options]="this.lugarSelect"></app-magnum-select></div>
-          <div fxFlex></div>
-        </div>
+                </div>
+                <div fxLayout="row wrap" fxLayoutGap="1px">
+                    <div fxFlex>
+                        <app-magnum-select text="Lista" [itemSelected]="this.clienteCuenta.IdLista" [options]="this.listaSelect" (selectChange)="this.lista_Change($event)"></app-magnum-select>
+                    </div>
+                    <div fxFlex>
+                        <app-magnum-select text="Vendedor" [itemSelected]="0" [options]="this.vendedorSelect"></app-magnum-select>
+                    </div>
+                    <div fxFlex>
+                        <app-magnum-select class="transporte-select" text="Transporte" [options]="this.transporteSelect"></app-magnum-select>
+                    </div>
+                </div>
+                <div fxLayout="row wrap" fxLayoutGap="1px">
+                    <div fxFlex>
+                        <app-magnum-select text="Forma de entrega" [options]="this.formaEntregaSelect"></app-magnum-select>
+                    </div>
+                    <div fxFlex>
+                        <app-magnum-select text="Lugar" [options]="this.lugarSelect"></app-magnum-select>
+                    </div>
+                </div>
 
-        <hr>
-        <br>
-        <div fxLayout="row wrap" fxLayoutGap="1px">
-          <!-- <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="20%" fxFlex.lg="20%">
+                <hr>
+                <br>
+                <div fxLayout="row wrap" fxLayoutGap="1px">
+                    <!-- <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="20%" fxFlex.lg="20%">
             <mat-slide-toggle [(ngModel)]="this.buscarPorDetalle"  (clic)="detalleCodigo_Click()">Buscar por:
               <samp *ngIf="this.buscarPorDetalle">Descripción</samp>
               <samp *ngIf="!this.buscarPorDetalle" >Código</samp> </mat-slide-toggle>
           </div> -->
 
-          <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="30%" fxFlex.lg="20%" fxFlex.xl="40%"
-            *ngIf="this.buscarPorDetalle">
-            <app-magnum-select *ngIf="this.buscarPorDetalle" class="descripcion-select" text="Descripción"
-              style="width: 100%;" [options]="this.descripcionesSelect" [itemSelected]="this.descripcionSelected"
-              (selectOpen)="this.getProductosVentas()" (filterChange)="this.getProductosVentas($event)"
-              (selectChange)="this.productosChange($event)" [showSearchBar]="true"></app-magnum-select>
-          </div>
-          <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="20%" fxFlex.lg="10%" fxFlex.xl="30%"
-            *ngIf="!this.buscarPorDetalle">
-            <app-magnum-input *ngIf="!this.buscarPorDetalle" [inputFormControl]="codigoFormControl" placeHolder="Codigo"
-              class="detalle-codigo" (keyupEnter)="this.addProducto()"></app-magnum-input>
-          </div>
-          <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="10%" fxFlex.lg="10%" fxFlex.xl="10%"
-            *ngIf="!this.buscarPorDetalle">
-            <mat-form-field appearance="outline" class="cantidad">
-              <mat-label>Cantidad</mat-label>
-              <input matInput type="number" onfocus="this.value=''" [formControl]="cantidadFormControl" #cantidad />
-              <div clear-option mat-button *ngIf="cantidadFormControl.value" matSuffix mat-icon-button
-                aria-label="Clear" (click)="cantidadFormControl.setValue('')">
-                <mat-icon>close</mat-icon>
-              </div>
-            </mat-form-field>
-          </div>
-          <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="10%" fxFlex.lg="10%" fxFlex.xl="10%" class="mb-1">
-            <app-magnum-button text="Agregar" (btnClickEmt)="this.addProducto()"></app-magnum-button>
-          </div>
-          <div fxFlex="auto" fxFlex.xs="50%" fxFlex.sm="50%" fxFlex.md="10%" fxFlex.lg="10%" fxFlex.xl="10%" class="mb-1">
-            <app-magnum-button text="Detalle/Codigo" (btnClickEmt)="detalleCodigo_Click()"></app-magnum-button>
-          </div>
-          <div fxFlex="auto" fxFlex.xs="49%" fxFlex.sm="49%" fxFlex.md="10%" fxFlex.lg="10%" fxFlex.xl="10%" class="mb-1">
-            <app-magnum-button text="+ Opciones" (btnClickEmt)="this.seleccionProductos_Click()"></app-magnum-button>
+                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="30%" fxFlex.lg="20%" fxFlex.xl="40%" *ngIf="this.buscarPorDetalle">
+                        <app-magnum-select *ngIf="this.buscarPorDetalle" class="descripcion-select" text="Descripción" style="width: 100%;" [options]="this.descripcionesSelect" [itemSelected]="this.descripcionSelected" (selectOpen)="this.getProductosVentas()" (filterChange)="this.getProductosVentas($event)"
+                            (selectChange)="this.productosChange($event)" [showSearchBar]="true"></app-magnum-select>
+                    </div>
+                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="20%" fxFlex.lg="10%" fxFlex.xl="30%" *ngIf="!this.buscarPorDetalle">
+                        <app-magnum-input *ngIf="!this.buscarPorDetalle" [inputFormControl]="codigoFormControl" placeHolder="Codigo" class="detalle-codigo" (keyupEnter)="this.addProducto()"></app-magnum-input>
+                    </div>
+                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="10%" fxFlex.lg="10%" fxFlex.xl="10%" *ngIf="!this.buscarPorDetalle">
+                        <mat-form-field appearance="outline" class="cantidad">
+                            <mat-label>Cantidad</mat-label>
+                            <input matInput type="number" onfocus="this.value=''" [formControl]="cantidadFormControl" #cantidad />
+                            <div clear-option mat-button *ngIf="cantidadFormControl.value" matSuffix mat-icon-button aria-label="Clear" (click)="cantidadFormControl.setValue('')">
+                                <mat-icon>close</mat-icon>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="10%" fxFlex.lg="10%" fxFlex.xl="10%" class="mb-1">
+                        <app-magnum-button text="Agregar" (btnClickEmt)="this.addProducto()"></app-magnum-button>
+                    </div>
+                    <div fxFlex="auto" fxFlex.xs="50%" fxFlex.sm="50%" fxFlex.md="10%" fxFlex.lg="10%" fxFlex.xl="10%" class="mb-1">
+                        <app-magnum-button text="Detalle/Codigo" (btnClickEmt)="detalleCodigo_Click()"></app-magnum-button>
+                    </div>
+                    <div fxFlex="auto" fxFlex.xs="49%" fxFlex.sm="49%" fxFlex.md="10%" fxFlex.lg="10%" fxFlex.xl="10%" class="mb-1">
+                        <app-magnum-button text="+ Opciones" (btnClickEmt)="this.seleccionProductos_Click()"></app-magnum-button>
 
-          </div>
-        </div>
+                    </div>
+                </div>
+                <div fxLayout="row">
+                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" fxFlex.lg="100%" fxFlex.xl="100%" style="overflow-x: scroll;">
+                        <table mat-table [dataSource]="productosGrid" class="mat-elevation-z8" multiTemplateDataRows>
 
-        <!-- <div class="seleccion-producto-wrap-mobile">
-            <app-magnum-select *ngIf="this.buscarPorDetalle" class="descripcion-select-mobile" text="Descripcion"
-              [options]="this.descripcionesSelect" [itemSelected]="this.descripcionSelected"
-              (selectOpen)="this.getProductosVentas()" (filterChange)="this.getProductosVentas($event)"
-              (selectChange)="this.productosChange($event)" [showSearchBar]="true"></app-magnum-select>
-            <app-magnum-input *ngIf="!this.buscarPorDetalle" [inputFormControl]="cantidadFormControl"
-              class="cantidad-mobile" placeHolder="Cantidad"></app-magnum-input>
-            <app-magnum-input *ngIf="!this.buscarPorDetalle" [inputFormControl]="codigoFormControl" placeHolder="Codigo"
-              class="detalle-codigo-mobile" (keyupEnter)="this.addProducto()"></app-magnum-input>
-            <app-magnum-button text=">" class="add-producto-mobile"
-              (btnClickEmt)="this.addProducto()"></app-magnum-button>
-          </div>
+                            <ng-container matColumnDef="cantidad">
+                                <th class="text-left custom-column small-colunm" mat-header-cell *matHeaderCellDef>
+                                    Cantidad
+                                </th>
+                                <td class="text-left custom-column small-colunm" mat-cell *matCellDef="let element">
+                                    {{ element.Cantidad | currency: "es-AR":"" }}
+                                </td>
+                            </ng-container>
 
-          <div class="additional-options-wrap-mobile">
-            <app-magnum-button text="Detalle/Codigo" class="detalle-codigo-wrap-mobile"
-              (btnClickEmt)="detalleCodigo_Click()"></app-magnum-button>
+                            <ng-container matColumnDef="codigo">
+                                <th class="table-padding-left small-colunm" mat-header-cell *matHeaderCellDef>
+                                    Codigo
+                                </th>
+                                <td class="table-padding-left custom-column small-colunm" mat-cell *matCellDef="let element">
+                                    {{ element.Codigo }}
+                                </td>
+                            </ng-container>
 
-            <app-magnum-button class="producto-avanzado-mobile" text="+"
-              (btnClickEmt)="this.seleccionProductos_Click()"></app-magnum-button>
-          </div>  -->
+                            <ng-container matColumnDef="unitario">
+                                <th class="text-right small-colunm" mat-header-cell *matHeaderCellDef>
+                                    Unitario
+                                </th>
+                                <td class="text-right custom-column small-colunm" mat-cell *matCellDef="let element">
+                                    {{ element.Unitario | fixed: 3 | currency: "es-AR":"" }}
+                                </td>
+                            </ng-container>
 
+                            <ng-container matColumnDef="bonif">
+                                <th class="text-right small-colunm" mat-header-cell *matHeaderCellDef>
+                                    Bonif.
+                                </th>
+                                <td class="bonifiacion-column text-right custom-column small-colunm" mat-cell *matCellDef="let element" (click)="this.bonificacion_Click(element)">
+                                    {{ element.Bonificacion | currency: "es-AR":"" }}
+                                </td>
+                            </ng-container>
 
-          <div class="table-responsive">
-            <table mat-table [dataSource]="productosGrid" class="mat-elevation-z8" multiTemplateDataRows>
-              <ng-container matColumnDef="cantidad">
-                <th class="text-left custom-column small-colunm" mat-header-cell *matHeaderCellDef>
-                  Cantidad
-                </th>
-                <td class="text-left custom-column small-colunm" mat-cell *matCellDef="let element">
-                  {{ element.Cantidad | currency: "es-AR":"" }}
-                </td>
-              </ng-container>
+                            <ng-container matColumnDef="descripcion">
+                                <th class="table-padding-left text-left large-colunm paddin-left-column" mat-header-cell *matHeaderCellDef>
+                                    Descripcion
+                                </th>
+                                <td class="table-padding-left text-left custom-column large-colunm paddin-left-column" mat-cell *matCellDef="let element">
+                                    {{ element.Descripcion }}
+                                </td>
+                            </ng-container>
 
-              <ng-container matColumnDef="codigo">
-                <th class="table-padding-left small-colunm" mat-header-cell *matHeaderCellDef>
-                  Codigo
-                </th>
-                <td class="table-padding-left custom-column small-colunm" mat-cell *matCellDef="let element">
-                  {{ element.Codigo }}
-                </td>
-              </ng-container>
+                            <ng-container matColumnDef="optionX">
+                                <th class="small-colunm" mat-header-cell *matHeaderCellDef>
+                                    <mat-icon>close</mat-icon>
+                                </th>
+                                <td class="cancel-icon custom-column small-colunm" mat-cell *matCellDef="let element">
+                                    <mat-icon (click)="this.deleteProductoGrid(element)">cancel</mat-icon>
+                                </td>
+                            </ng-container>
 
-              <ng-container matColumnDef="unitario">
-                <th class="text-right small-colunm" mat-header-cell *matHeaderCellDef>
-                  Unitario
-                </th>
-                <td class="text-right custom-column small-colunm" mat-cell *matCellDef="let element">
-                  {{ element.Unitario | fixed: 3 | currency: "es-AR":"" }}
-                </td>
-              </ng-container>
+                            <ng-container matColumnDef="parcial">
+                                <th class="table-padding-left text-right small-colunm" mat-header-cell *matHeaderCellDef>
+                                    Parcial
+                                </th>
+                                <td class="table-padding-left text-right custom-column small-colunm" mat-cell *matCellDef="let element">
+                                    {{ element.Parcial | fixed: 2 | currency: "es-AR":"" }}
+                                </td>
+                            </ng-container>
 
-             <ng-container matColumnDef="bonif">
-                <th class="text-right small-colunm" mat-header-cell *matHeaderCellDef>
-                  Bonif.
-                </th>
-                <td class="bonifiacion-column text-right custom-column small-colunm" mat-cell *matCellDef="let element"
-                  (click)="this.bonificacion_Click(element)">
-                  {{ element.Bonificacion | currency: "es-AR":"" }}
-                </td>
-              </ng-container>
+                            <ng-container matColumnDef="stock">
+                                <th class="table-padding-left text-right small-colunm" mat-header-cell *matHeaderCellDef>
+                                    Stock
+                                </th>
+                                <td class="table-padding-left text-right custom-column small-colunm" mat-cell *matCellDef="let element">
+                                    {{ element.Stock }}
+                                </td>
+                            </ng-container>
 
-              <ng-container matColumnDef="descripcion">
-                <th class="table-padding-left text-left large-colunm paddin-left-column" mat-header-cell
-                  *matHeaderCellDef>
-                  Descripcion
-                </th>
-                <td class="table-padding-left text-left custom-column large-colunm paddin-left-column" mat-cell
-                  *matCellDef="let element">
-                  {{ element.Descripcion }}
-                </td>
-              </ng-container>
+                            <ng-container matColumnDef="iva">
+                                <th class="table-padding-left text-right small-colunm" mat-header-cell *matHeaderCellDef>
+                                    Iva
+                                </th>
+                                <td class="table-padding-left text-right custom-column small-colunm" mat-cell *matCellDef="let element">
+                                    {{ element.Iva | currency: "es-AR":"" }}
+                                </td>
+                            </ng-container>
 
-          <ng-container matColumnDef="optionX">
-                <th class="small-colunm" mat-header-cell *matHeaderCellDef>
-                  <mat-icon>close</mat-icon>
-                </th>
-                <td class="cancel-icon custom-column small-colunm" mat-cell *matCellDef="let element">
-                  <mat-icon (click)="this.deleteProductoGrid(element)">cancel</mat-icon>
-                </td>
-              </ng-container>
+                            <ng-container matColumnDef="neto">
+                                <th class="table-padding-left text-right small-colunm" mat-header-cell *matHeaderCellDef>
+                                    Neto
+                                </th>
+                                <td class="table-padding-left text-right custom-column small-colunm" mat-cell *matCellDef="let element">
+                                    {{ element.Neto | fixed: 2 | currency: "es-AR":"" }}
+                                </td>
+                            </ng-container>
 
-              <ng-container matColumnDef="parcial">
-                <th class="table-padding-left text-right small-colunm" mat-header-cell *matHeaderCellDef>
-                  Parcial
-                </th>
-                <td class="table-padding-left text-right custom-column small-colunm" mat-cell *matCellDef="let element">
-                  {{ element.Parcial | fixed: 2 | currency: "es-AR":"" }}
-                </td>
-              </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="columnasTabla; sticky: true"></tr>
+                            <tr mat-row *matRowDef="let row; columns: columnasTabla" class="options-detail-row"></tr>
+                        </table>
+                    </div>
+                </div>
 
-             <ng-container matColumnDef="stock">
-                <th class="table-padding-left text-right small-colunm" mat-header-cell *matHeaderCellDef>
-                  Stock
-                </th>
-                <td class="table-padding-left text-right custom-column small-colunm" mat-cell *matCellDef="let element">
-                  {{ element.Stock }}
-                </td>
-              </ng-container>
-
-               <!--    <ng-container matColumnDef="iva">
-                <th class="table-padding-left text-right small-colunm" mat-header-cell *matHeaderCellDef>
-                  Iva
-                </th>
-                <td class="table-padding-left text-right custom-column small-colunm" mat-cell *matCellDef="let element">
-                  {{ element.Iva | currency: "es-AR":"" }}
-                </td>
-              </ng-container>
-
-              <ng-container matColumnDef="neto">
-                <th class="table-padding-left text-right small-colunm" mat-header-cell *matHeaderCellDef>
-                  Neto
-                </th>
-                <td class="table-padding-left text-right custom-column small-colunm" mat-cell *matCellDef="let element">
-                  {{ element.Neto | fixed: 2 | currency: "es-AR":"" }}
-                </td>
-              </ng-container> -->
-
-              <tr mat-header-row *matHeaderRowDef="columnasTabla; sticky: true"></tr>
-              <tr mat-row *matRowDef="let row; columns: columnasTabla" class="options-detail-row"></tr>
-            </table>
-          </div>
-
-
-
-
-        <!-- <div class="wrap-table">
+                <!-- <div class="wrap-table">
           <table mat-table [dataSource]="productosGrid" class="mat-elevation-z8" multiTemplateDataRows>
             <ng-container matColumnDef="cantidad">
               <th class="text-left custom-column small-colunm" mat-header-cell *matHeaderCellDef>
@@ -372,102 +330,118 @@
           </table>
         </div> -->
 
-        <div fxLayout="row wrap">
-          <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="30%" fxFlex.lg="20%" fxFlex.xl="40%">
-            <div fxLayout="row wrap">
-              <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="40%">
-                <app-magnum-button text="Bonif. General" (click)="bonificacionGeneral_Click()"
-                  class="bonificacion-button"></app-magnum-button>
-              </div>
-            </div>
-            <div fxLayout="row wrap">
-              <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="40%">
-                <mat-form-field class="observaciones" appearance="fill">
-                  <mat-label>Observaciones</mat-label>
-                  <textarea matInput placeholder="Factura para  cliente Magnum" rows="10"
-                    [formControl]="observacionesFormControl"></textarea>
-                </mat-form-field>
-              </div>
-            </div>
+
+
+                <!-- <div class="seleccion-producto-wrap-mobile">
+            <app-magnum-select *ngIf="this.buscarPorDetalle" class="descripcion-select-mobile" text="Descripcion"
+              [options]="this.descripcionesSelect" [itemSelected]="this.descripcionSelected"
+              (selectOpen)="this.getProductosVentas()" (filterChange)="this.getProductosVentas($event)"
+              (selectChange)="this.productosChange($event)" [showSearchBar]="true"></app-magnum-select>
+            <app-magnum-input *ngIf="!this.buscarPorDetalle" [inputFormControl]="cantidadFormControl"
+              class="cantidad-mobile" placeHolder="Cantidad"></app-magnum-input>
+            <app-magnum-input *ngIf="!this.buscarPorDetalle" [inputFormControl]="codigoFormControl" placeHolder="Codigo"
+              class="detalle-codigo-mobile" (keyupEnter)="this.addProducto()"></app-magnum-input>
+            <app-magnum-button text=">" class="add-producto-mobile"
+              (btnClickEmt)="this.addProducto()"></app-magnum-button>
           </div>
-          <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="30%">
-            <div fxLayout="row wrap">
-              <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="40%">
-                <div class="ventas-footer-right">
-                  <div class="totales-wrap">
-                    <div class="total-items">Items: {{ productosGrid.length }}</div>
-                    <table>
-                      <tr>
-                        <th></th>
-                        <th class="text-center">%</th>
-                        <th class="text-right">$</th>
-                      </tr>
-                      <tr>
-                        <th>Bonificación x item</th>
-                        <td></td>
-                        <td class="text-right">
-                          {{ this.totalBonificacion | currency: "es-AR":"" }}
-                        </td>
-                      </tr>
-                      <tr>
-                        <th>Sub-total</th>
-                        <td></td>
-                        <td class="text-right">
-                          {{ this.subTotal | round: 2 | currency: "es-AR":"" }}
-                        </td>
-                      </tr>
-                      <tr>
-                        <th>I.V.A.</th>
-                        <td></td>
-                        <td class="total text-right">
-                          {{ this.totalIva | currency: "es-AR":"" }}
-                        </td>
-                      </tr>
-                    </table>
-                    <div class="total text-right">
-                      $ {{ this.totalParcial | currency: "es-AR":"" }}
+
+          <div class="additional-options-wrap-mobile">
+            <app-magnum-button text="Detalle/Codigo" class="detalle-codigo-wrap-mobile"
+              (btnClickEmt)="detalleCodigo_Click()"></app-magnum-button>
+
+            <app-magnum-button class="producto-avanzado-mobile" text="+"
+              (btnClickEmt)="this.seleccionProductos_Click()"></app-magnum-button>
+          </div>  -->
+
+
+
+
+                <div fxLayout="row wrap">
+                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="30%" fxFlex.lg="20%" fxFlex.xl="40%">
+                        <div fxLayout="row wrap">
+                            <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="40%">
+                                <app-magnum-button text="Bonif. General" (click)="bonificacionGeneral_Click()" class="bonificacion-button"></app-magnum-button>
+                            </div>
+                        </div>
+                        <div fxLayout="row wrap">
+                            <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="40%">
+                                <mat-form-field class="observaciones" appearance="fill">
+                                    <mat-label>Observaciones</mat-label>
+                                    <textarea matInput placeholder="Factura para  cliente Magnum" rows="10" [formControl]="observacionesFormControl"></textarea>
+                                </mat-form-field>
+                            </div>
+                        </div>
                     </div>
-                  </div>
+                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="30%">
+                        <div fxLayout="row wrap">
+                            <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="40%">
+                                <div class="ventas-footer-right">
+                                    <div class="totales-wrap">
+                                        <div class="total-items">Items: {{ productosGrid.length }}</div>
+                                        <table>
+                                            <tr>
+                                                <th></th>
+                                                <th class="text-center">%</th>
+                                                <th class="text-right">$</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Bonificación x item</th>
+                                                <td></td>
+                                                <td class="text-right">
+                                                    {{ this.totalBonificacion | currency: "es-AR":"" }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Sub-total</th>
+                                                <td></td>
+                                                <td class="text-right">
+                                                    {{ this.subTotal | round: 2 | currency: "es-AR":"" }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>I.V.A.</th>
+                                                <td></td>
+                                                <td class="total text-right">
+                                                    {{ this.totalIva | currency: "es-AR":"" }}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div class="total text-right">
+                                            $ {{ this.totalParcial | currency: "es-AR":"" }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="30%">
+                        <div fxLayout="row wrap">
+                            <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="40%">
+                                <app-magnum-button class="imprimir-button" (btnClickEmt)="this.imprimir()" text="Imprimir"></app-magnum-button>
+                            </div>
+                        </div>
+                        <div fxLayout="row wrap">
+                            <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="40%">
+                                <div class="logo-wrapper">
+                                    <img src="assets/logo_4.png" alt="" />
+                                    <h2>MAGNUM</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div fxLayout="row wrap">
-              <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="40%">
-
-              </div>
-            </div>
-          </div>
-          <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="30%">
-            <div fxLayout="row wrap">
-              <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="40%">
-                <app-magnum-button
-                class="imprimir-button"
-                (btnClickEmt)="this.imprimir()"
-                text="Imprimir"
-              ></app-magnum-button>
-              </div>
-            </div>
-            <div fxLayout="row wrap">
-              <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="40%">
-                <div class="logo-wrapper">
-                  <img src="assets/logo_4.png" alt="" />
-                  <h2>MAGNUM</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
 
-          <!-- <div class="buttons-wrap">
+                <!-- <div class="buttons-wrap">
             <app-magnum-button class="imprimir-button-mobile" (btnClickEmt)="this.imprimir()"
               text="Imprimir"></app-magnum-button>
           </div> -->
+            </div>
+        </mat-card>
     </div>
-    </mat-card>
-  </div>
 </mat-card-content>
 
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->
 <app-global-spinner></app-global-spinner>
 <app-global-snackbar></app-global-snackbar>
