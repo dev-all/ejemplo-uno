@@ -4,15 +4,16 @@
 //---------------------------------
 .table-responsive {
     display: block;
-    // width: 100%;
+    width: 100%;
     overflow-x: auto;
     .mat-table {
-        // width: 100%;
-        // max-width: 100%;
-        // margin-bottom: 1rem;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1rem;
         display: table;
         border-collapse: collapse;
         margin: 0px;
+        height: 180px;
     }
     .mat-row,
     .mat-header-row {
@@ -22,22 +23,25 @@
     .mat-header-cell {
         word-wrap: initial;
         display: table-cell;
-        // padding: 0px 5px;
+        padding: 0px 5px;
         line-break: unset;
-        //width: auto;
+        width: auto;
         white-space: nowrap;
         overflow: hidden;
         vertical-align: middle;
     }
 }
 
-//-------------
-.cliente-wrap {
-    display: flex;
-    flex-direction: row;
-    height: inherit;
+.mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+    line-height: 28px;
 }
 
+//-------------
+// .cliente-wrap {
+//     display: flex;
+//     flex-direction: row;
+//     height: inherit;
+// }
 // .ventas-header,
 // .ventas-footer {
 //   display: grid;

@@ -1,7 +1,6 @@
 @import 'src/app/styles/colors';
 @import 'src/app/styles/variables';
 @import 'src/app/styles/font';
-
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -221,110 +220,108 @@ tr.example-element-row:not(.example-expanded-row):active {
     }
 }
 
+//----------------------
 .card-magnum-content {
-
-  .mat-card {
-    padding: 6px;
-  }
-  .mat-card-title{
-    padding-left: 15px;
-    padding-top: 15px;
-  }
-  .mat-card-subtitle{
-    padding-left:15px;
-  }
-  &__wrapper {
-    display: flex;
-    padding: 0 3px;
-
-    @media (max-width: $small) {
-      flex-wrap: wrap;
+    .mat-card {
+        padding: 6px;
     }
-  }
-
-  &__item-wrapper {
-    box-shadow: 0 3px 11px 0 $shadow-white, 0 3px 3px -2px #B2B2B21A, 0 1px 8px 0 #9A9A9A1A;
-    width: 100%;
-    margin: 3px;
-  }
-
-  &__headings, &__colors, &__settings, &__size {
-    margin-top: 8px;
-    padding: 32px 3px;
-    h1 {
-      @media (max-width: $small) {
-        line-height: 46px;
-      }
+    .mat-card-title {
+        padding-left: 15px;
+        padding-top: 15px;
     }
-  }
-
-  &__colors {
-    &_blue {
-      color: $blue;
+    .mat-card-subtitle {
+        padding-left: 15px;
     }
-
-    &_green {
-      color: $green;
+    &__wrapper {
+        display: flex;
+        padding: 3px;
+        @media (max-width: $small) {
+            flex-wrap: wrap;
+            padding: 0 10px 0px 3px;
+            margin-right: 10px;
+        }
     }
-
-    &_pink {
-      color: $pink;
+    &__item-wrapper {
+        box-shadow: 0 3px 11px 0 $shadow-white, 0 3px 3px -2px #B2B2B21A, 0 1px 8px 0 #9A9A9A1A;
+        width: 100%;
+        margin: 3px;
     }
-
-    &_yellow {
-      color: $yellow;
+    &__headings,
+    &__colors,
+    &__settings,
+    &__size {
+        margin-top: 8px;
+        padding: 32px 3px;
+        h1 {
+            @media (max-width: $small) {
+                line-height: 46px;
+            }
+        }
     }
-
-    &_light-blue {
-      color: $light-blue;
+    &__colors {
+        &_blue {
+            color: $blue;
+        }
+        &_green {
+            color: $green;
+        }
+        &_pink {
+            color: $pink;
+        }
+        &_yellow {
+            color: $yellow;
+        }
+        &_light-blue {
+            color: $light-blue;
+        }
+        &_violet {
+            color: $violet;
+        }
     }
-
-    &_violet {
-      color: $violet;
-    }
-  }
 }
+
 .fw-light {
-  font-weight: $fw-lighter;
+    font-weight: $fw-lighter;
 }
 
 .fw-medium {
-  font-weight: $fw-normal;
+    font-weight: $fw-normal;
 }
 
 .fw-bold {
-  font-weight: $fw-bold;
+    font-weight: $fw-bold;
 }
 
 .font-uppercase {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .font-lowercase {
-  text-transform: lowercase;
+    text-transform: lowercase;
 }
 
 .fst-italic {
-  font-style: italic;
+    font-style: italic;
 }
 
 .fs-sm {
-  font-size: $fs-xs;
+    font-size: $fs-xs;
 }
 
 .fs-regular {
-  font-size: $fs-small;
+    font-size: $fs-small;
 }
 
 .fs-md {
-  font-size: $fs-medium;
+    font-size: $fs-medium;
 }
 
 .fs-xl {
-  font-size: $fs-xl;
+    font-size: $fs-xl;
 }
 
 .fs-xxl {
-  font-size: $fs-xxxl;
+    font-size: $fs-xxxl;
 }
+
 //----------------------
