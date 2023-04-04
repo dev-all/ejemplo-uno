@@ -1,129 +1,14 @@
 @import '~@angular/material/theming';
 @include mat-core();
-
 // GAMA COLORES
-$my-primary-color: (
-    50 : #e1e6ee,
-    100 : #b5bfd5,
-    200 : #8395b9,
-    300 : #516b9d,
-    400 : #2c4b88,
-    500 : #072b73,
-    600 : #06266b,
-    700 : #052060,
-    800 : #041a56,
-    900 : #021043,
-    A100 : #788aff,
-    A200 : #455eff,
-    A400 : #1232ff,
-    A700 : #0022f7,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #ffffff,
-        400 : #ffffff,
-        500 : #ffffff,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #ffffff,
-        A400 : #ffffff,
-        A700 : #ffffff,
-    )
-);
-
-
-
-
-$my-accent-color: (
-    50 : #e1f1ee,
-    100 : #b3ddd5,
-    200 : #81c6b9,
-    300 : #4faf9d,
-    400 : #299d88,
-    500 : #038c73,
-    600 : #03846b,
-    700 : #027960,
-    800 : #026f56,
-    900 : #015c43,
-    A100 : #8dffda,
-    A200 : #5affc9,
-    A400 : #27ffb8,
-    A700 : #0effb0,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #ffffff,
-        500 : #ffffff,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
-);
-
-
-
-$my-warn-color: (
-    50 : #fce3e3,
-    100 : #f8b8b8,
-    200 : #f38989,
-    300 : #ee5a5a,
-    400 : #eb3636,
-    500 : #e71313,
-    600 : #e41111,
-    700 : #e00e0e,
-    800 : #dd0b0b,
-    900 : #d70606,
-    A100 : #ffffff,
-    A200 : #ffcccc,
-    A400 : #ff9999,
-    A700 : #ff8080,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #ffffff,
-        500 : #ffffff,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
-);
-
-
-
-
-
+$my-primary-color: ( 50: #e1e6ee, 100: #b5bfd5, 200: #8395b9, 300: #516b9d, 400: #2c4b88, 500: #072b73, 600: #06266b, 700: #052060, 800: #041a56, 900: #021043, A100: #788aff, A200: #455eff, A400: #1232ff, A700: #0022f7, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #ffffff, 400: #ffffff, 500: #ffffff, 600: #ffffff, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #ffffff, A400: #ffffff, A700: #ffffff, ));
+$my-accent-color: ( 50: #e1f1ee, 100: #b3ddd5, 200: #81c6b9, 300: #4faf9d, 400: #299d88, 500: #038c73, 600: #03846b, 700: #027960, 800: #026f56, 900: #015c43, A100: #8dffda, A200: #5affc9, A400: #27ffb8, A700: #0effb0, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #ffffff, 500: #ffffff, 600: #ffffff, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #000000, A400: #000000, A700: #000000, ));
+$my-warn-color: ( 50: #fce3e3, 100: #f8b8b8, 200: #f38989, 300: #ee5a5a, 400: #eb3636, 500: #e71313, 600: #e41111, 700: #e00e0e, 800: #dd0b0b, 900: #d70606, A100: #ffffff, A200: #ffcccc, A400: #ff9999, A700: #ff8080, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #ffffff, 500: #ffffff, 600: #ffffff, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #000000, A400: #000000, A700: #000000, ));
 ///paleta colores new
-
 $my-palette-primary: mat-palette($my-primary-color);
 $my-palette-accent: mat-palette($my-accent-color);
 $my-palette-warn: mat-palette($my-warn-color);
-
 /// all-theme
-$my-theme: mat-light-theme((
- color: (
-   primary: $my-palette-primary,
-   accent: $my-palette-accent,
-   warn: $my-palette-warn
- )
-));
-
+$my-theme: mat-light-theme(( color: ( primary: $my-palette-primary, accent: $my-palette-accent, warn: $my-palette-warn)));
 /// aplicar all-theme
 @include angular-material-theme($my-theme);

@@ -11,294 +11,292 @@
                         <app-magnum-input [inputFormControl]="clientFormControl" placeHolder="Cliente"></app-magnum-input>
                     </div>
                     <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="10%" fxFlex.lg="10%" fxFlex.xl="10%">
-                        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-                            <mat-button-toggle color="primary" (click)="buscarCliente_Click(true)">Buscar</mat-button-toggle>
-                            <mat-button-toggle color="primary">C.F.</mat-button-toggle>
+                        <mat-button-toggle-group aria-label="Font Style">
+                            <mat-button-toggle class="mat-button-toggle" (click)="buscarCliente_Click(true)">Buscar</mat-button-toggle>
+                            <mat-button-toggle (click)="resetCliente_Click()">C.F.</mat-button-toggle>
                         </mat-button-toggle-group>
                     </div>
 
-                    <!-- <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="40%" fxFlex.lg="40%" fxFlex.xl="40%" fxLayoutAlign="center">
-                        <div class="cliente-wrap">
-                            <app-magnum-input [inputFormControl]="clientFormControl" placeHolder="Cliente"></app-magnum-input>
-                            <app-magnum-button text="Buscar" class="cliente-buscar-button" (btnClickEmt)="buscarCliente_Click($event)"></app-magnum-button>
+                    <!-- <div fxFlex="auto " fxFlex.xs="100% " fxFlex.sm="100% " fxFlex.md="40% " fxFlex.lg="40% " fxFlex.xl="40% " fxLayoutAlign="center ">
+                        <div class="cliente-wrap ">
+                            <app-magnum-input [inputFormControl]="clientFormControl " placeHolder="Cliente "></app-magnum-input>
+                            <app-magnum-button text="Buscar " class="cliente-buscar-button " (btnClickEmt)="buscarCliente_Click($event) "></app-magnum-button>
                         </div>
                     </div> -->
-                    <div fxFlex="auto" fxFlex.xs="40%" fxFlex.sm="40%" fxFlex.md="10%" fxFlex.lg="10%" fxFlex.xl="10%" fxLayoutAlign="center" style="margin-bottom: 18px;">
-                        <app-magnum-button text="C.F" (btnClickEmt)="resetCliente_Click()" style="min-width:100px;">
+                    <div fxFlex="auto " fxFlex.xs="40% " fxFlex.sm="40% " fxFlex.md="10% " fxFlex.lg="10% " fxFlex.xl="10% " fxLayoutAlign="center " style="margin-bottom: 18px; ">
+                        <app-magnum-button text="C.F " (btnClickEmt)="resetCliente_Click() " style="min-width:100px; ">
                         </app-magnum-button>
                     </div>
-                    <div fxFlex="auto" fxFlex.xs="40%" fxFlex.sm="40%" fxFlex.md="10%" fxFlex.lg="10%" fxFlex.xl="10%">
-                        <div class="fs-xl" style="padding-top:5px;margin-bottom: 18px; text-align: center;margin-left: 10px; margin-right: 10px; border: 1px solid #333; min-height: 30px;min-width: 100px;">
+                    <div fxFlex="auto " fxFlex.xs="40% " fxFlex.sm="40% " fxFlex.md="10% " fxFlex.lg="10% " fxFlex.xl="10% ">
+                        <div class="fs-xl " style="padding-top:5px;margin-bottom: 18px; text-align: center;margin-left: 10px; margin-right: 10px; border: 1px solid #333; min-height: 30px;min-width: 100px; ">
                             <span>{{ this.clienteCuenta.Boleta }}</span>
                         </div>
                     </div>
-                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="40%" fxFlex.lg="40%" fxFlex.xl="40%">
-                        <mat-form-field appearance="outline" style="width: 100%; ">
+                    <div fxFlex="auto " fxFlex.xs="100% " fxFlex.sm="100% " fxFlex.md="40% " fxFlex.lg="40% " fxFlex.xl="40% ">
+                        <mat-form-field appearance="outline " style="width: 100%; ">
                             <mat-label>Ciudad</mat-label>
-                            <input matInput disabled style="color: #333;" value=" {{ this.clienteCuenta.Ciudad }}, {{ this.clienteCuenta.Provincia }}">
+                            <input matInput disabled style="color: #333; " value=" {{ this.clienteCuenta.Ciudad }}, {{ this.clienteCuenta.Provincia }} ">
                         </mat-form-field>
                     </div>
                 </div>
-                <div fxLayout="row wrap" fxLayoutGap="1px" style="padding-top: 18px;">
+                <div fxLayout="row wrap " fxLayoutGap="1px " style="padding-top: 18px; ">
                     <div fxFlex>
-                        <app-magnum-select text="Comprobante" [itemSelected]="8" [options]="this.tipoComprobantesSelect">
+                        <app-magnum-select text="Comprobante " [itemSelected]="8 " [options]="this.tipoComprobantesSelect ">
                         </app-magnum-select>
                     </div>
                     <div fxFlex>
-                        <app-magnum-select text="Condición" [itemSelected]="this.clienteCuenta.CodigoFactura" [options]="this.condicionSelect"></app-magnum-select>
+                        <app-magnum-select text="Condición " [itemSelected]="this.clienteCuenta.CodigoFactura " [options]="this.condicionSelect "></app-magnum-select>
                     </div>
                     <div fxFlex>
-                        <app-magnum-select text="Forma de venta" [itemSelected]="this.clienteCuenta.IdForma" [options]="this.formasVentaSelect"></app-magnum-select>
+                        <app-magnum-select text="Forma de venta " [itemSelected]="this.clienteCuenta.IdForma " [options]="this.formasVentaSelect "></app-magnum-select>
                     </div>
 
                 </div>
-                <div fxLayout="row wrap" fxLayoutGap="1px">
+                <div fxLayout="row wrap " fxLayoutGap="1px ">
                     <div fxFlex>
-                        <app-magnum-select text="Lista" [itemSelected]="this.clienteCuenta.IdLista" [options]="this.listaSelect" (selectChange)="this.lista_Change($event)"></app-magnum-select>
+                        <app-magnum-select text="Lista " [itemSelected]="this.clienteCuenta.IdLista " [options]="this.listaSelect " (selectChange)="this.lista_Change($event) "></app-magnum-select>
                     </div>
                     <div fxFlex>
-                        <app-magnum-select text="Vendedor" [itemSelected]="0" [options]="this.vendedorSelect"></app-magnum-select>
+                        <app-magnum-select text="Vendedor " [itemSelected]="0 " [options]="this.vendedorSelect "></app-magnum-select>
                     </div>
                     <div fxFlex>
-                        <app-magnum-select class="transporte-select" text="Transporte" [options]="this.transporteSelect">
+                        <app-magnum-select class="transporte-select " text="Transporte " [options]="this.transporteSelect ">
                         </app-magnum-select>
                     </div>
                 </div>
-                <div fxLayout="row wrap" fxLayoutGap="1px">
+                <div fxLayout="row wrap " fxLayoutGap="1px ">
                     <div fxFlex>
-                        <app-magnum-select text="Forma de entrega" [options]="this.formaEntregaSelect"></app-magnum-select>
+                        <app-magnum-select text="Forma de entrega " [options]="this.formaEntregaSelect "></app-magnum-select>
                     </div>
                     <div fxFlex>
-                        <app-magnum-select text="Lugar" [options]="this.lugarSelect"></app-magnum-select>
+                        <app-magnum-select text="Lugar " [options]="this.lugarSelect "></app-magnum-select>
                     </div>
                 </div>
 
                 <hr>
                 <br>
-                <div fxLayout="row wrap" fxLayoutGap="1px">
-                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="30%" fxFlex.lg="40%" fxFlex.xl="40%" *ngIf="this.buscarPorDetalle">
-                        <app-magnum-select *ngIf="this.buscarPorDetalle" class="descripcion-select" text="Descripción" style="width: 100%;" [options]="this.descripcionesSelect" [itemSelected]="this.descripcionSelected" (selectOpen)="this.getProductosVentas()" (filterChange)="this.getProductosVentas($event)"
-                            (selectChange)="this.productosChange($event)" [showSearchBar]="true"></app-magnum-select>
+                <div fxLayout="row wrap " fxLayoutGap="1px ">
+                    <div fxFlex="auto " fxFlex.xs="100% " fxFlex.sm="100% " fxFlex.md="30% " fxFlex.lg="40% " fxFlex.xl="40% " *ngIf="this.buscarPorDetalle ">
+                        <app-magnum-select *ngIf="this.buscarPorDetalle " class="descripcion-select " text="Descripción " style="width: 100%; " [options]="this.descripcionesSelect " [itemSelected]="this.descripcionSelected " (selectOpen)="this.getProductosVentas()
+                            " (filterChange)="this.getProductosVentas($event) " (selectChange)="this.productosChange($event) " [showSearchBar]="true "></app-magnum-select>
                     </div>
 
-                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="10%" fxFlex.lg="20%" fxFlex.xl="10%" *ngIf="!this.buscarPorDetalle">
-                        <mat-form-field appearance="outline" class="cantidad">
+                    <div fxFlex="auto " fxFlex.xs="100% " fxFlex.sm="100% " fxFlex.md="10% " fxFlex.lg="20% " fxFlex.xl="10% " *ngIf="!this.buscarPorDetalle ">
+                        <mat-form-field appearance="outline " class="cantidad ">
                             <mat-label>Cantidad</mat-label>
-                            <input matInput type="number" onfocus="this.value=''" [formControl]="cantidadFormControl" #cantidad />
-                            <div clear-option mat-button *ngIf="cantidadFormControl.value" matSuffix mat-icon-button aria-label="Clear" (click)="cantidadFormControl.setValue('')">
+                            <input matInput type="number " onfocus="this.value='' " [formControl]="cantidadFormControl " #cantidad />
+                            <div clear-option mat-button *ngIf="cantidadFormControl.value " matSuffix mat-icon-button aria-label="Clear " (click)="cantidadFormControl.setValue( '') ">
                                 <mat-icon>close</mat-icon>
                             </div>
                         </mat-form-field>
                     </div>
-                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="20%" fxFlex.lg="20%" fxFlex.xl="30%" *ngIf="!this.buscarPorDetalle">
-                        <app-magnum-input *ngIf="!this.buscarPorDetalle" [inputFormControl]="codigoFormControl" placeHolder="Codigo" class="detalle-codigo" (keyupEnter)="this.addProducto()"></app-magnum-input>
+                    <div fxFlex="auto " fxFlex.xs="100% " fxFlex.sm="100% " fxFlex.md="20% " fxFlex.lg="20% " fxFlex.xl="30% " *ngIf="!this.buscarPorDetalle ">
+                        <app-magnum-input *ngIf="!this.buscarPorDetalle " [inputFormControl]="codigoFormControl " placeHolder="Codigo " class="detalle-codigo " (keyupEnter)="this.addProducto() "></app-magnum-input>
                     </div>
 
-                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="10%" fxFlex.lg="10%" fxFlex.xl="10%" class="mb-1">
-                        <app-magnum-button text="Agregar" (btnClickEmt)="this.addProducto()"></app-magnum-button>
+                    <div fxFlex="auto " fxFlex.xs="100% " fxFlex.sm="100% " fxFlex.md="10% " fxFlex.lg="10% " fxFlex.xl="10% " class="mb-1 ">
+                        <app-magnum-button text="Agregar " (btnClickEmt)="this.addProducto() "></app-magnum-button>
                     </div>
-                    <div fxFlex="auto" fxFlex.xs="50%" fxFlex.sm="50%" fxFlex.md="10%" fxFlex.lg="15%" fxFlex.xl="10%" class="mb-1">
-                        <app-magnum-button text="Detalle/Codigo" (btnClickEmt)="detalleCodigo_Click()"></app-magnum-button>
+                    <div fxFlex="auto " fxFlex.xs="50% " fxFlex.sm="50% " fxFlex.md="10% " fxFlex.lg="15% " fxFlex.xl="10% " class="mb-1 ">
+                        <app-magnum-button text="Detalle/Codigo " (btnClickEmt)="detalleCodigo_Click() "></app-magnum-button>
                     </div>
-                    <div fxFlex="auto" fxFlex.xs="49%" fxFlex.sm="49%" fxFlex.md="10%" fxFlex.lg="10%" fxFlex.xl="10%" class="mb-1">
-                        <app-magnum-button text="+ Opciones" (btnClickEmt)="this.seleccionProductos_Click()"></app-magnum-button>
+                    <div fxFlex="auto " fxFlex.xs="49% " fxFlex.sm="49% " fxFlex.md="10% " fxFlex.lg="10% " fxFlex.xl="10% " class="mb-1 ">
+                        <app-magnum-button text="+ Opciones " (btnClickEmt)="this.seleccionProductos_Click() "></app-magnum-button>
 
                     </div>
                 </div>
-                <div class="table-responsive">
-                    <table mat-table [dataSource]="productosGrid" matSort matTableResponsive>
-                        <ng-container matColumnDef="cantidad">
-                            <th class="text-left" mat-header-cell *matHeaderCellDef>Cantidad</th>
-                            <td class="text-left" mat-cell *matCellDef="let element">
-                                {{ element.Cantidad | currency: "es-AR":"" }}</td>
+                <div class="table-responsive ">
+                    <table mat-table [dataSource]="productosGrid " matSort matTableResponsive>
+                        <ng-container matColumnDef="cantidad ">
+                            <th class="text-left " mat-header-cell *matHeaderCellDef>Cantidad</th>
+                            <td class="text-left " mat-cell *matCellDef="let element ">
+                                {{ element.Cantidad | currency: "es-AR ":" " }}</td>
                         </ng-container>
-                        <ng-container matColumnDef="codigo">
-                            <th class="table-padding-left" mat-header-cell *matHeaderCellDef> Codigo</th>
-                            <td class="table-padding-left" mat-cell *matCellDef="let element"> {{ element.Codigo }}</td>
+                        <ng-container matColumnDef="codigo ">
+                            <th class="table-padding-left " mat-header-cell *matHeaderCellDef> Codigo</th>
+                            <td class="table-padding-left " mat-cell *matCellDef="let element "> {{ element.Codigo }}</td>
                         </ng-container>
-                        <ng-container matColumnDef="unitario">
-                            <th class="text-right" mat-header-cell *matHeaderCellDef>Unitario</th>
-                            <td class="text-right" mat-cell *matCellDef="let element">
-                                {{ element.Unitario | fixed: 3 | currency: "es-AR":"" }} </td>
+                        <ng-container matColumnDef="unitario ">
+                            <th class="text-right " mat-header-cell *matHeaderCellDef>Unitario</th>
+                            <td class="text-right " mat-cell *matCellDef="let element ">
+                                {{ element.Unitario | fixed: 3 | currency: "es-AR ":" " }} </td>
                         </ng-container>
-                        <ng-container matColumnDef="bonif">
-                            <th class="text-right" mat-header-cell *matHeaderCellDef>Bonif. </th>
-                            <td class="bonifiacion-column text-right" mat-cell *matCellDef="let element" (click)="this.bonificacion_Click(element)">
-                                {{ element.Bonificacion | currency: "es-AR":"" }}
+                        <ng-container matColumnDef="bonif ">
+                            <th class="text-right " mat-header-cell *matHeaderCellDef>Bonif. </th>
+                            <td class="bonifiacion-column text-right " mat-cell *matCellDef="let element " (click)="this.bonificacion_Click(element) ">
+                                {{ element.Bonificacion | currency: "es-AR ":" " }}
                             </td>
                         </ng-container>
-                        <ng-container matColumnDef="descripcion">
-                            <th class="table-padding-left text-left large-colunm paddin-left-column" mat-header-cell *matHeaderCellDef>Descripcion </th>
-                            <td class="table-padding-left text-left   large-colunm paddin-left-column" mat-cell *matCellDef="let element"> {{ element.Descripcion }} </td>
+                        <ng-container matColumnDef="descripcion ">
+                            <th class="table-padding-left text-left large-colunm paddin-left-column " mat-header-cell *matHeaderCellDef>Descripcion </th>
+                            <td class="table-padding-left text-left large-colunm paddin-left-column " mat-cell *matCellDef="let element "> {{ element.Descripcion }} </td>
                         </ng-container>
-                        <ng-container matColumnDef="optionX">
+                        <ng-container matColumnDef="optionX ">
                             <th class=" " mat-header-cell *matHeaderCellDef>
                                 <mat-icon>close</mat-icon>
                             </th>
-                            <td class="cancel-icon    " mat-cell *matCellDef="let element">
-                                <mat-icon (click)="this.deleteProductoGrid(element)">cancel</mat-icon>
+                            <td class="cancel-icon " mat-cell *matCellDef="let element ">
+                                <mat-icon (click)="this.deleteProductoGrid(element) ">cancel</mat-icon>
                             </td>
                         </ng-container>
-                        <ng-container matColumnDef="parcial">
-                            <th class="table-padding-left text-right  " mat-header-cell *matHeaderCellDef>
+                        <ng-container matColumnDef="parcial ">
+                            <th class="table-padding-left text-right " mat-header-cell *matHeaderCellDef>
                                 Parcial
                             </th>
-                            <td class="table-padding-left text-right    " mat-cell *matCellDef="let element">
-                                {{ element.Parcial | fixed: 2 | currency: "es-AR":"" }}
+                            <td class="table-padding-left text-right " mat-cell *matCellDef="let element ">
+                                {{ element.Parcial | fixed: 2 | currency: "es-AR ":" " }}
                             </td>
                         </ng-container>
-                        <ng-container matColumnDef="stock">
-                            <th class="table-padding-left text-right  " mat-header-cell *matHeaderCellDef>
+                        <ng-container matColumnDef="stock ">
+                            <th class="table-padding-left text-right " mat-header-cell *matHeaderCellDef>
                                 Stock
                             </th>
-                            <td class="table-padding-left text-right    " mat-cell *matCellDef="let element">
+                            <td class="table-padding-left text-right " mat-cell *matCellDef="let element ">
                                 {{ element.Stock }}
                             </td>
                         </ng-container>
-                        <ng-container matColumnDef="iva">
-                            <th class="table-padding-left text-right  " mat-header-cell *matHeaderCellDef>
+                        <ng-container matColumnDef="iva ">
+                            <th class="table-padding-left text-right " mat-header-cell *matHeaderCellDef>
                                 Iva
                             </th>
-                            <td class="table-padding-left text-right    " mat-cell *matCellDef="let element">
-                                {{ element.Iva | currency: "es-AR":"" }}
+                            <td class="table-padding-left text-right " mat-cell *matCellDef="let element ">
+                                {{ element.Iva | currency: "es-AR ":" " }}
                             </td>
                         </ng-container>
-                        <ng-container matColumnDef="neto">
-                            <th class="table-padding-left text-right   " mat-header-cell *matHeaderCellDef>
+                        <ng-container matColumnDef="neto ">
+                            <th class="table-padding-left text-right " mat-header-cell *matHeaderCellDef>
                                 Neto
                             </th>
-                            <td class="table-padding-left text-right    " mat-cell *matCellDef="let element">
-                                {{ element.Neto | fixed: 2 | currency: "es-AR":"" }}
+                            <td class="table-padding-left text-right " mat-cell *matCellDef="let element ">
+                                {{ element.Neto | fixed: 2 | currency: "es-AR ":" " }}
                             </td>
                         </ng-container>
 
-                        <tr mat-header-row *matHeaderRowDef="columnasTabla; sticky: true"></tr>
-                        <tr mat-row *matRowDef="let row; columns: columnasTabla"></tr>
+                        <tr mat-header-row *matHeaderRowDef="columnasTabla; sticky: true "></tr>
+                        <tr mat-row *matRowDef="let row; columns: columnasTabla "></tr>
                     </table>
                 </div>
 
-                <!-- <div class="wrap-table">
-          <table mat-table [dataSource]="productosGrid" class="mat-elevation-z8" multiTemplateDataRows>
-            <ng-container matColumnDef="cantidad">
-              <th class="text-left custom-column small-colunm" mat-header-cell *matHeaderCellDef>
+                <!-- <div class="wrap-table ">
+          <table mat-table [dataSource]="productosGrid " class="mat-elevation-z8 " multiTemplateDataRows>
+            <ng-container matColumnDef="cantidad ">
+              <th class="text-left custom-column small-colunm " mat-header-cell *matHeaderCellDef>
                 Cantidad
               </th>
-              <td class="text-left custom-column small-colunm" mat-cell *matCellDef="let element">
-                {{ element.Cantidad | currency: "es-AR":"" }}
+              <td class="text-left custom-column small-colunm " mat-cell *matCellDef="let element ">
+                {{ element.Cantidad | currency: "es-AR ":" " }}
               </td>
             </ng-container>
 
-            <ng-container matColumnDef="codigo">
-              <th class="table-padding-left small-colunm" mat-header-cell *matHeaderCellDef>
+            <ng-container matColumnDef="codigo ">
+              <th class="table-padding-left small-colunm " mat-header-cell *matHeaderCellDef>
                 Codigo
               </th>
-              <td class="table-padding-left custom-column small-colunm" mat-cell *matCellDef="let element">
+              <td class="table-padding-left custom-column small-colunm " mat-cell *matCellDef="let element ">
                 {{ element.Codigo }}
               </td>
             </ng-container>
 
-            <ng-container matColumnDef="unitario">
-              <th class="text-right small-colunm" mat-header-cell *matHeaderCellDef>
+            <ng-container matColumnDef="unitario ">
+              <th class="text-right small-colunm " mat-header-cell *matHeaderCellDef>
                 Unitario
               </th>
-              <td class="text-right custom-column small-colunm" mat-cell *matCellDef="let element">
-                {{ element.Unitario | fixed: 3 | currency: "es-AR":"" }}
+              <td class="text-right custom-column small-colunm " mat-cell *matCellDef="let element ">
+                {{ element.Unitario | fixed: 3 | currency: "es-AR ":" " }}
               </td>
             </ng-container>
 
-           <ng-container matColumnDef="bonif">
-              <th class="text-right small-colunm" mat-header-cell *matHeaderCellDef>
+           <ng-container matColumnDef="bonif ">
+              <th class="text-right small-colunm " mat-header-cell *matHeaderCellDef>
                 Bonif.
               </th>
-              <td class="bonifiacion-column text-right custom-column small-colunm" mat-cell *matCellDef="let element"
-                (click)="this.bonificacion_Click(element)">
-                {{ element.Bonificacion | currency: "es-AR":"" }}
+              <td class="bonifiacion-column text-right custom-column small-colunm " mat-cell *matCellDef="let element "
+                (click)="this.bonificacion_Click(element) ">
+                {{ element.Bonificacion | currency: "es-AR ":" " }}
               </td>
             </ng-container>
 
-          <ng-container matColumnDef="descripcion">
-              <th class="table-padding-left text-left large-colunm paddin-left-column" mat-header-cell
+          <ng-container matColumnDef="descripcion ">
+              <th class="table-padding-left text-left large-colunm paddin-left-column " mat-header-cell
                 *matHeaderCellDef>
                 Descripcion
               </th>
-              <td class="table-padding-left text-left custom-column large-colunm paddin-left-column" mat-cell
-                *matCellDef="let element">
+              <td class="table-padding-left text-left custom-column large-colunm paddin-left-column " mat-cell
+                *matCellDef="let element ">
                 {{ element.Descripcion }}
               </td>
             </ng-container>
 
-           <ng-container matColumnDef="optionX">
-              <th class="small-colunm" mat-header-cell *matHeaderCellDef>
+           <ng-container matColumnDef="optionX ">
+              <th class="small-colunm " mat-header-cell *matHeaderCellDef>
                 <mat-icon>close</mat-icon>
               </th>
-              <td class="cancel-icon custom-column small-colunm" mat-cell *matCellDef="let element">
-                <mat-icon (click)="this.deleteProductoGrid(element)">cancel</mat-icon>
+              <td class="cancel-icon custom-column small-colunm " mat-cell *matCellDef="let element ">
+                <mat-icon (click)="this.deleteProductoGrid(element) ">cancel</mat-icon>
               </td>
             </ng-container>
 
-            <ng-container matColumnDef="parcial">
-              <th class="table-padding-left text-right small-colunm" mat-header-cell *matHeaderCellDef>
+            <ng-container matColumnDef="parcial ">
+              <th class="table-padding-left text-right small-colunm " mat-header-cell *matHeaderCellDef>
                 Parcial
               </th>
-              <td class="table-padding-left text-right custom-column small-colunm" mat-cell *matCellDef="let element">
-                {{ element.Parcial | fixed: 2 | currency: "es-AR":"" }}
+              <td class="table-padding-left text-right custom-column small-colunm " mat-cell *matCellDef="let element ">
+                {{ element.Parcial | fixed: 2 | currency: "es-AR ":" " }}
               </td>
             </ng-container>
 
-            <ng-container matColumnDef="stock">
-              <th class="table-padding-left text-right small-colunm" mat-header-cell *matHeaderCellDef>
+            <ng-container matColumnDef="stock ">
+              <th class="table-padding-left text-right small-colunm " mat-header-cell *matHeaderCellDef>
                 Stock
               </th>
-              <td class="table-padding-left text-right custom-column small-colunm" mat-cell *matCellDef="let element">
+              <td class="table-padding-left text-right custom-column small-colunm " mat-cell *matCellDef="let element ">
                 {{ element.Stock }}
               </td>
             </ng-container>
 
-            <ng-container matColumnDef="iva">
-              <th class="table-padding-left text-right small-colunm" mat-header-cell *matHeaderCellDef>
+            <ng-container matColumnDef="iva ">
+              <th class="table-padding-left text-right small-colunm " mat-header-cell *matHeaderCellDef>
                 Iva
               </th>
-              <td class="table-padding-left text-right custom-column small-colunm" mat-cell *matCellDef="let element">
-                {{ element.Iva | currency: "es-AR":"" }}
+              <td class="table-padding-left text-right custom-column small-colunm " mat-cell *matCellDef="let element ">
+                {{ element.Iva | currency: "es-AR ":" " }}
               </td>
             </ng-container>
 
-            <ng-container matColumnDef="neto">
-              <th class="table-padding-left text-right small-colunm" mat-header-cell *matHeaderCellDef>
+            <ng-container matColumnDef="neto ">
+              <th class="table-padding-left text-right small-colunm " mat-header-cell *matHeaderCellDef>
                 Neto
               </th>
-              <td class="table-padding-left text-right custom-column small-colunm" mat-cell *matCellDef="let element">
-                {{ element.Neto | fixed: 2 | currency: "es-AR":"" }}
+              <td class="table-padding-left text-right custom-column small-colunm " mat-cell *matCellDef="let element ">
+                {{ element.Neto | fixed: 2 | currency: "es-AR ":" " }}
               </td>
             </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="columnasTabla; sticky: true"></tr>
-            <tr mat-row *matRowDef="let row; columns: columnasTabla" class="options-detail-row"></tr>
+            <tr mat-header-row *matHeaderRowDef="columnasTabla; sticky: true "></tr>
+            <tr mat-row *matRowDef="let row; columns: columnasTabla " class="options-detail-row "></tr>
           </table>
         </div> -->
 
 
 
-                <!-- <div class="seleccion-producto-wrap-mobile">
-            <app-magnum-select *ngIf="this.buscarPorDetalle" class="descripcion-select-mobile" text="Descripcion"
-              [options]="this.descripcionesSelect" [itemSelected]="this.descripcionSelected"
-              (selectOpen)="this.getProductosVentas()" (filterChange)="this.getProductosVentas($event)"
-              (selectChange)="this.productosChange($event)" [showSearchBar]="true"></app-magnum-select>
-            <app-magnum-input *ngIf="!this.buscarPorDetalle" [inputFormControl]="cantidadFormControl"
-              class="cantidad-mobile" placeHolder="Cantidad"></app-magnum-input>
-            <app-magnum-input *ngIf="!this.buscarPorDetalle" [inputFormControl]="codigoFormControl" placeHolder="Codigo"
-              class="detalle-codigo-mobile" (keyupEnter)="this.addProducto()"></app-magnum-input>
-            <app-magnum-button text=">" class="add-producto-mobile"
-              (btnClickEmt)="this.addProducto()"></app-magnum-button>
-          </div>
+                <!-- <div class="seleccion-producto-wrap-mobile ">
+            <app-magnum-select *ngIf="this.buscarPorDetalle " class="descripcion-select-mobile " text="Descripcion "
+              [options]="this.descripcionesSelect " [itemSelected]="this.descripcionSelected "
+              (selectOpen)="this.getProductosVentas() " (filterChange)="this.getProductosVentas($event) "
+              (selectChange)="this.productosChange($event) " [showSearchBar]="true "></app-magnum-select>
+            <app-magnum-input *ngIf="!this.buscarPorDetalle " [inputFormControl]="cantidadFormControl "
+              class="cantidad-mobile " placeHolder="Cantidad "></app-magnum-input>
+            <app-magnum-input *ngIf="!this.buscarPorDetalle " [inputFormControl]="codigoFormControl " placeHolder="Codigo "
+              class="detalle-codigo-mobile " (keyupEnter)="this.addProducto() "></app-magnum-input>
+            <app-magnum-button text=">" class="add-producto-mobile" (btnClickEmt)="this.addProducto()">
+                            </app-magnum-button>
+                    </div>
 
-          <div class="additional-options-wrap-mobile">
-            <app-magnum-button text="Detalle/Codigo" class="detalle-codigo-wrap-mobile"
-              (btnClickEmt)="detalleCodigo_Click()"></app-magnum-button>
+                    <div class="additional-options-wrap-mobile">
+                        <app-magnum-button text="Detalle/Codigo" class="detalle-codigo-wrap-mobile" (btnClickEmt)="detalleCodigo_Click()"></app-magnum-button>
 
-            <app-magnum-button class="producto-avanzado-mobile" text="+"
-              (btnClickEmt)="this.seleccionProductos_Click()"></app-magnum-button>
-          </div>  -->
+                        <app-magnum-button class="producto-avanzado-mobile" text="+" (btnClickEmt)="this.seleccionProductos_Click()"></app-magnum-button>
+                    </div> -->
 
 
 

@@ -32,8 +32,9 @@
     }
 }
 
-.mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
-    line-height: 28px;
+.mat-button-toggle {
+    background-color: mat-color(#5486F0);
+    color: mat-color(#fd0a0a1a, default-contrast);
 }
 
 //-------------
