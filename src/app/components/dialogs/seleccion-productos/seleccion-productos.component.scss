@@ -1,19 +1,70 @@
-.dialog-content {
-  overflow-y: hidden;
-  max-height: 85vh;
+.btnClose{
+  flex: 1 1 auto;  box-sizing: border-box;
+  place-content: flex-start flex-end;
+  align-items: flex-start;
+  flex-direction: row;
+  display: flex;
+}
 
-  .form-wrap {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 14px;
+.conteinerFlex{
+  flex-flow: row wrap;
+  box-sizing: border-box;
+  display: flex;
+}
 
-    .button-wrap {
-      button {
-        width: 100%;
-        height: 51px;
-      }
-    }
+
+mat-form-field{
+  margin:auto 3px;
+}
+
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  .mat-table {
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 1rem;
+      display: table;
+      border-collapse: collapse;
+      margin: 0px;
+      height: 180px;
   }
+  .mat-row,
+  .mat-header-row {
+      display: table-row;
+  }
+  .mat-cell,
+  .mat-header-cell {
+      word-wrap: initial;
+      display: table-cell;
+      padding: 0px 5px;
+      line-break: unset;
+      width: auto;
+      white-space: nowrap;
+      overflow: hidden;
+      vertical-align: middle;
+  }
+}
+
+
+///---------------------------------------------------------------------------
+// .dialog-content {
+//   overflow-y: hidden;
+//   max-height: 85vh;
+
+//   .form-wrap {
+//     display: grid;
+//     grid-template-columns: repeat(4, 1fr);
+//     grid-gap: 14px;
+
+//     .button-wrap {
+//       button {
+//         width: 100%;
+//         height: 51px;
+//       }
+//     }
+//   }
 
   .table-wrap {
     max-height: 378px;
@@ -37,15 +88,15 @@
     float: right;
   }
 
-}
-.options-detail {
-  overflow: hidden;
-  display: flex;
+// //}
+// .options-detail {
+//   overflow: hidden;
+//   display: flex;
 
-  .options-wrap {
-    padding: 10px;
-  }
-}
+//   .options-wrap {
+//     padding: 10px;
+//   }
+// }
 
 tr.options-detail-row {
   height: 0;

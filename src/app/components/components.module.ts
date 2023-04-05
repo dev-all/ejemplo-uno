@@ -121,5 +121,7 @@ import { MaterialModule } from '@shared/material/material.module';
     FooterComponent,
 
   ],
+
+
 })
 export class ComponentsModule {}

@@ -9,8 +9,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiInterceptorService } from './interceptors/api.interceptor.service';
 import { APP_BASE_HREF, CommonModule, HashLocationStrategy, LocationStrategy, registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es-AR';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDialogModule } from '@angular/material/dialog';
-
 
 registerLocaleData(localeEs, 'es-AR');
 
@@ -18,6 +18,7 @@ registerLocaleData(localeEs, 'es-AR');
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    FlexLayoutModule,
     BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
