@@ -268,8 +268,8 @@ export class VentasComponent implements OnInit {
 
   async buscarCliente_Click(event: boolean) {
     var clienteDialog = this.dialog.open(ClienteDialogComponent, {
-      width: '1000px',
-    });
+        panelClass: 'fullscreen-dialog'
+      });
 
     var data = await clienteDialog.afterClosed().toPromise();
 
@@ -681,7 +681,7 @@ export class VentasComponent implements OnInit {
 
   async seleccionProductos_Click() {
     this.dialog.open(SeleccionProductosComponent, {
-      width: '1000px',
+      panelClass: 'fullscreen-dialog'
     });
   }
 

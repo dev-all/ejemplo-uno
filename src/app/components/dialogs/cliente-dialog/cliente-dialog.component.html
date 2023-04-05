@@ -1,90 +1,74 @@
 <div class="modal-container">
-  <h2 mat-dialog-title>
-    Clientes
-    <br />
-  </h2>
+    <div style="flex: 1 1 auto;
+    box-sizing: border-box;
+    place-content: flex-start flex-end;
+    align-items: flex-start;
+    flex-direction: row;
+    display: flex;">
+        <mat-icon mat-dialog-close aria-hidden="false" aria-label="Cerrar">close</mat-icon>
+    </div>
+    <h2 mat-dialog-title>
+        Buscar Clientes
+    </h2>
+    <div fxLayout="row wrap">
+        <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" class="mt-1">
+            <app-magnum-input [inputFormControl]="valorBusquedadFormControl" placeHolder="Cliente" inputText="Buscar" (inputChange)="buscarTxt_Change($event)"></app-magnum-input>
+        </div>
+        <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" class="mt-1">
+            <app-magnum-select text="Tipo busquedad" [options]="this.tipoBusquedas" (selectChange)="tipoBusquedadChange($event)"></app-magnum-select>
+        </div>
+    </div>
+    <div class="mt-2 table-responsive">
+        <table mat-table [dataSource]="this.clientesVenta" multiTemplateDataRows class="mat-elevation-z8">
+            <ng-container matColumnDef="cuenta">
+                <th class="text-center min-width-column" mat-header-cell *matHeaderCellDef>
+                    Cuenta
+                </th>
+                <td class="text-center min-width-column" mat-cell *matCellDef="let element">
+                    {{ element.Cuenta }}
+                </td>
+            </ng-container>
 
-  <form class="form-wrap">
-    <app-magnum-input
-      [inputFormControl]="valorBusquedadFormControl"
-      inputText="Buscar"
-      (inputChange)="buscarTxt_Change($event)"
-    ></app-magnum-input>
+            <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.Nombre }}
+                </td>
+            </ng-container>
 
-    <app-magnum-select
-      text="Tipo busquedad"
-      [options]="this.tipoBusquedas"
-      (selectChange)="tipoBusquedadChange($event)"
-    ></app-magnum-select>
-  </form>
+            <ng-container matColumnDef="fantasia">
+                <th class="min-width-column" mat-header-cell *matHeaderCellDef>
+                    Fantasia
+                </th>
+                <td class="min-width-column" mat-cell *matCellDef="let element">
+                    {{ element.Fantasia }}
+                </td>
+            </ng-container>
 
-  <div class="mt-2 table-wrap">
-    <table
-      mat-table
-      [dataSource]="this.clientesVenta"
-      multiTemplateDataRows
-      class="mat-elevation-z8"
-    >
-      <ng-container matColumnDef="cuenta">
-        <th
-          class="text-center min-width-column"
-          mat-header-cell
-          *matHeaderCellDef
-        >
-          Cuenta
-        </th>
-        <td
-          class="text-center min-width-column"
-          mat-cell
-          *matCellDef="let element"
-        >
-          {{ element.Cuenta }}
-        </td>
-      </ng-container>
+            <ng-container matColumnDef="direccion">
+                <th mat-header-cell *matHeaderCellDef>Direccion</th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.Direccion }}
+                </td>
+            </ng-container>
 
-      <ng-container matColumnDef="nombre">
-        <th mat-header-cell *matHeaderCellDef>Nombre</th>
-        <td mat-cell *matCellDef="let element">
-          {{ element.Nombre }}
-        </td>
-      </ng-container>
+            <ng-container matColumnDef="ciudad">
+                <th mat-header-cell *matHeaderCellDef>Ciudad</th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.Ciudad }}
+                </td>
+            </ng-container>
 
-      <ng-container matColumnDef="fantasia">
-        <th class="min-width-column" mat-header-cell *matHeaderCellDef>
-          Fantasia
-        </th>
-        <td class="min-width-column" mat-cell *matCellDef="let element">
-          {{ element.Fantasia }}
-        </td>
-      </ng-container>
+            <ng-container matColumnDef="telefono">
+                <th mat-header-cell *matHeaderCellDef>Telefono</th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.Telefono }}
+                </td>
+            </ng-container>
 
-      <ng-container matColumnDef="direccion">
-        <th mat-header-cell *matHeaderCellDef>Direccion</th>
-        <td mat-cell *matCellDef="let element">
-          {{ element.Direccion }}
-        </td>
-      </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columnasTabla"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnasTabla" (click)="this.cliente_Click(row)"></tr>
+        </table>
+    </div>
 
-      <ng-container matColumnDef="ciudad">
-        <th mat-header-cell *matHeaderCellDef>Ciudad</th>
-        <td mat-cell *matCellDef="let element">
-          {{ element.Ciudad }}
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="telefono">
-        <th mat-header-cell *matHeaderCellDef>Telefono</th>
-        <td mat-cell *matCellDef="let element">
-          {{ element.Telefono }}
-        </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="columnasTabla"></tr>
-      <tr
-        mat-row
-        *matRowDef="let row; columns: columnasTabla"
-        (click)="this.cliente_Click(row)"
-      ></tr>
-    </table>
-  </div>
 </div>

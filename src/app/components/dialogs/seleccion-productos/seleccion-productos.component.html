@@ -1,262 +1,190 @@
 <div class="modal-container">
-  <h2 mat-dialog-title>
-    SELECCIÓN DE PRODUCTOS
-    <br />
-  </h2>
+    <div style="flex: 1 1 auto;
+  box-sizing: border-box;
+  place-content: flex-start flex-end;
+  align-items: flex-start;
+  flex-direction: row;
+  display: flex;">
+        <mat-icon mat-dialog-close aria-hidden="false" aria-label="Cerrar">close</mat-icon>
+    </div>
+    <h2 mat-dialog-title>
+        Selección de Productos
+    </h2>
 
-  <div mat-dialog-content class="dialog-content">
-    <form class="form-wrap" (ngSubmit)="this.buscar()">
-      <mat-form-field appearance="outline">
-        <mat-label>Detalle</mat-label>
-        <input matInput type="text" [formControl]="detalleFormControl" />
-        <div
-          class="clear-option"
-          clear-option
-          mat-button
-          *ngIf="detalleFormControl.value"
-          matSuffix
-          mat-icon-button
-          aria-label="Clear"
-          (click)="detalleFormControl.setValue('')"
-        >
-          <mat-icon>close</mat-icon>
+    <div mat-dialog-content class="dialog-content">
+
+        <div fxLayout="row wrap">
+            <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" class="mt-1">
+                <div class="fs-xl" style="padding-top: 5px; text-align: center;margin-left: 10px; margin-right: 10px; border: 1px dashed #333; min-height: 30px;min-width: 100px;">
+                    <span></span>
+                </div>
+            </div>
+            <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" class="mt-1">
+                <div class="fs-xl" style="padding-top: 5px; text-align: center;margin-left: 10px; margin-right: 10px; border: 1px dashed #333; min-height: 30px;min-width: 100px;">
+                    <span></span>
+                </div>
+            </div>
+            <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" class="mt-1">
+                <div class="fs-xl" style="padding-top: 5px; text-align: center;margin-left: 10px; margin-right: 10px; border: 1px dashed #333; min-height: 30px;min-width: 100px;">
+                    <span></span>
+                </div>
+            </div>
         </div>
-      </mat-form-field>
 
-      <mat-form-field focused="false" appearance="outline">
-        <mat-label>Sub-rubro</mat-label>
-        <mat-select [(ngModel)]="subRubroSelected" name="subRubro">
-          <mat-option>
-            <ngx-mat-select-search
-              placeholderLabel="Buscar sub-rubro"
-              noEntriesFoundLabel="Sub-rubro no encontrado"
-              [formControl]="subRubroFilterCtrl"
-            ></ngx-mat-select-search>
-          </mat-option>
-          <mat-option
-            *ngFor="let subRubro of subRubros"
-            [value]="subRubro.Familia"
-          >
-            {{ subRubro.NombreFamilia }}
-          </mat-option>
-        </mat-select>
-        <div
-          clear-option
-          mat-button
-          *ngIf="subRubroSelected"
-          matSuffix
-          mat-icon-button
-          aria-label="Clear"
-          (click)="subRubroSelected = undefined; $event.stopPropagation()"
-        >
-          <mat-icon>close</mat-icon>
-        </div>
-      </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Marca</mat-label>
-        <mat-select [(ngModel)]="this.marcaSelected" name="variante">
-          <mat-option
-            *ngFor="let marca of this.marcas"
-            [value]="marca.NroMarca"
-          >
-            {{ marca.Detalle }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
 
-      <mat-form-field focused="false" appearance="outline">
-        <mat-label>Proveedor</mat-label>
-        <mat-select [(ngModel)]="proveedorSelected" name="proveedor">
-          <mat-option>
-            <ngx-mat-select-search
-              placeholderLabel="Buscar proveedor"
-              noEntriesFoundLabel="Proveedor no encontrado"
-              [formControl]="proveedorFilterCtrl"
-            ></ngx-mat-select-search>
-          </mat-option>
-          <mat-option
-            *ngFor="let proveedor of proveedores"
-            [value]="proveedor.Codigo"
-          >
-            {{ proveedor.Nombre }}
-          </mat-option>
-        </mat-select>
-        <div
-          clear-option
-          mat-button
-          *ngIf="proveedorSelected"
-          matSuffix
-          mat-icon-button
-          aria-label="Clear"
-          (click)="proveedorSelected = undefined; $event.stopPropagation()"
-        >
-          <mat-icon>close</mat-icon>
-        </div>
-      </mat-form-field>
+        <form class="form-wrap" (ngSubmit)="this.buscar()">
+            <mat-form-field appearance="outline">
+                <mat-label>Detalle</mat-label>
+                <input matInput type="text" [formControl]="detalleFormControl" />
+                <div class="clear-option" clear-option mat-button *ngIf="detalleFormControl.value" matSuffix mat-icon-button aria-label="Clear" (click)="detalleFormControl.setValue('')">
+                    <mat-icon>close</mat-icon>
+                </div>
+            </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Código</mat-label>
-        <input matInput type="text" [formControl]="codigoFormControl" />
-        <div
-          class="clear-option"
-          clear-option
-          mat-button
-          *ngIf="codigoFormControl.value"
-          matSuffix
-          mat-icon-button
-          aria-label="Clear"
-          (click)="codigoFormControl.setValue('')"
-        >
-          <mat-icon>close</mat-icon>
-        </div>
-      </mat-form-field>
+            <mat-form-field focused="false" appearance="outline">
+                <mat-label>Sub-rubro</mat-label>
+                <mat-select [(ngModel)]="subRubroSelected" name="subRubro">
+                    <mat-option>
+                        <ngx-mat-select-search placeholderLabel="Buscar sub-rubro" noEntriesFoundLabel="Sub-rubro no encontrado" [formControl]="subRubroFilterCtrl"></ngx-mat-select-search>
+                    </mat-option>
+                    <mat-option *ngFor="let subRubro of subRubros" [value]="subRubro.Familia">
+                        {{ subRubro.NombreFamilia }}
+                    </mat-option>
+                </mat-select>
+                <div clear-option mat-button *ngIf="subRubroSelected" matSuffix mat-icon-button aria-label="Clear" (click)="subRubroSelected = undefined; $event.stopPropagation()">
+                    <mat-icon>close</mat-icon>
+                </div>
+            </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Depósito</mat-label>
-        <mat-select [(ngModel)]="this.depositoSelected" name="deposito">
-          <mat-option
-            *ngFor="let deposito of this.depositos"
-            [value]="deposito.Numero"
-          >
-            {{ deposito.Detalle }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Marca</mat-label>
+                <mat-select [(ngModel)]="this.marcaSelected" name="variante">
+                    <mat-option *ngFor="let marca of this.marcas" [value]="marca.NroMarca">
+                        {{ marca.Detalle }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
 
-      <div class="button-wrap">
-        <button type="submit" mat-raised-button color="primary">
+            <mat-form-field focused="false" appearance="outline">
+                <mat-label>Proveedor</mat-label>
+                <mat-select [(ngModel)]="proveedorSelected" name="proveedor">
+                    <mat-option>
+                        <ngx-mat-select-search placeholderLabel="Buscar proveedor" noEntriesFoundLabel="Proveedor no encontrado" [formControl]="proveedorFilterCtrl"></ngx-mat-select-search>
+                    </mat-option>
+                    <mat-option *ngFor="let proveedor of proveedores" [value]="proveedor.Codigo">
+                        {{ proveedor.Nombre }}
+                    </mat-option>
+                </mat-select>
+                <div clear-option mat-button *ngIf="proveedorSelected" matSuffix mat-icon-button aria-label="Clear" (click)="proveedorSelected = undefined; $event.stopPropagation()">
+                    <mat-icon>close</mat-icon>
+                </div>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Código</mat-label>
+                <input matInput type="text" [formControl]="codigoFormControl" />
+                <div class="clear-option" clear-option mat-button *ngIf="codigoFormControl.value" matSuffix mat-icon-button aria-label="Clear" (click)="codigoFormControl.setValue('')">
+                    <mat-icon>close</mat-icon>
+                </div>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Depósito</mat-label>
+                <mat-select [(ngModel)]="this.depositoSelected" name="deposito">
+                    <mat-option *ngFor="let deposito of this.depositos" [value]="deposito.Numero">
+                        {{ deposito.Detalle }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div class="button-wrap">
+                <button type="submit" mat-raised-button color="primary">
           <span>Buscar</span>
         </button>
-      </div>
-    </form>
-    <mat-checkbox [(ngModel)]="productosConStrock"
-      >Productos con stock</mat-checkbox
-    >
-    <div class="mt-2 table-wrap">
-      <table
-        mat-table
-        [dataSource]="this.seleccionProducto"
-        multiTemplateDataRows
-        class="mat-elevation-z8"
-      >
-        <ng-container matColumnDef="codigo">
-          <th mat-header-cell *matHeaderCellDef>Código</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.Codigo }}
-          </td>
-        </ng-container>
+            </div>
+        </form>
+        <mat-checkbox [(ngModel)]="productosConStrock">Productos con stock</mat-checkbox>
+        <div class="mt-2 table-wrap">
+            <table mat-table [dataSource]="this.seleccionProducto" multiTemplateDataRows class="mat-elevation-z8">
+                <ng-container matColumnDef="codigo">
+                    <th mat-header-cell *matHeaderCellDef>Código</th>
+                    <td mat-cell *matCellDef="let element">
+                        {{ element.Codigo }}
+                    </td>
+                </ng-container>
 
-        <ng-container matColumnDef="detalle">
-          <th mat-header-cell *matHeaderCellDef>Detalle</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.Detalle }}
-          </td>
-        </ng-container>
+                <ng-container matColumnDef="detalle">
+                    <th mat-header-cell *matHeaderCellDef>Detalle</th>
+                    <td mat-cell *matCellDef="let element">
+                        {{ element.Detalle }}
+                    </td>
+                </ng-container>
 
-        <ng-container matColumnDef="marca">
-          <th mat-header-cell *matHeaderCellDef>Marca</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.Marca }}
-          </td>
-        </ng-container>
+                <ng-container matColumnDef="marca">
+                    <th mat-header-cell *matHeaderCellDef>Marca</th>
+                    <td mat-cell *matCellDef="let element">
+                        {{ element.Marca }}
+                    </td>
+                </ng-container>
 
-        <ng-container matColumnDef="lista1">
-          <th class="text-right" mat-header-cell *matHeaderCellDef>Lista 1</th>
-          <td class="text-right" mat-cell *matCellDef="let element">
-            {{ element.ListaX | currency:'es-AR':'' }}
-          </td>
-        </ng-container>
+                <ng-container matColumnDef="lista1">
+                    <th class="text-right" mat-header-cell *matHeaderCellDef>Lista 1</th>
+                    <td class="text-right" mat-cell *matCellDef="let element">
+                        {{ element.ListaX | currency:'es-AR':'' }}
+                    </td>
+                </ng-container>
 
-        <ng-container matColumnDef="stock">
-          <th class="text-right" mat-header-cell *matHeaderCellDef>Stock</th>
-          <td class="text-right" mat-cell *matCellDef="let element">
-            {{ element.StockActual | currency:'es-AR':'' }}
-          </td>
-        </ng-container>
+                <ng-container matColumnDef="stock">
+                    <th class="text-right" mat-header-cell *matHeaderCellDef>Stock</th>
+                    <td class="text-right" mat-cell *matCellDef="let element">
+                        {{ element.StockActual | currency:'es-AR':'' }}
+                    </td>
+                </ng-container>
 
-        <ng-container matColumnDef="agregar">
-          <th class="text-right" mat-header-cell *matHeaderCellDef></th>
-          <td class="text-right" mat-cell *matCellDef="let element">
-            <mat-icon (click)="addProducto(element)" class="add-icon"
-              >add</mat-icon
-            >
-          </td>
-        </ng-container>
+                <ng-container matColumnDef="agregar">
+                    <th class="text-right" mat-header-cell *matHeaderCellDef></th>
+                    <td class="text-right" mat-cell *matCellDef="let element">
+                        <mat-icon (click)="addProducto(element)" class="add-icon">add</mat-icon>
+                    </td>
+                </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr
-          mat-row
-          *matRowDef="let row; columns: displayedColumns"
-          [class.options-expanded-row]="expandedElement === row"
-          (click)="expandedElement = expandedElement === row ? null : row"
-        ></tr>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns" [class.options-expanded-row]="expandedElement === row" (click)="expandedElement = expandedElement === row ? null : row"></tr>
 
-        <ng-container matColumnDef="expandedDetail">
-          <td
-            mat-cell
-            *matCellDef="let element"
-            [attr.colspan]="displayedColumns.length"
-          >
-            <div
-              class="options-detail"
-              [@detailExpand1]="
+                <ng-container matColumnDef="expandedDetail">
+                    <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+                        <div class="options-detail" [@detailExpand1]="
                 element == expandedElement ? 'expanded' : 'collapsed'
-              "
-            >
-              <div class="options-wrap">
-                <button
-                  class="ml-1"
-                  mat-raised-button
-                  color="primary"
-                  (click)="delete(element)"
-                  [disabled]="
+              ">
+                            <div class="options-wrap">
+                                <button class="ml-1" mat-raised-button color="primary" (click)="delete(element)" [disabled]="
                     !this.securityAccess.validateAccess('BORRAR_PRODUCTO')
-                  "
-                >
+                  ">
                   <span>Eliminar</span>
                 </button>
-                <button
-                  class="ml-1"
-                  mat-raised-button
-                  color="primary"
-                  (click)="openDialog(element, 'inicio')"
-                >
+                                <button class="ml-1" mat-raised-button color="primary" (click)="openDialog(element, 'inicio')">
                   <span>Stock Inicial</span>
                 </button>
-                <button
-                  class="ml-1"
-                  mat-raised-button
-                  color="primary"
-                  (click)="openDialog(element, 'ajuste')"
-                >
+                                <button class="ml-1" mat-raised-button color="primary" (click)="openDialog(element, 'ajuste')">
                   <span>Ajustar Stock</span>
                 </button>
-                <button
-                  class="ml-1"
-                  mat-raised-button
-                  color="primary"
-                  (click)="openDialog(element, 'movimientos')"
-                >
+                                <button class="ml-1" mat-raised-button color="primary" (click)="openDialog(element, 'movimientos')">
                   <span>Ver Movimientos Stock</span>
                 </button>
-              </div>
-            </div>
-          </td>
-        </ng-container>
-        <tr
-          mat-row
-          *matRowDef="let row; columns: ['expandedDetail']"
-          class="options-detail-row"
-        ></tr>
-      </table>
-    </div>
-    <h3 class="total-wrap">Total: {{ this.seleccionProducto.length }}</h3>
+                            </div>
+                        </div>
+                    </td>
+                </ng-container>
+                <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="options-detail-row"></tr>
+            </table>
+        </div>
+        <h3 class="total-wrap">Total: {{ this.seleccionProducto.length }}</h3>
 
-    <div class="footer-wrap mt-3">
-      <button mat-raised-button color="primary" mat-dialog-close class="ml-1">
+        <div class="footer-wrap mt-3">
+            <button mat-raised-button color="primary" mat-dialog-close class="ml-1">
         <span>Cerrar </span>
       </button>
+        </div>
     </div>
-  </div>
 </div>
