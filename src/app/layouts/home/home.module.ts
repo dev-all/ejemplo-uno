@@ -27,6 +27,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   imports: [
 
     MainRoutes,
+    FlexLayoutModule,
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
@@ -34,7 +35,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ComponentsModule,
     PdfViewerModule,
     MaterialModule,
-    FlexLayoutModule,
+
   ],
   declarations: [
     HomePage,

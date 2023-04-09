@@ -1,21 +1,20 @@
 <mat-card-content class="card-magnum-content">
     <div class="card-magnum-content__wrapper">
         <mat-card class="card-magnum-content__item-wrapper">
-            <mat-card-title ngClass.xs="fs-regular">
+            <mat-card-title>
                 <div fxLayout="row wrap">
-                    <div fxFlex="auto" fxFlex.xs="80%" fxFlex.sm="80%" fxFlex.md="80%" fxLayoutAlign="start">
+                    <div fxFlex="auto" fxFlex.xs="80%" fxFlex.sm="80%" fxFlex.md="80%" fxLayoutAlign="start" class="fs-regular">
                         Facturación
                     </div>
                     <div fxFlex="auto" fxFlex.xs="20%" fxFlex.sm="20%" fxFlex.md="20%" fxLayoutAlign="end start">
 
-                        <div mat-raised-button class="fs-xl boleta">
+                        <div mat-raised-button class="fs-regular boleta">
                             {{ this.clienteCuenta.Boleta }}
                         </div>
                     </div>
                 </div>
             </mat-card-title>
             <mat-card-subtitle ngClass.xs="fs-regular">
-                Registro de Ventas
             </mat-card-subtitle>
 
 
@@ -28,7 +27,7 @@
                     <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="10%" fxFlex.lg="10%" fxFlex.xl="10%" class="mb-1">
                         <app-magnum-button text="Buscar" (btnClickEmt)="buscarCliente_Click($event)"></app-magnum-button>
                     </div>
-                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="10%" fxFlex.lg="5%" fxFlex.xl="5%" class="mb-1">
+                    <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="10%" fxFlex.lg="5%" fxFlex.xl="5%" class="mb-1" style="margin-left: 5px; margin-right: 5px;">
                         <app-magnum-button text="C.F" (btnClickEmt)="resetCliente_Click()"></app-magnum-button>
                     </div>
 
@@ -136,14 +135,16 @@
                             <th class="table-padding-left text-left large-colunm paddin-left-column" mat-header-cell *matHeaderCellDef>Descripcion </th>
                             <td class="table-padding-left text-left large-colunm paddin-left-column" mat-cell *matCellDef="let element"> {{ element.Descripcion }} </td>
                         </ng-container>
+
                         <ng-container matColumnDef="optionX">
                             <th class="" mat-header-cell *matHeaderCellDef>
                                 <mat-icon>close</mat-icon>
                             </th>
                             <td class="cancel-icon" mat-cell *matCellDef="let element">
-                                <mat-icon (click)="this.deleteProductoGrid(element)">cancel</mat-icon>
+                                <mat-icon color="warn" (click)="this.deleteProductoGrid(element)">cancel</mat-icon>
                             </td>
                         </ng-container>
+
                         <ng-container matColumnDef="parcial">
                             <th class="table-padding-left text-right" mat-header-cell *matHeaderCellDef>
                                 Parcial
@@ -187,7 +188,7 @@
                 <div fxLayout="row wrap">
                     <div ngClass.xs="orderUno" ngClass.sm="orderUno" fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" class="mt-1">
                         <div fxLayout="row wrap">
-                            <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" fxFlex.lg="100%" fxFlex.xl="100%">
+                            <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" fxFlex.lg="100%" fxFlex.xl="100%" style="margin: auto 5px;">
                                 <app-magnum-button text="Bonif. General" (click)="bonificacionGeneral_Click()" class="bonificacion-button"></app-magnum-button>
                             </div>
                         </div>
@@ -200,7 +201,7 @@
                             </div>
                         </div>
                     </div>
-                    <div ngClass.xs="orderTres" ngClass.sm="orderTres" fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" class="mt-1">
+                    <div ngClass.xs="orderTres" ngClass.sm="orderTres" fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" class="mt-1" style="margin-left: 5px; margin-right: 5px;">
                         <div fxLayout="row wrap">
                             <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" fxFlex.lg="100%" fxFlex.xl="100%">
                                 <app-magnum-button class="imprimir-button" (btnClickEmt)="this.imprimir()" text="Imprimir">
@@ -231,28 +232,37 @@
                                             <tr>
                                                 <th>Bonificación x item</th>
                                                 <td></td>
-                                                <td class="text-right">
+                                                <td class="total-items text-right">
                                                     {{ this.totalBonificacion | currency:"es-AR":"" }}
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th>Sub-total</th>
                                                 <td></td>
-                                                <td class="text-right">
+                                                <td class="total-items text-right">
                                                     {{ this.subTotal | round: 2 | currency:"es-AR":"" }}
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th>I.V.A.</th>
                                                 <td></td>
-                                                <td class="total text-right">
+                                                <td class="total-items text-right">
                                                     {{ this.totalIva | currency:"es-AR":"" }}
                                                 </td>
                                             </tr>
+                                            <tfoot>
+                                                <tr>
+                                                    <th class="total-text" colspan="2">Total</th>
+                                                    <td class="total text-right ">$ {{ this.totalParcial | currency:"es-AR ":" " }}</td>
+                                                </tr>
+                                            </tfoot>
                                         </table>
-                                        <div class="total text-right">
-                                            $ {{ this.totalParcial | currency:"es-AR":"" }}
+                                        <!-- <div class=" total-text">
+                                            Total
                                         </div>
+                                        <div class="total text-right ">
+                                            $ {{ this.totalParcial | currency:"es-AR ":" " }}
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -261,11 +271,6 @@
 
                 </div>
 
-
-                <!-- <div class="buttons-wrap">
-            <app-magnum-button class="imprimir-button-mobile" (btnClickEmt)="this.imprimir()"
-              text="Imprimir"></app-magnum-button>
-          </div> -->
             </div>
         </mat-card>
     </div>
@@ -274,5 +279,4 @@
 
 <!-- <app-footer></app-footer> -->
 <app-global-spinner></app-global-spinner>
-<app-global-snackbar></app-global-snackbar>
 <app-global-snackbar></app-global-snackbar>

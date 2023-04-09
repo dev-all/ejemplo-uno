@@ -1,36 +1,27 @@
-<div class="modal-container">
-  <h2 mat-dialog-title>
+<div class="close-dialog">
+    <mat-icon mat-dialog-close aria-hidden="false" aria-label="Cerrar">close</mat-icon>
+</div>
+<h2 mat-dialog-title>
     Bonificacion personalizada
-    <br />
-  </h2>
-  <div class="bonificacion-wrap">
-    <div>
-      Bonificación Politica Comercial:
-      {{ this.bonificacionComercial | currency: "es-AR":"" }}%
-    </div>
-    <div>
-      Bonificación Oferta: {{ this.bonificacionOferta | currency: "es-AR":"" }}%
-    </div>
-  </div>
-  <h3>Indique el procentaje de bonificación a aplicar</h3>
-  <div mat-dialog-content class="dialog-content">
-    <form class="form-wrap">
-      <app-magnum-input
-        [inputFormControl]="bonificacionFormControl"
-        placeHolder="Cantidad a bonificar"
-        type="number"
-      ></app-magnum-input>
-
-      <app-magnum-button
-        text="Aplicar"
-        (btnClickEmt)="aplicar_Click()"
-      ></app-magnum-button>
-      <div class="decuento-max-wrap">
+</h2>
+<div mat-dialog-content class="dialog-content">
+    <div class="bonificacion-wrap">
         <div>
-          Descuento Maximo Permitido:
-          {{ this.bonificacionMax | currency: "es-AR ":"" }}%
+            Bonificación Politica Comercial: {{ this.bonificacionComercial | currency: "es-AR":"" }}%
         </div>
-      </div>
+        <div>
+            Bonificación Oferta: {{ this.bonificacionOferta | currency: "es-AR":"" }}%
+        </div>
+    </div>
+    <h3>Indique el procentaje de bonificación a aplicar</h3>
+    <form class="form-wrap">
+        <app-magnum-input [inputFormControl]="bonificacionFormControl" placeHolder="Cantidad a bonificar" type="number"></app-magnum-input>
+
+        <app-magnum-button text="Aplicar" (btnClickEmt)="aplicar_Click()"></app-magnum-button>
+        <div class="decuento-max-wrap">
+            <div>
+                Descuento Maximo Permitido: {{ this.bonificacionMax | currency: "es-AR ":"" }}%
+            </div>
+        </div>
     </form>
-  </div>
 </div>

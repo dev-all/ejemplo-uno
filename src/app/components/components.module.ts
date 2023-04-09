@@ -40,7 +40,6 @@ import { FooterComponent } from './footer/footer.component';
 import { MaterialModule } from '@shared/material/material.module';
 
 
-
 @NgModule({
   imports: [
     RouterModule,
@@ -49,6 +48,7 @@ import { MaterialModule } from '@shared/material/material.module';
     MaterialModule,
     ReactiveFormsModule,
     NgxMatSelectSearchModule,
+
   ],
   declarations: [
     DistinctPipe,
@@ -82,7 +82,6 @@ import { MaterialModule } from '@shared/material/material.module';
     BonificacionItemDialogComponent,
     ProductoDialogComponent,
     SidebarComponent,
-
     SidenavComponent,
     HeaderComponent,
     LayoutComponent,

@@ -1,32 +1,25 @@
-<div class="modal-container">
-  <h2 mat-dialog-title>
-    DESCUENTO
-    <br />
-  </h2>
-
-  <h3>Indique el procentaje de bonificación a aplicar</h3>
-  <div mat-dialog-content class="dialog-content">
+<div class="close-dialog">
+    <mat-icon mat-dialog-close aria-hidden="false" aria-label="Cerrar">close</mat-icon>
+</div>
+<h2 mat-dialog-title>
+    Descuento
+</h2>
+<div mat-dialog-content class="dialog-content">
+    <h3>Indique el procentaje de bonificación a aplicar</h3>
     <form class="form-wrap">
-      <app-magnum-input
-        [inputFormControl]="bonificacionFormControl"
-        placeHolder="Bonificacion items"
-      ></app-magnum-input
-      ><span>%</span>
-      <app-magnum-button
-        text="Aplicar"
-        (btnClickEmt)="aplicar_Click()"
-      ></app-magnum-button>
-      <div class="decuento-max-wrap">
-        <div>Descuento Maximo Permitido: {{this.bonificacionMax}}%</div>
-      </div>
+        <app-magnum-input [inputFormControl]="bonificacionFormControl" placeHolder="Bonificacion items"> </app-magnum-input>
+        <span>%</span>
+        <app-magnum-button text="Aplicar" (btnClickEmt)="aplicar_Click()"></app-magnum-button>
+        <div class="decuento-max-wrap">
+            <div>Descuento Maximo Permitido: {{this.bonificacionMax}}%</div>
+        </div>
     </form>
     <div class="footer">
-      Si usted supera este valor, el sistem le exigira Autorización del
-      supervisor
+        Si usted supera este valor, el sistem le exigira Autorización del supervisor
     </div>
-  </div>
-
-  <div mat-dialog-actions class="mt-2 dialog-actions">
-    <button mat-button mat-dialog-close>Salir</button>
-  </div>
 </div>
+
+<!-- <div mat-dialog-actions class="mt-2 dialog-actions">
+        <button mat-button mat-dialog-close>Salir</button>
+    </div>
+<div class="modal-container"></div>-->

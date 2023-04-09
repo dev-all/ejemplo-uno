@@ -120,7 +120,7 @@ input[type=number] {
 }
 
 .modal-container {
-    max-height: 75vh;
+    //max-height: 80vh;
     overflow-y: auto;
     overflow-x: hidden;
     padding: 20px;
@@ -221,6 +221,15 @@ tr.example-element-row:not(.example-expanded-row):active {
 }
 
 //----------------------
+.close-dialog {
+    flex: 1 1 auto;
+    box-sizing: border-box;
+    place-content: flex-start flex-end;
+    align-items: flex-start;
+    flex-direction: row;
+    display: flex;
+}
+
 .table-responsive {
     display: block;
     width: 100%;

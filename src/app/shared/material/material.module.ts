@@ -25,6 +25,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTreeModule } from '@angular/material/tree';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatChipsModule} from '@angular/material/chips';
 const MaterialComponent =[
     MatProgressSpinnerModule,
     MatPaginatorModule,
@@ -55,6 +56,7 @@ const MaterialComponent =[
     MatNativeDateModule,
     MatTreeModule,
     MatSlideToggleModule,
+    MatChipsModule
   ];
 
 

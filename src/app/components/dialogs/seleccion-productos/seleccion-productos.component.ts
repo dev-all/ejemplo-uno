@@ -39,16 +39,16 @@ import { MovimientoDepositoAgregar } from '@models/MovimientoDepositos/Movimient
   selector: 'app-seleccion-productos',
   templateUrl: './seleccion-productos.component.html',
   styleUrls: ['./seleccion-productos.component.scss'],
-  animations: [
-    trigger('detailExpand1', [
-      state('collapsed', style({ height: '0px', minHeight: '0' })),
-      state('expanded', style({ height: '*' })),
-      transition(
-        'expanded <=> collapsed',
-        animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')
-      ),
-    ]),
-  ],
+  // animations: [
+  //   trigger('detailExpand1', [
+  //     state('collapsed', style({ height: '0px', minHeight: '0' })),
+  //     state('expanded', style({ height: '*' })),
+  //     transition(
+  //       'expanded <=> collapsed',
+  //       animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')
+  //     ),
+  //   ]),
+  // ],
 })
 export class SeleccionProductosComponent implements OnInit {
   detalleFormControl = new FormControl('');

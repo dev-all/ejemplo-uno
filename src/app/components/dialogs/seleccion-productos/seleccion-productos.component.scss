@@ -1,60 +1,73 @@
-.dialog-content {
-  overflow-y: hidden;
-  max-height: 85vh;
-
-  .form-wrap {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 14px;
-
-    .button-wrap {
-      button {
-        width: 100%;
-        height: 51px;
-      }
-    }
-  }
-
-  .table-wrap {
-    max-height: 378px;
-    overflow-y: scroll;
-
-    table {
-      border-top: 1px solid;
-      border-color: rgba(0, 0, 0, 0.12);
-    }
-
-    .add-icon {
-      cursor: pointer;
-    }
-  }
-
-  .total-wrap {
-    margin-top: 10px;
-  }
-
-  .footer-wrap {
-    float: right;
-  }
-
-}
-.options-detail {
-  overflow: hidden;
-  display: flex;
-
-  .options-wrap {
-    padding: 10px;
-  }
-}
-
-tr.options-detail-row {
-  height: 0;
-}
-
-tr.options-element-row:not(.options-expanded-row):hover {
-  background: whitesmoke;
-}
-
-tr.options-element-row:not(.options-expanded-row):active {
-  background: #efefef;
-}
+        .fx-container {
+            display: flex;
+            flex-flow: row wrap;
+            box-sizing: border-box;
+            margin: 10x auto;
+        }
+        
+        .fx-item {
+            margin-right: 1px;
+            flex: 1 1 0%; // grow shrink basis
+            box-sizing: border-box;
+        }
+        
+        .mat-dialog-content {
+            max-height: 100%;
+        }
+        
+        .mat-dialog-container {
+            overflow: hidden !important;
+        }
+        
+        //-----------------------
+        // .dialog-content {
+        //   overflow-y: hidden;
+        //   max-height: 85vh;
+        //   .form-wrap {
+        //     display: grid;
+        //     grid-template-columns: repeat(4, 1fr);
+        //     grid-gap: 14px;
+        //     .button-wrap {
+        //       button {
+        //         width: 100%;
+        //         height: 51px;
+        //       }
+        //     }
+        //   }
+        //   .table-wrap {
+        //     max-height: 378px;
+        //     overflow-y: scroll;
+        //     table {
+        //       border-top: 1px solid;
+        //       border-color: rgba(0, 0, 0, 0.12);
+        //     }
+        .add-icon {
+            cursor: pointer;
+        }
+        
+        //   }
+        .total-wrap {
+            margin-top: 10px;
+        }
+        
+        //   .footer-wrap {
+        //     float: right;
+        //   }
+        // }
+        // .options-detail {
+        //   overflow: hidden;
+        //   display: flex;
+        //   .options-wrap {
+        //     padding: 10px;
+        //   }
+        // }
+        // tr.options-detail-row {
+        //     height: 0;
+        // }
+        tr.options-element-row:not(.options-expanded-row):hover {
+            background: whitesmoke;
+        }
+        
+        tr.options-element-row:not(.options-expanded-row):active {
+            background: #efefef;
+        }

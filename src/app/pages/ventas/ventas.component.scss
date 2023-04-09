@@ -2,41 +2,10 @@
 @import 'src/app/styles/variables';
 @import 'src/app/styles/font';
 //---------------------------------
-.table-responsive {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    .mat-table {
-        width: 100%;
-        max-width: 100%;
-        margin-bottom: 1rem;
-        display: table;
-        border-collapse: collapse;
-        margin: 0px;
-        height: 180px;
-    }
-    .mat-row,
-    .mat-header-row {
-        display: table-row;
-    }
-    .mat-cell,
-    .mat-header-cell {
-        word-wrap: initial;
-        display: table-cell;
-        padding: 0px 5px;
-        line-break: unset;
-        width: auto;
-        white-space: nowrap;
-        overflow: hidden;
-        vertical-align: middle;
-    }
-}
-
 .boleta {
     padding-top: 3px;
     text-align: center;
     margin: auto 10px;
-    border: 1px solid #333;
     min-height: 25px;
     min-width: 100px;
 }
@@ -99,11 +68,15 @@
             }
         }
     }
-    .total-items,
-    .total {
-        font-size: 26px;
+    .total-items {
+        font-size: 18px;
+    }
+    .total-text {
+        margin-top: 16px;
+        text-align: start;
     }
     .total {
+        font-size: 20px;
         margin-top: 16px;
         text-align: end;
     }
