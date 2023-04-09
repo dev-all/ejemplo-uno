@@ -633,7 +633,7 @@ export class VentasComponent implements OnInit {
   }
 
   async bonificacion_Click(producto: ProductoGrid) {
-    console.log(producto);
+   // console.log(producto);
     var dialog = this.dialog.open(BonificacionItemDialogComponent, {
       data: {
         cpInterno: producto.CpInterno,
@@ -657,8 +657,8 @@ export class VentasComponent implements OnInit {
     producto.Unitario = unitario;
     producto.UnitarioBackup = unitario;
 
-    console.log('unitario', producto.Unitario);
-    console.log('unitarioBackup', producto.UnitarioBackup);
+    //console.log('unitario', producto.Unitario);
+  /// console.log('unitarioBackup', producto.UnitarioBackup);
 
     var parcial = this.getParcial(producto.UnitarioBackup, producto.Cantidad);
     producto.Unitario = this.getUnitario(producto.UnitarioBackup, bonif);
