@@ -87,81 +87,125 @@
     </form>
 
     <mat-checkbox [(ngModel)]="productosConStrock" class="mt-1">Productos con stock</mat-checkbox>
+    <div class="mt-2 table-wrap">
+      <table
+        mat-table
+        [dataSource]="this.seleccionProducto"
+        multiTemplateDataRows
+        class="mat-elevation-z8"
+      >
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef>Código</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.Codigo }}
+          </td>
+        </ng-container>
 
-    <div class="table-responsive">
-        <table mat-table [dataSource]="this.seleccionProducto" multiTemplateDataRows>
-            <ng-container matColumnDef="codigo">
-                <th mat-header-cell *matHeaderCellDef>Código</th>
-                <td mat-cell *matCellDef="let element">
-                    {{ element.Codigo }}
-                </td>
-            </ng-container>
+        <ng-container matColumnDef="detalle">
+          <th mat-header-cell *matHeaderCellDef>Detalle</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.Detalle }}
+          </td>
+        </ng-container>
 
-            <ng-container matColumnDef="detalle">
-                <th mat-header-cell *matHeaderCellDef>Detalle</th>
-                <td mat-cell *matCellDef="let element">
-                    {{ element.Detalle }}
-                </td>
-            </ng-container>
+        <ng-container matColumnDef="marca">
+          <th mat-header-cell *matHeaderCellDef>Marca</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.Marca }}
+          </td>
+        </ng-container>
 
-            <ng-container matColumnDef="marca">
-                <th mat-header-cell *matHeaderCellDef>Marca</th>
-                <td mat-cell *matCellDef="let element">
-                    {{ element.Marca }}
-                </td>
-            </ng-container>
+        <ng-container matColumnDef="lista1">
+          <th class="text-right" mat-header-cell *matHeaderCellDef>Lista 1</th>
+          <td class="text-right" mat-cell *matCellDef="let element">
+            {{ element.ListaX | currency:'es-AR':'' }}
+          </td>
+        </ng-container>
 
-            <ng-container matColumnDef="lista1">
-                <th class="text-right" mat-header-cell *matHeaderCellDef>Lista 1</th>
-                <td class="text-right" mat-cell *matCellDef="let element">
-                    {{ element.ListaX | currency:'es-AR':'' }}
-                </td>
-            </ng-container>
+        <ng-container matColumnDef="stock">
+          <th class="text-right" mat-header-cell *matHeaderCellDef>Stock</th>
+          <td class="text-right" mat-cell *matCellDef="let element">
+            {{ element.StockActual | currency:'es-AR':'' }}
+          </td>
+        </ng-container>
 
-            <ng-container matColumnDef="stock">
-                <th class="text-right" mat-header-cell *matHeaderCellDef>Stock</th>
-                <td class="text-right" mat-cell *matCellDef="let element">
-                    {{ element.StockActual | currency:'es-AR':'' }}
-                </td>
-            </ng-container>
+        <ng-container matColumnDef="agregar">
+          <th class="text-right" mat-header-cell *matHeaderCellDef></th>
+          <td class="text-right" mat-cell *matCellDef="let element">
+            <mat-icon (click)="addProducto(element)" class="add-icon" color="accent"
+              >add_circle_outline</mat-icon
+            >
+          </td>
+        </ng-container>
 
-            <ng-container matColumnDef="agregar">
-                <th class="text-right" mat-header-cell *matHeaderCellDef></th>
-                <td class="text-right" mat-cell *matCellDef="let element">
-                    <mat-icon (click)="addProducto(element)" class="add-icon">add</mat-icon>
-                </td>
-            </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          [class.options-expanded-row]="expandedElement === row"
+          (click)="expandedElement = expandedElement === row ? null : row"
+        ></tr>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns" [class.options-expanded-row]="expandedElement === row" (click)="expandedElement = expandedElement === row ? null : row"></tr>
-
-            <ng-container matColumnDef="expandedDetail">
-                <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
-                    <div class="options-detail" [@detailExpand1]="
+        <ng-container matColumnDef="expandedDetail">
+          <td
+            mat-cell
+            *matCellDef="let element"
+            [attr.colspan]="displayedColumns.length"
+          >
+            <div
+              class="options-detail"
+              [@detailExpand1]="
                 element == expandedElement ? 'expanded' : 'collapsed'
-              ">
-                        <div class="options-wrap">
-                            <button class="ml-1" mat-raised-button color="primary" (click)="delete(element)" [disabled]="
+              "
+            >
+              <div class="options-wrap">
+                <button
+                  class="ml-1"
+                  mat-raised-button
+                  color="primary"
+                  (click)="delete(element)"
+                  [disabled]="
                     !this.securityAccess.validateAccess('BORRAR_PRODUCTO')
-                  ">
-                <span>Eliminar</span>
-              </button>
-                            <button class="ml-1" mat-raised-button color="primary" (click)="openDialog(element, 'inicio')">
-                <span>Stock Inicial</span>
-              </button>
-                            <button class="ml-1" mat-raised-button color="primary" (click)="openDialog(element, 'ajuste')">
-                <span>Ajustar Stock</span>
-              </button>
-                            <button class="ml-1" mat-raised-button color="primary" (click)="openDialog(element, 'movimientos')">
-                <span>Ver Movimientos Stock</span>
-              </button>
-                        </div>
-                    </div>
-                </td>
-            </ng-container>
-            <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="options-detail-row"></tr>
-        </table>
+                  "
+                >
+                  <span>Eliminar</span>
+                </button>
+                <button
+                  class="ml-1"
+                  mat-raised-button
+                  color="primary"
+                  (click)="openDialog(element, 'inicio')"
+                >
+                  <span>Stock Inicial</span>
+                </button>
+                <button
+                  class="ml-1"
+                  mat-raised-button
+                  color="primary"
+                  (click)="openDialog(element, 'ajuste')"
+                >
+                  <span>Ajustar Stock</span>
+                </button>
+                <button
+                  class="ml-1"
+                  mat-raised-button
+                  color="primary"
+                  (click)="openDialog(element, 'movimientos')"
+                >
+                  <span>Ver Movimientos Stock</span>
+                </button>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: ['expandedDetail']"
+          class="options-detail-row"
+        ></tr>
+      </table>
     </div>
+
     <h3 class="total-wrap">Total: {{ this.seleccionProducto.length }}</h3>
 
 

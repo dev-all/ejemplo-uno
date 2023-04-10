@@ -80,7 +80,8 @@
 
                     <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="50%" fxFlex.lg="40%" fxFlex.xl="40%" *ngIf="this.buscarPorDetalle">
 
-                        <app-magnum-select *ngIf="this.buscarPorDetalle" text="Descripción" [options]="this.descripcionesSelect" [itemSelected]="this.descripcionSelected" (selectOpen)="this.getProductosVentas()
+                        <app-magnum-select *ngIf="this.buscarPorDetalle" text="Descripción" [options]="this.descripcionesSelect" [itemSelected]="this.descripcionSelected"
+                         (selectOpen)="this.getProductosVentas()
                            " (filterChange)="this.getProductosVentas($event)" (selectChange)="this.productosChange($event)" [showSearchBar]="true"></app-magnum-select>
                     </div>
 
@@ -95,7 +96,8 @@
                     </div>
 
                     <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="25%" fxFlex.lg="20%" fxFlex.xl="20%" *ngIf="!this.buscarPorDetalle">
-                        <app-magnum-input *ngIf="!this.buscarPorDetalle" [inputFormControl]="codigoFormControl" placeHolder="Codigo" (keyupEnter)="this.addProducto()"></app-magnum-input>
+                        <app-magnum-input *ngIf="!this.buscarPorDetalle" [inputFormControl]="codigoFormControl" placeHolder="Codigo"
+                        (keyupEnter)="this.addProducto()"></app-magnum-input>
                     </div>
 
                     <div fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="15%" fxFlex.lg="10%" fxFlex.xl="10%" class="mb-1">
@@ -182,8 +184,6 @@
                         <tr mat-row *matRowDef="let row; columns: columnasTabla"></tr>
                     </table>
                 </div>
-
-
 
                 <div fxLayout="row wrap">
                     <div ngClass.xs="orderUno" ngClass.sm="orderUno" fxFlex="auto" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" class="mt-1">

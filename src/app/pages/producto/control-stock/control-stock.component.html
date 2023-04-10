@@ -32,7 +32,7 @@
                 </mat-select>
               </mat-form-field>
 
-              <mat-card-actions>
+              <mat-card-actions  style="margin: auto 20px;">
                 <button mat-raised-button color="primary" style="width: 100%; min-width: 150px;" type="submit">Buscar</button>
               </mat-card-actions>
             </form>
@@ -46,10 +46,10 @@
             <mat-card-subtitle> Registros encontrados</mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
-            <div class="mat-elevation-z8">
+
               <form [formGroup]="VOForm" autocomplete="off">
                 <ng-container formArrayName="VORows">
-                  <table #table mat-table [dataSource]="dataSourceEditing" class="mat-elevation-z8">
+                  <table #table mat-table [dataSource]="dataSourceEditing" >
 
                     <ng-container matColumnDef="codigo">
                       <th mat-header-cell *matHeaderCellDef> No. </th>
@@ -132,7 +132,7 @@
                 (page)="pagesChange($event)" [pageSize]="pageSize" aria-label="Select page">
               </mat-paginator>
               <mat-card>Total Productos {{ totalRows }}</mat-card>
-            </div>
+
 
           </mat-card-content>
           <mat-card-actions>

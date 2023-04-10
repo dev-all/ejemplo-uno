@@ -1,7 +1,7 @@
 <mat-nav-list class="mat-nav-magnum">
   <ng-container *ngFor="let item of menuItems">
     <div *ngIf="item.isTitle">
-      <mat-list-item class="icon" routerLink="">
+      <mat-list-item class="icon" routerLink="item.link">
         <mat-icon>{{item.icon}}</mat-icon> <span>{{ item.label }}</span>
       </mat-list-item>
     </div>

@@ -58,6 +58,11 @@ export const MENU: MenuItem[] = [
       }
     ]
   },
-
+  {
+    label: 'MAGNUM',
+    icon:'dashboard_customize',
+    isTitle: true ,
+    link: 'http://www.gestionmagnum.com/'
+  },
 
 ];

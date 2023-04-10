@@ -46,6 +46,7 @@ import { ProductoService } from '@services/producto/producto.service';
 import { StockService } from '@services/stock/stock.service';
 import { UserService } from '@services/user/user.service';
 import { VendedorService } from '@services/vendedor/vendedor.service';
+import { log } from 'console';
 
 @Component({
   selector: 'app-ventas',
@@ -295,6 +296,10 @@ export class VentasComponent implements OnInit {
   }
 
   async getProductosVentas(value: string = null) {
+
+
+    debugger;
+    console.log('getProductosVentas');
     this.descripcionesSelect = [];
     var request = new ProductoVentaRequest({
       database: null,
@@ -670,6 +675,7 @@ export class VentasComponent implements OnInit {
   }
 
   detalleCodigo_Click() {
+
     this.buscarPorDetalle = !this.buscarPorDetalle;
     this.BuscandoPor = this.buscarPorDetalle ? 'Descripción' : 'Código'
     this.descripcionesSelect = null;
