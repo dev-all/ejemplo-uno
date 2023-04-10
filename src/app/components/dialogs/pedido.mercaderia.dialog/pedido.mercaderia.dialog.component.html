@@ -1,9 +1,17 @@
-<div class="modal-container">
-    <div class="form-container">
+<div class="close-dialog">
+  <mat-icon mat-dialog-close aria-hidden="false" aria-label="Cerrar">close</mat-icon>
+</div>
+<h2 mat-dialog-title>
+  Confirmar Pedido
+</h2>
+
+<div mat-dialog-content>
+
+  <div class="form-container mt-1">
         <app-magnum-input [inputFormControl]="this.nombreClienteFormControl" placeHolder="Nombre Cliente" errorMessage="Ingrese el nombre del cliente"></app-magnum-input>
         <app-magnum-input [inputFormControl]="this.direccionFormControl" placeHolder="Direccion"></app-magnum-input>
 
-        <mat-form-field style="width: 100%" appearance="fill">
+        <mat-form-field style="width: 100%" appearance="outline">
             <mat-label>Localidad</mat-label>
             <mat-select panelClass="example-long-panel" [(ngModel)]="localidadSelected" name="localidad" #localidad required>
                 <mat-option *ngFor="let ciudad of this.ciudades" [value]="ciudad.Id">
@@ -21,17 +29,17 @@
         <app-magnum-input [inputFormControl]="this.lugarEntregaFormControl" placeHolder="Lugar de entrega"></app-magnum-input>
         <app-magnum-input [inputFormControl]="this.transportadoPorFormControl" placeHolder="Transportado por"></app-magnum-input>
 
-        <mat-form-field class="observaciones" appearance="fill">
+        <mat-form-field class="observaciones" appearance="outline">
             <mat-label>Notas o aclaraciones (Se imprimirán en el comprobante)</mat-label>
             <textarea matInput placeholder="Factura para el cliente Magnum" rows="10" [formControl]="aclaracionFormControl"></textarea>
         </mat-form-field>
 
-        <mat-form-field class="observaciones" appearance="fill">
+        <mat-form-field class="observaciones" appearance="outline">
             <mat-label>Otras observaciones(No se imprimirán en el comprobante)</mat-label>
             <textarea matInput placeholder="" rows="10" [formControl]="observacionFormControl"></textarea>
         </mat-form-field>
 
-        <mat-form-field style="width: 100%" appearance="fill">
+        <mat-form-field style="width: 100%" appearance="outline">
             <mat-label>Estado</mat-label>
             <mat-select panelClass="example-long-panel" [(ngModel)]="estadoSelected" name="estado">
                 <mat-option *ngFor="let estado of this.estados" [value]="estado.valor">
@@ -40,7 +48,9 @@
             </mat-select>
         </mat-form-field>
     </div>
-    <div mat-dialog-actions class="mt-2 dialog-actions buttons-wrap">
-        <app-magnum-button text="Aceptar" (btnClickEmt)="this.aceptar_Click()" *ngIf="this.nombreClienteFormControl.hasError('required')"></app-magnum-button>
+
+
+ </div>
+  <div mat-dialog-actions class="mt-2 dialog-actions buttons-wrap">
+        <app-magnum-button text="Aceptar" (btnClickEmt)="this.aceptar_Click()" ></app-magnum-button>
     </div>
-</div>

@@ -298,8 +298,8 @@ export class VentasComponent implements OnInit {
   async getProductosVentas(value: string = null) {
 
 
-    debugger;
-    console.log('getProductosVentas');
+    // debugger;
+    // console.log('getProductosVentas');
     this.descripcionesSelect = [];
     var request = new ProductoVentaRequest({
       database: null,
