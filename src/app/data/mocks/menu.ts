@@ -58,26 +58,6 @@ export const MENU: MenuItem[] = [
       }
     ]
   },
-  {
-    label: 'Developer',
-    icon: '',
-    subItems: [
-      {
-        label: 'test',
-        icon: 'attach_money',
-        link: '/test',
-      },
-      {
-        label: 'form',
-        icon: 'attach_money',
-        link: '/test/form',
-      }
-    ]
-  },
-  {
-    label: 'MAGNUM',
-    icon:'dashboard_customize',
-    isTitle: true
-  },
+
 
 ];

@@ -46,10 +46,6 @@ const routes: Routes = [
         component:ReciboCuentaCorrientePage
       },
       {
-        path: 'test',
-        loadChildren: () => import('@pages/typography/typography.module').then(m => m.TypographyModule)
-      },
-      {
         path: '**',
         redirectTo: '',
       },

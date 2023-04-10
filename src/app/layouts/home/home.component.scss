@@ -1,58 +1,26 @@
 @import "src/app/styles/variables";
 @import "src/app/styles/colors";
-
 .layout {
-  width: 100%;
+    width: 100%;
 }
 
 .layout-sidebar {
-  height:calc(100vh - 64px);
-  margin-top: 64px;
-
-  @media (max-width: $small) {
-    width: 218px;
-  }
+    height: calc(100vh - 64px);
+    margin-top: 64px;
+    @media (max-width: $small) {
+        width: 218px;
+    }
 }
 
 .layout-content {
-  background-color: $background-color;
-  height:calc(100vh - 64px);
-  @media (max-width: $small) {
-    width: 100%;
-  }
+    background-color: $background-color;
+    height: calc(100vh - 64px);
+    @media (max-width: $small) {
+        width: 100%;
+    }
 }
 
 mat-sidenav {
-  background-color: $background-color;
-  padding: 10px;
+    background-color: $background-color;
+    padding: 10px;
 }
-
-// mat-sidenav-content {
-//   display: flex;
-//   height: 100%;
-//   width: 100%;
-//   justify-content: space-between;
-//   font-size: 14px;
-//   background: rgb(0,0,0,0.05);
-// }
-
-
-// .content-wrap {
-//     background: #F0F2F2;
-//     height: 100vh;
-//     .content {
-//         margin-left: 100px;
-//         margin-right: 50px;
-//         padding-top: 18px;
-//     }
-// }
-
-// @media only screen and (max-width:340px) {
-//     .content-wrap {
-//         .content {
-//             margin-left: 100px;
-//             margin-right: 0px;
-//             padding-top: 18px;
-//         }
-//     }
-// }

@@ -10,7 +10,7 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class HomeLayout implements OnInit {
   @ViewChild('sidenav') sidenav!: MatSidenav;
-  public isShowSidebar: boolean =false;
+  public isShowSidebar!: boolean;
   currentScreenSize = '';
   orientation = '';
   // Create a map to display breakpoint names for demonstration purposes.
@@ -35,8 +35,8 @@ export class HomeLayout implements OnInit {
         ])
         .subscribe((result) => {
           for (const query of Object.keys(result.breakpoints)) {
+            this.isShowSidebar = false;
             if (result.breakpoints[query]) {
-
               if(result.breakpoints[Breakpoints.XSmall] || result.breakpoints[Breakpoints.Small] ||  result.breakpoints[Breakpoints.Medium] ){
                 this.isShowSidebar = true;
               }
@@ -58,6 +58,7 @@ export class HomeLayout implements OnInit {
                 Breakpoints.XLarge, //+
               ])
       .subscribe((result) => {
+        this.isShowSidebar = false;
         if(result.breakpoints[Breakpoints.XSmall] || result.breakpoints[Breakpoints.Small]){
           this.isShowSidebar = true;
         }

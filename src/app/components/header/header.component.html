@@ -1,32 +1,27 @@
 <mat-toolbar color="primary">
-  <button
-  type="button"
-  aria-label="Toggle sidenav"
-  mat-icon-button
-  matTooltip="Menu"
-  (click)="openMenu()">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button matTooltip="Menú" (click)="openMenu()">
   <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
 </button>
 
-  <span class="logo">{{title}}</span>
+    <span class="logo">{{title}}</span>
 
-  <span class="toolbar-item-spacer"></span>
+    <span class="toolbar-item-spacer"></span>
 
-  <!-- top-menu -->
-  <div>
+    <!-- top-menu -->
+    <div>
 
 
-  <button mat-icon-button matTooltip="Mi Cuenta" [matMenuTriggerFor]="userAccountMenu">
+        <button mat-icon-button matTooltip="Mi Cuenta" [matMenuTriggerFor]="userAccountMenu">
       <mat-icon>account_circle</mat-icon>  </button>
-</div>
-  <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below" >
-      <button mat-menu-item routerLink="#">
+    </div>
+    <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
+        <button mat-menu-item routerLink="#">
           <mat-icon>person</mat-icon><span>{{user.nombre}}</span>
       </button>
-      <mat-divider></mat-divider>
-      <button mat-menu-item routerLink="#" (click)="logout()">
+        <mat-divider></mat-divider>
+        <button mat-menu-item routerLink="#" (click)="logout()">
           <mat-icon>exit_to_app</mat-icon>Salir
       </button>
-  </mat-menu>
-<!-- fin top-menu -->
+    </mat-menu>
+    <!-- fin top-menu -->
 </mat-toolbar>

@@ -9,7 +9,7 @@ import { MENU } from 'app/data/mocks/menu';
 })
 export class SidenavComponent implements OnInit {
   menuItems: MenuItem[] = [];
-  public isOpenUiElements = true;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -18,7 +18,5 @@ export class SidenavComponent implements OnInit {
   hasItems(item: MenuItem) {
     return item.subItems !== undefined ? item.subItems.length > 0 : false;
   }
-  // public openUiElements() {
-  //   this.isOpenUiElements = !this.isOpenUiElements;
-  // }
+
 }
